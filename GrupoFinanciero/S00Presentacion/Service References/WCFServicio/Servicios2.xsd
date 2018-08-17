@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/S04Entidades" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/S04Entidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BancoExteno">
+    <xs:sequence>
+      <xs:element name="_x003C_CuentaExterna_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_DetalleTrans_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_IdTransacE_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Monto_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BancoExteno" nillable="true" type="tns:BancoExteno" />
+  <xs:complexType name="Cliente">
+    <xs:sequence>
+      <xs:element name="_x003C_Apellido1_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Apellido2_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Cedula_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Contrasena_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Correo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_CuentaInterna_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_CuentaSimpe_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descripcion_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_DireccionExac_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Estado_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_FechaNac_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
+      <xs:element name="_x003C_Nombre_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Provincia_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_SaldoCuenta_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Telefono_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="Servicio">
+    <xs:sequence>
+      <xs:element name="_x003C_DescServicio_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Estado_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IdSevicio_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Servicio" nillable="true" type="tns:Servicio" />
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element name="_x003C_Contrasena_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Estado_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Nombre_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Usuario1_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:complexType name="ArrayOfCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
+  <xs:complexType name="Transaccion">
+    <xs:sequence>
+      <xs:element name="_x003C_Cedula_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_CuentaInterna_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_CuentaSimpe_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descripcion_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_HorayFecha_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
+      <xs:element name="_x003C_IdTransac_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Monto_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transaccion" nillable="true" type="tns:Transaccion" />
+  <xs:complexType name="ArrayOfTransaccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transaccion" nillable="true" type="tns:Transaccion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransaccion" nillable="true" type="tns:ArrayOfTransaccion" />
+  <xs:complexType name="ArrayOfUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+</xs:schema>

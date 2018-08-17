@@ -1,0 +1,8 @@
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.dll
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.pdb
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.dll
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.pdb
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.dll.config
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\bin\Debug\EntityFramework.dll
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\S04Entidades\bin\Debug\EntityFramework.xml

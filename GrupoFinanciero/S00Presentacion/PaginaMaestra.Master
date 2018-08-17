@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="S00Presentacion.PaginaMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!--Agregando meta para adaptabilidad-->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0" />
+<!--Agregando meta para autores-->
+<meta name="author" content="Carlos Perez Medina Marcela Salas Montoya Maynor Rodriguez" />
+<!--Agregando hoja de estilos-->
+<link href="SitioWeb/Css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <title>InterBankCom</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <script src="Js/jquery-3.1.1.min.js"></script>    
+    <script src="Js/main.js"></script>
+</body>
+</html>

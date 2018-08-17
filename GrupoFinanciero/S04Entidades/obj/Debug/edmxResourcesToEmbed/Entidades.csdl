@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntidadFinancieraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BancoExteno">
+    <Key>
+      <PropertyRef Name="IdTransacE" />
+    </Key>
+    <Property Name="IdTransacE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CuentaExterna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DetalleTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Monto" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaNac" Type="DateTime" Precision="3" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DireccionExac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SaldoCuenta" Type="Int32" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CuentaInterna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CuentaSimpe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="IdSevicio" />
+    </Key>
+    <Property Name="IdSevicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescServicio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="IdTransac" />
+    </Key>
+    <Property Name="IdTransac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="Int32" />
+    <Property Name="CuentaInterna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CuentaSimpe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Monto" Type="Int32" Nullable="false" />
+    <Property Name="HorayFecha" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Usuario1" />
+    </Key>
+    <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EntidadFinancieraEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BancoExtenoes" EntityType="Self.BancoExteno" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicio" />
+    <EntitySet Name="Transaccions" EntityType="Self.Transaccion" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <FunctionImport Name="pa_BancoExteno_Delete">
+      <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_BancoExteno_Insert">
+      <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+      <Parameter Name="DetalleTrans" Mode="In" Type="String" />
+      <Parameter Name="Monto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_BancoExteno_Update">
+      <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+      <Parameter Name="DetalleTrans" Mode="In" Type="String" />
+      <Parameter Name="Monto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Cliente_AbonoRetiroExterno">
+      <Parameter Name="CuentaSimpe" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Cliente_AbonoRetiroInterno">
+      <Parameter Name="CuentaInterna" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Cliente_Delete">
+      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Cliente_Insert">
+      <Parameter Name="cedula" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Provincia" Mode="In" Type="String" />
+      <Parameter Name="DireccionExac" Mode="In" Type="String" />
+      <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="CuentaInterna" Mode="In" Type="String" />
+      <Parameter Name="CuentaSimpe" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Cliente_Update">
+      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="FechaNac" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Provincia" Mode="In" Type="String" />
+      <Parameter Name="DireccionExac" Mode="In" Type="String" />
+      <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="CuentaInterna" Mode="In" Type="String" />
+      <Parameter Name="CuentaSimpe" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_EstadosdeCuenta" ReturnType="Collection(EntidadFinancieraModel.pa_EstadosdeCuenta_Result)">
+      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Globales" ReturnType="Collection(EntidadFinancieraModel.pa_Globales_Result)" />
+    <FunctionImport Name="pa_Servicio_Delete">
+      <Parameter Name="DescServicio" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Servicio_Insert">
+      <Parameter Name="DescServicio" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Servicio_Update">
+      <Parameter Name="DescServicio" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_TransaccionesRegistradas" ReturnType="Collection(EntidadFinancieraModel.pa_TransaccionesRegistradas_Result)" />
+    <FunctionImport Name="pa_Usuario_Delete">
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Usuario_Insert">
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Usuario_Update">
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_VerEstadoClientes" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoClientes_Result)">
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pa_VerEstadoUsuarios" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoUsuarios_Result)">
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="pa_EstadosdeCuenta_Result">
+    <Property Type="Int32" Name="IdTransac" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="true" />
+    <Property Type="String" Name="CuentaInterna" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CuentaSimpe" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Monto" Nullable="false" />
+    <Property Type="DateTime" Name="HorayFecha" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="pa_Globales_Result">
+    <Property Type="String" Name="Cuenta" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Simpe" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Fondos" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="pa_TransaccionesRegistradas_Result">
+    <Property Type="Int32" Name="IdTransac" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="true" />
+    <Property Type="String" Name="CuentaInterna" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CuentaSimpe" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Monto" Nullable="false" />
+    <Property Type="DateTime" Name="HorayFecha" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="pa_VerEstadoClientes_Result">
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="pa_VerEstadoUsuarios_Result">
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="Estado" Nullable="false" />
+  </ComplexType>
+</Schema>

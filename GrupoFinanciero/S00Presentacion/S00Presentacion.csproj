@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{63DD4A6C-90B0-4466-B8DB-58314A54C39A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>S00Presentacion</RootNamespace>
+    <AssemblyName>S00Presentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\WCFServicio\Servicios.wsdl" />
+    <Content Include="SitioWeb\Fonts\Quattrocento\Quattrocento-Bold.ttf" />
+    <Content Include="SitioWeb\Fonts\Quattrocento\Quattrocento-Regular.ttf" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Properties\DataSources\S04Entidades.Cliente.datasource" />
+    <Content Include="Properties\DataSources\S04Entidades.Transaccion.datasource" />
+    <Content Include="Properties\DataSources\S04Entidades.Usuario.datasource" />
+    <Content Include="PaginaMaestra.Master" />
+    <None Include="Service References\WCFServicio\Servicios.disco" />
+    <None Include="Service References\WCFServicio\configuration91.svcinfo" />
+    <None Include="Service References\WCFServicio\configuration.svcinfo" />
+    <None Include="Service References\WCFServicio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SitioWeb\Css\Fonts.css" />
+    <Content Include="SitioWeb\Css\StyleIndex.css" />
+    <Content Include="SitioWeb\Css\Stylelogin.css" />
+    <Content Include="SitioWeb\Css\StylePages.css" />
+    <Content Include="SitioWeb\Css\StyleSheet.css" />
+    <Content Include="SitioWeb\Css\StyleSubPages.css" />
+    <Content Include="SitioWeb\Imagenes\Fondo\banco.jpg" />
+    <Content Include="SitioWeb\Imagenes\Iconos\facebook.png" />
+    <Content Include="SitioWeb\Imagenes\Iconos\google.png" />
+    <Content Include="SitioWeb\Imagenes\Iconos\twitter2.png" />
+    <Content Include="SitioWeb\Imagenes\Iconos\youtube.png" />
+    <Content Include="SitioWeb\Index.aspx" />
+    <Content Include="SitioWeb\Js\jquery-3.1.1.min.js" />
+    <Content Include="SitioWeb\Js\main.js" />
+    <Content Include="SitioWeb\Pages\Administradores.aspx" />
+    <Content Include="SitioWeb\Pages\Clientes.aspx" />
+    <Content Include="SitioWeb\Pages\Login.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Clientes.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_EstadosdeCuenta.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Globales.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Servicios.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Clientes\C_AguayLuz.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Clientes\C_EstadosdeCuenta.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Clientes\C_TelefonoyPrepago.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Clientes\C_TransferenciasE.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Clientes\C_TransferenciasI.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Clientes\C_TVeInternet.aspx" />
+    <Content Include="SitioWeb\Pages\Usuarios.aspx" />
+    <Content Include="Web.config" />
+    <None Include="Service References\WCFServicio\Servicios.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServicio\Servicios1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServicio\Servicios2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="SitioWeb\Fonts\SourceSans\SourceSansPro-Light.ttf" />
+    <Content Include="SitioWeb\Fonts\SourceSans\SourceSansPro-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConexionServicios\ConexionesInternas.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaMaestra.Master.cs">
+      <DependentUpon>PaginaMaestra.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaMaestra.Master.designer.cs">
+      <DependentUpon>PaginaMaestra.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WCFServicio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Administradores.aspx.cs">
+      <DependentUpon>Administradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Administradores.aspx.designer.cs">
+      <DependentUpon>Administradores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Clientes.aspx.cs">
+      <DependentUpon>A_Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Clientes.aspx.designer.cs">
+      <DependentUpon>A_Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadosdeCuenta.aspx.cs">
+      <DependentUpon>A_EstadosdeCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadosdeCuenta.aspx.designer.cs">
+      <DependentUpon>A_EstadosdeCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Globales.aspx.cs">
+      <DependentUpon>A_Globales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Globales.aspx.designer.cs">
+      <DependentUpon>A_Globales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Servicios.aspx.cs">
+      <DependentUpon>A_Servicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Servicios.aspx.designer.cs">
+      <DependentUpon>A_Servicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx.cs">
+      <DependentUpon>A_Transacciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx.designer.cs">
+      <DependentUpon>A_Transacciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx.cs">
+      <DependentUpon>A_Transferencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx.designer.cs">
+      <DependentUpon>A_Transferencias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx.cs">
+      <DependentUpon>A_Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx.designer.cs">
+      <DependentUpon>A_Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_AguayLuz.aspx.cs">
+      <DependentUpon>C_AguayLuz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_AguayLuz.aspx.designer.cs">
+      <DependentUpon>C_AguayLuz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_EstadosdeCuenta.aspx.cs">
+      <DependentUpon>C_EstadosdeCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_EstadosdeCuenta.aspx.designer.cs">
+      <DependentUpon>C_EstadosdeCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TelefonoyPrepago.aspx.cs">
+      <DependentUpon>C_TelefonoyPrepago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TelefonoyPrepago.aspx.designer.cs">
+      <DependentUpon>C_TelefonoyPrepago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TransferenciasE.aspx.cs">
+      <DependentUpon>C_TransferenciasE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TransferenciasE.aspx.designer.cs">
+      <DependentUpon>C_TransferenciasE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TransferenciasI.aspx.cs">
+      <DependentUpon>C_TransferenciasI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TransferenciasI.aspx.designer.cs">
+      <DependentUpon>C_TransferenciasI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TVeInternet.aspx.cs">
+      <DependentUpon>C_TVeInternet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Clientes\C_TVeInternet.aspx.designer.cs">
+      <DependentUpon>C_TVeInternet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\S04Entidades\S04Entidades.csproj">
+      <Project>{f90c708c-2a52-4cd7-8565-85190e039d72}</Project>
+      <Name>S04Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFServicio\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59931</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59931/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

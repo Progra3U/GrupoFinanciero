@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntidadFinancieraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BancoExteno">
+    <Key>
+      <PropertyRef Name="IdTransacE" />
+    </Key>
+    <Property Name="IdTransacE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CuentaExterna" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DetalleTrans" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Monto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido2" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaNac" Type="datetime" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Provincia" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DireccionExac" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SaldoCuenta" Type="int" Nullable="false" />
+    <Property Name="Contrasena" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaInterna" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaSimpe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="IdSevicio" />
+    </Key>
+    <Property Name="IdSevicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescServicio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="IdTransac" />
+    </Key>
+    <Property Name="IdTransac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula" Type="int" />
+    <Property Name="CuentaInterna" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaSimpe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Monto" Type="int" Nullable="false" />
+    <Property Name="HorayFecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Usuario" />
+    </Key>
+    <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <Function Name="pa_BancoExteno_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="pa_BancoExteno_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="DetalleTrans" Type="nvarchar" Mode="In" />
+    <Parameter Name="Monto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_BancoExteno_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="DetalleTrans" Type="nvarchar" Mode="In" />
+    <Parameter Name="Monto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_Cliente_AbonoRetiroExterno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CuentaSimpe" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_Cliente_AbonoRetiroInterno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_Cliente_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cedula" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_Cliente_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedula" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+    <Parameter Name="Telefono" Type="nvarchar" Mode="In" />
+    <Parameter Name="Correo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Provincia" Type="nvarchar" Mode="In" />
+    <Parameter Name="DireccionExac" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
+    <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaSimpe" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_Cliente_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cedula" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="Apellido1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Apellido2" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaNac" Type="datetime" Mode="In" />
+    <Parameter Name="Telefono" Type="nvarchar" Mode="In" />
+    <Parameter Name="Correo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Provincia" Type="nvarchar" Mode="In" />
+    <Parameter Name="DireccionExac" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
+    <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaSimpe" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_EstadosdeCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cedula" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_Globales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pa_Servicio_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="pa_Servicio_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_Servicio_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_TransaccionesRegistradas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pa_Usuario_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="pa_Usuario_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_Usuario_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_VerEstadoClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="pa_VerEstadoUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="EntidadFinancieraModelStoreContainer">
+    <EntitySet Name="BancoExteno" EntityType="Self.BancoExteno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaccion" EntityType="Self.Transaccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
