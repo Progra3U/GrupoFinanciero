@@ -1,0 +1,69 @@
+Tabla Cliente
+cedula				int
+nombre				nvarchar(50)
+apellido1			nvarchar(50)
+apellido2			nvarchar(50)
+fechanac			datetime
+telefono			nvarchar(50)
+correo				nvarchar(50)
+provincia			nvarchar(50)
+direccionexac		nvarchar(50)
+saldoCuenta			int
+contrasena			nvarchar(50)
+cuentaInterna		nvarchar(50)
+CuentaSimpe			nvarchar(50)
+Descripcion			nvarchar(50)
+activo				bit
+
+Tabla Usuario
+Usuario				nvarchar(50)
+Nombre              nvarchar(50)
+Contrasena          nvarchar(50)
+activo				bit
+
+Tabla Servicio
+IdServicio 			int
+DescServicio		nvarchar(50)
+EstadoServ			bit	
+
+Tabla BancoExteno 	(para ulitlizar en transaccion Extena)
+IdTransacE			int
+CuentaExterna		nvarchar(50)
+DetalleTrans		nvarchar(50)
+Monto				int
+
+Tabla Transacciones (tabla debe ser activada por trigger desde tablas [BancoExteno, Transaccion Internas 
+					y todo lo referente a pago servicios] (trigger insert y Update))
+IdTransac			int 
+Cedula				int
+CuentaDeb			nvarchar(50)
+Descripcion			nvarchar(50)
+Monto				int
+Hora				datetime
+Fecha				datetime
+
+
+Globales:
+Se obtendran de la tabla Clientes de la columna SaldoCuenta
+(hacer procedimiento almaenado sobre este punto)
+
+Estados de Cuenta:
+Se obtendran de la tabla transacciones con filtro en la columna usuario y
+de la tabla cliente con filtro en la columna saldoCuenta
+(hacer procedimiento almaenado sobre este punto)
+
+transferencias Internas
+Estas trabajan de la siguiente manera, se registra la transaccion interna en tabla Transacciones y
+se modifica el campo saldoCuenta de la tabla usuarios donde usuario sea el usuario
+(hacer procedimiento almaenado sobre este punto)
+
+Transacciones Externas
+Estas se registran en la tabla Transacciones y en la tabla BancoExteno ademas 
+se modifica el campo saldoCuenta con el metodo [pa_Cliente_AbonoRetiroInterno y ]de la tabla usuarios deonde usuario sea el usuario
+(hacer procedimiento almacenado sobre este punto)
+
+Notas:
+-	Tabla Transacciones. Esta tabla debe contener todas las transacciones que se realicen el la tabla de clientes 
+	no obstante solo debe jalar ciertos campos, ademas realizarla por medio de trigger.
+-	Todas las tablas deberan ser accedidas por procedimientos almacenados
+

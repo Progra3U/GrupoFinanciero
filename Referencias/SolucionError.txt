@@ -1,0 +1,19 @@
+<!--Para solucionar el error :
+        Error de servidor en la aplicación '/'.
+        Argumento de postback o de devolución de llamadas no válido. La validación de eventos se habilita usando 
+        <pages enableEventValidation="true"/> en la configuración o <%@ Page EnableEventValidation="true" %> en una página. 
+        Por motivos de seguridad, esta característica comprueba que los argumentos pasados a eventos de postback o de devolución de 
+        llamadas se origina desde el control del servidor que inicialmente los procesó. Si los datos son válidos y son los que se esperaba, 
+        utilice el método ClientScriptManager.RegisterForEventValidation para registrar los datos de postback o de devolución de llamadas para su validación.
+
+        Se agrega dentro de la linea linea:
+        <%@ Page Title="" Language="C#" MasterPageFile="~/SitioWeb/PaginaMaestra.Master"  AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="_01Presentacion.SitioWeb.Pages.Login" %>
+        <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        
+        lo Siguiente:
+        enableEventValidation="false" validateRequest="false"
+
+	Quedando la linea de la siguiente manera:
+	<%@ Page Title="" Language="C#" MasterPageFile="~/SitioWeb/PaginaMaestra.Master"  enableEventValidation="false" validateRequest="false" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="_01Presentacion.SitioWeb.Pages.Login" %>
+        <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    -->
