@@ -55,17 +55,24 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
         {
             SmtpClient envio = new SmtpClient(); //Configuracion del ENVIO 
             MailMessage msj = new MailMessage(); //Configuracion del MSJ
-            string CorreoAEnviar = Correo.Text;
-            string Mensaje = "";
-
+            string Correotarget = this.Correo.Text.Trim();
+            string CorreoSource = "interbankcomgurpofinanciero@gmail.com";
+            string encabezado = "Te damos la bienvenida a tu nueva cuenta de InterBankCom";
+            string Mensaje = "<p>Estimado " + this.Nombre.Text.Trim() + " "+ this.PrimerApellido.Text.Trim() +
+                " " + this.SegundoApellido.Text.Trim() + "<br>" +
+                "Le damos la bienvenida a la familia de InterBankCom<br>" +
+                "A continuación encontrara alguno datos de su interes,<br>" +
+                "Usuario: " + this.Cedula.Text.Trim() + "<br>" +
+                "Contraseña: " +this.Contrasena.Text.Trim() + "<br>" +
+                "Gracias por elegir nuestra Entidad Financiera/p>";
             try
             {
                 //Informacion del correo a enviar
                 msj = new MailMessage();
-                msj.To.Add(new MailAddress(CorreoAEnviar));  //modificar 
-                msj.From = new MailAddress("enviocorreos2019@gmail.com");
-                msj.Subject = "Apertura de Cuenta para " + Nombre.Text; //modificar
-                msj.Body = "<b> Hola... Este es un correo de pruebas </b>" + Mensaje; //modificar
+                msj.To.Add(new MailAddress(Correotarget));
+                msj.From = new MailAddress(CorreoSource);
+                msj.Subject = encabezado;
+                msj.Body = Mensaje;
                 msj.IsBodyHtml = true;
                 msj.Priority = MailPriority.Normal;
 
@@ -74,8 +81,8 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 envio.Port = 587;
                 envio.EnableSsl = true;
                 envio.UseDefaultCredentials = false;
-                envio.Credentials = new NetworkCredential("enviocorreos2019@gmail.com",
-                                                            "@UAM123456789");
+                envio.Credentials = new NetworkCredential("interbankcomgurpofinanciero@gmail.com",
+                                                            "egs76$gs");
                 //envio
                 envio.Send(msj);
 
