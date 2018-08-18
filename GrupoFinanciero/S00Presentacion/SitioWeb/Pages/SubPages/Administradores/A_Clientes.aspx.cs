@@ -120,10 +120,11 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 objCliente.Descripcion = "Apertura de Cuenta";
                 objCliente.Estado = true;
 
+                Thread hilo = new Thread(EnviarCorreoElectronicos);
+                hilo.Start(); 
                 ConexionServicios.ConexionesInternas.ClienteAgregar(objCliente);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Cliente Agregado Exitosamente');</script>");
                 Limpiar();
-
             }
             else
             {
