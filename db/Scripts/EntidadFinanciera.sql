@@ -1,7 +1,5 @@
-use master;  --Esta es la base madre que me permite generar desde ella 
-go           --nuevas bases de datos y maneja informacion general
-
---Lenguaje de Definicion de datos
+use master;  
+go           
 
 IF NOT EXISTS(SELECT * FROM sysdatabases WHERE name = 'EntidadFinanciera')
 	BEGIN
@@ -124,25 +122,4 @@ ELSE
 		print 'Tabla Transaccion ya existe'
 	END
 go
-
---Omitir
--- Lenguaje de Manipulacion de datos
-
---insert into Usuarios values (121,'judas', '1234', 1)
---insert into Clientes values (402100628,'Marce','Salas','Montoya', '55-33-2018','123455454','marsalas91',
---'Heredia','mercedesNorte', 1500, '5532018','12345678987','131289738912737123',1)
---
---
---Select * from Clientes
---Select * from Usuarios
---Select * from Transaccion
-
---insert into Clientes
---values (123456,'Jose', 'Gabriel', 'Cordero', '1986-01-13',
---		1232323123,'jose.cordero3@uamcr.net','Heredia','Heredia',23343,'12231132','13312312312','1212',1)
---
---		insert into Transaccion
---values (123456,'Jose', 'Gabriel',1000,'133123312','13312312312')
---
---SELECT * FROM Clientes INNER JOIN Transaccion on Clientes.cedula = Transaccion.cedula
 

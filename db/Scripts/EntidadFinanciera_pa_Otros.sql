@@ -1,7 +1,7 @@
 USE EntidadFinanciera 
 go
 --Creacion de pa para Transferencia de Cuentas Internas
-ALTER PROCEDURE pa_Cliente_AbonoRetiroInterno
+CREATE PROCEDURE pa_Cliente_AbonoRetiroInterno
 	@CuentaInterna 	nvarchar(50),
 	@Descripcion	nvarchar(50),
 	@SaldoCuenta   	int
@@ -14,7 +14,7 @@ END
 go
 
 --Creacion de pa para Transferencia de Cuentas Externas
-ALTER PROCEDURE pa_Cliente_AbonoRetiroExterno
+CREATE PROCEDURE pa_Cliente_AbonoRetiroExterno
 	@CuentaSimpe 	nvarchar(50),
 	@Descripcion	nvarchar(50),
 	@SaldoCuenta   	int
@@ -27,7 +27,7 @@ END
 go
 
 --Creacion de pa para Estados Globales
-ALTER PROCEDURE pa_Globales
+CREATE PROCEDURE pa_Globales
 AS
 BEGIN
 	SELECT cl.cuentaInterna AS Cuenta, cl.CuentaSimpe AS Simpe, cl.saldoCuenta As Fondos	
@@ -37,7 +37,7 @@ END
 go
 
 --Creacion de pa para Estados de Cuenta Clientes
-ALTER PROCEDURE pa_EstadosdeCuenta
+CREATE PROCEDURE pa_EstadosdeCuenta
 	@Cedula int
 AS
 BEGIN
@@ -50,7 +50,7 @@ END
 go
 
 --Creacion de pa para ver Estados de los Usuarios
-ALTER PROCEDURE pa_VerEstadoUsuarios
+CREATE PROCEDURE pa_VerEstadoUsuarios
 	@Estado bit
 AS
 BEGIN
@@ -74,7 +74,7 @@ END
 go
 
 --Creacion de pa para ver las Transacciones de clientes por ID
-ALTER PROCEDURE pa_TransaccionesRegistradas
+CREATE PROCEDURE pa_TransaccionesRegistradas
 AS
 BEGIN
 	SELECT 	tnsc.IdTransac, tnsc.Cedula, tnsc.CuentaInterna, tnsc.CuentaSimpe, 

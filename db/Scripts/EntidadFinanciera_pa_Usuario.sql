@@ -7,10 +7,11 @@ CREATE PROCEDURE pa_Usuario_Insert
 	@Usuario 		nvarchar(50),
 	@Nombre 		nvarchar(50),
 	@Contrasena 	nvarchar(50),
+	@Perfil			nvarchar(50),
 	@Estado 		bit
 AS 
 BEGIN
-INSERT INTO Usuario VALUES(@Usuario,@Nombre,@Contrasena,@Estado)
+INSERT INTO Usuario VALUES(@Usuario,@Nombre,@Contrasena,@Perfil,@Estado)
 END
 go
 
@@ -18,11 +19,12 @@ CREATE PROCEDURE pa_Usuario_Update
 	@Usuario 		nvarchar(50),
 	@Nombre 		nvarchar(50),
 	@Contrasena 	nvarchar(50),
+	@Perfil			nvarchar(50),
 	@Estado 		bit
 AS 
 BEGIN
 UPDATE Usuario
-SET Usuario = @Usuario, Nombre = @Nombre, Contrasena = @Contrasena, Estado = @Estado
+SET Usuario = @Usuario, Nombre = @Nombre, Contrasena = @Contrasena, Perfil=@Perfil, Estado = @Estado
 WHERE Usuario = @Usuario
 END
 go
