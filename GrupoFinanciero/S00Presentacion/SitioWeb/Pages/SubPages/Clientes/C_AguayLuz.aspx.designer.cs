@@ -40,13 +40,13 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes {
         protected global::System.Web.UI.WebControls.TextBox Telefono;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control Provincia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.DropDownList Provincia;
         
         /// <summary>
         /// Control TextBox2.

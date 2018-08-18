@@ -11,8 +11,12 @@
                 <asp:TextBox class="textBox" size="30" type="text" ID="Cedula" pattern="[0-9]{2}[-][0-9]{4}[-][0-9]{4}" MaxLength="12" placeholder="00-0000-0000" required runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" Text="Label"  For="Nombre">Nombre:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="text" ID="Nombre" placeholder="Nombre" required runat="server"></asp:TextBox>
-                <asp:Label class="label" runat="server" For="Telefono">Telefono Pagar o Recargar:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="tel" ID="Telefono" pattern="[+][0-9]{3}[-][0-9]{4}[-][0-9]{4}" MaxLength="14" placeholder="+506-0000-0000" required runat="server"></asp:TextBox>   
+                <asp:Label class="label" runat="server" For="Telefono">Servicio a Utilizar:</asp:Label>
+               <asp:DropDownList class="textBox" ID="Pagaron" runat="server">
+                    <asp:ListItem Value="Telefono" Selected="True">Telefono</asp:ListItem>
+                     <asp:ListItem Value="Recarga">Recarga</asp:ListItem>
+                </asp:DropDownList>   
+                  <asp:TextBox class="textBox" size="30" type="tel" ID="Telefono" pattern="[+][0-9]{3}[-][0-9]{4}[-][0-9]{4}" MaxLength="14" placeholder="+506-0000-0000" required runat="server"></asp:TextBox>   
                 <asp:Label class="label" runat="server" For="Pago">Monto a Pagar:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="text" ID="TextBox2" placeholder="MontoPagar" required runat="server"></asp:TextBox>   
                 

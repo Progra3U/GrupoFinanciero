@@ -14,7 +14,10 @@
                 <asp:Label class="label" runat="server" For="Telefono">Telefono:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="tel" ID="Telefono" pattern="[+][0-9]{3}[-][0-9]{4}[-][0-9]{4}" MaxLength="14" placeholder="+506-0000-0000" required runat="server"></asp:TextBox>
                <asp:Label class="label" runat="server" For="Pago">Tipo Pago:</asp:Label>
-               <asp:TextBox class="textBox" size="30" type="text" ID="TextBox1" placeholder="TipoPago" required runat="server"></asp:TextBox>   
+               <asp:DropDownList class="textBox" ID="Provincia" runat="server">
+                    <asp:ListItem Value="Agua" Selected="True">Agua</asp:ListItem>
+                     <asp:ListItem Value="Agua">Luz</asp:ListItem>
+                </asp:DropDownList>   
                <asp:Label class="label" runat="server" For="Pago">Monto a Pagar:</asp:Label>
                <asp:TextBox class="textBox" size="30" type="text" ID="TextBox2" placeholder="MontoPagar" required runat="server"></asp:TextBox>   
                 
