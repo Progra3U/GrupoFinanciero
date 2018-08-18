@@ -64,6 +64,7 @@ IF NOT EXISTS(select * from sysobjects where type = 'U' and name = 'Usuario')
 			Usuario 	nvarchar(50) primary key,
 			Nombre 		nvarchar(50) not null default('Sin nombre'),
 			Contrasena 	nvarchar(50) not null default('12345'),
+			Perfil		nvarchar(50) not null,
 			Estado 		bit not null default(1)
 		)
 	END
