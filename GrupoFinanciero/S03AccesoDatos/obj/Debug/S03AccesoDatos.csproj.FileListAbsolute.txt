@@ -15,3 +15,11 @@ C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDato
 C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\obj\Debug\S03AccesoDatos.csprojResolveAssemblyReference.cache
 C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\obj\Debug\S03AccesoDatos.dll
 C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\obj\Debug\S03AccesoDatos.pdb
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\bin\Debug\S03AccesoDatos.dll
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\bin\Debug\S03AccesoDatos.pdb
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\bin\Debug\S04Entidades.dll
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\bin\Debug\S04Entidades.pdb
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\obj\Debug\S03AccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\obj\Debug\S03AccesoDatos.dll
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S03AccesoDatos\obj\Debug\S03AccesoDatos.pdb
