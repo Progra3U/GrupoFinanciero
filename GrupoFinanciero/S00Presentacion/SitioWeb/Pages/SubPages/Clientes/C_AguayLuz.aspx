@@ -7,41 +7,43 @@
         <h2 id="titulo">Pagos de Agua y luz</h2>
         <section id="FormUsuarios">
             <form>
+               <asp:Label class="label" runat="server" For="Pago">Tipo Pago A Realizar:</asp:Label>
+               <asp:DropDownList class="textBox" ID="Pagos" runat="server">
+                    <asp:ListItem Value="Agua" Selected="True">Servicio de Pago Agua</asp:ListItem>
+                     <asp:ListItem Value="Luz">Servicio de Pago Luz</asp:ListItem>
+                </asp:DropDownList>  
+                 <!-- Campo de entrada de fecha -->
+                 <asp:Label class="label"  runat="server" Text="Label"  For="Cedula">Selecciona la fecha deseada:</asp:Label>
+                                     <input type="date" name="fecha" min="2018-03-25" max="2018-05-25" step="2" style="width: 269px; margin-left: 245px">
+
                 <asp:Label class="label"  runat="server" Text="Label"  For="Cedula">Cedula:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="text" ID="Cedula" pattern="[0-9]{2}[-][0-9]{4}[-][0-9]{4}" MaxLength="12" placeholder="00-0000-0000" required runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" Text="Label"  For="Nombre">Nombre:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="text" ID="Nombre" placeholder="Nombre" required runat="server"></asp:TextBox>
-                <asp:Label class="label" runat="server" For="Telefono">Telefono:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="tel" ID="Telefono" pattern="[+][0-9]{3}[-][0-9]{4}[-][0-9]{4}" MaxLength="14" placeholder="+506-0000-0000" required runat="server"></asp:TextBox>
-               <asp:Label class="label" runat="server" For="Pago">Tipo Pago:</asp:Label>
-               <asp:DropDownList class="textBox" ID="Provincia" runat="server">
-                    <asp:ListItem Value="Agua" Selected="True">Agua</asp:ListItem>
-                     <asp:ListItem Value="Agua">Luz</asp:ListItem>
-                </asp:DropDownList>   
+                <asp:Label class="label" runat="server" For="CuentaSimpe">CuentaSimpe:</asp:Label>
+                <asp:TextBox class="textBox" size="30" type="tel" ID="CuentaSimpe" placeholder="CuentaSimpe" required runat="server"></asp:TextBox>   
                <asp:Label class="label" runat="server" For="Pago">Monto a Pagar:</asp:Label>
-               <asp:TextBox class="textBox" size="30" type="text" ID="TextBox2" placeholder="MontoPagar" required runat="server"></asp:TextBox>   
+               <asp:TextBox class="textBox" size="30" type="text" ID="Monto" placeholder="MontoPagar" required runat="server"></asp:TextBox>   
                 
                </form>
              <asp:Button class="botones" ID="Pagar" runat="server" Text="Pagar" OnClick="Pagar_Click" />
-         <tr>
-                   <td colspan="4">
-                       <asp:GridView ID="gvPerfiles" runat="server" AutoGenerateColumns="false" 
-                           AllowPaging="true" Width="100%" PageSize="5" 
-                           OnPageIndexChanging="gvPerfiles_PageIndexChanging"
-                           OnSelectedIndexChanging="gvPerfiles_SelectedIndexChanging" Height="171px" >
+             <asp:GridView ID="gvAdministrador" runat="server" AutoGenerateColumns="false" 
+                           AllowPaging="true" Width="100%" PageSize="5" >
                            <Columns>
                                <asp:CommandField ShowSelectButton="true" SelectText="Seleccione" />
-                               <asp:BoundField DataField="codPago" HeaderText="Codigo" />
-                               <asp:BoundField DataField="TipoPago" HeaderText="Descripción" />
+                               <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                               <asp:BoundField DataField="CuentaSimpe" HeaderText="CuentaSimpe" />
                                <asp:BoundField DataField="Monto" HeaderText="Monto" />
                            </Columns>
                        <AlternatingRowStyle BackColor="LightBlue" />
-                       <RowStyle BackColor ="white" />
+                       <RowStyle BackColor ="LightGray" />
                        <PagerStyle HorizontalAlign="Center" BackColor="WindowFrame" />
                        <HeaderStyle HorizontalAlign="Center" BackColor="WindowFrame" />
                        </asp:GridView>
-                   </td>
-               </tr>
+        
+        
+        
+        
         </section>
     </div>
 </body>
