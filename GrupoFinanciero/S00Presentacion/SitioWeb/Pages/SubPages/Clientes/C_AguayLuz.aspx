@@ -12,7 +12,7 @@
                     <asp:ListItem Value="Agua" Selected="True">Servicio de Pago Agua</asp:ListItem>
                      <asp:ListItem Value="Luz">Servicio de Pago Luz</asp:ListItem>
                 </asp:DropDownList>  
-                 <!-- Campo de entrada de fecha -->
+                 
                  <asp:Label class="label"  runat="server" Text="Label"  For="Cedula">Selecciona la fecha deseada:</asp:Label>
                                      <input type="date" name="fecha" min="2018-03-25" max="2018-05-25" step="2" style="width: 269px; margin-left: 245px">
 
