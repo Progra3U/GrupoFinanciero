@@ -29,7 +29,7 @@ INSERT INTO Cliente VALUES(
 END
 go
 
-CREATE PROCEDURE pa_Cliente_Update
+ALTER PROCEDURE pa_Cliente_Update
 	@Cedula 		int,
 	@Nombre 		nvarchar(50),
 	@Apellido1     	nvarchar(50),
@@ -39,20 +39,14 @@ CREATE PROCEDURE pa_Cliente_Update
 	@Correo	       	nvarchar(50),
 	@Provincia     	nvarchar(50),
 	@DireccionExac 	nvarchar(50),
-	@SaldoCuenta   	int,
 	@Contrasena	   	nvarchar(50),
-	@CuentaInterna 	nvarchar(50),
-	@CuentaSimpe	nvarchar(50),
-	@Descripcion	nvarchar(50),
 	@Estado		   	bit
 AS 
 BEGIN
 UPDATE Cliente
-SET Cedula = @Cedula, Nombre = @Nombre, Apellido1 = @Apellido1, Apellido2 = @Apellido2,
-	FechaNac = @FechaNac, Telefono = @Telefono, Correo = @Correo, Provincia = @Provincia,
-	DireccionExac = @DireccionExac, SaldoCuenta = @SaldoCuenta, Contrasena = @Contrasena,
-	CuentaInterna = @CuentaInterna, CuentaSimpe = @CuentaSimpe, Descripcion = @Descripcion,
-	Estado = @Estado
+SET Nombre = @Nombre, Apellido1 = @Apellido1, Apellido2 = @Apellido2, FechaNac = @FechaNac, 
+	Telefono = @Telefono, Correo = @Correo, Provincia = @Provincia,	DireccionExac = @DireccionExac, 
+	Contrasena = @Contrasena, Estado = @Estado
 WHERE Cedula = @cedula
 END
 go
@@ -66,4 +60,13 @@ END
 go
 
 
-
+CREATE PROCEDURE pa_Cliente_Buscar
+	@Cedula 		int
+AS
+BEGIN
+	SELECT cl.cedula, cl.Apellido1, cl.Apellido2, cl.FechaNac, cl.Telefono, cl.Correo, cl.Provincia, 
+	cl.DireccionExac, cl.SaldoCuenta, cl.Contrasena, cl.CuentaInterna, cl.CuentaSimpe, cl.Descripcion, cl.Estado
+	FROM Cliente cl
+	WHERE cl.cedula = @Cedula
+END
+go 

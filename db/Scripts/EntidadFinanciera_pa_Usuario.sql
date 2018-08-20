@@ -24,7 +24,7 @@ CREATE PROCEDURE pa_Usuario_Update
 AS 
 BEGIN
 UPDATE Usuario
-SET Usuario = @Usuario, Nombre = @Nombre, Contrasena = @Contrasena, Perfil=@Perfil, Estado = @Estado
+SET Nombre = @Nombre, Contrasena = @Contrasena, Perfil=@Perfil, Estado = @Estado
 WHERE Usuario = @Usuario
 END
 go
@@ -36,4 +36,15 @@ BEGIN
 DELETE FROM Usuario WHERE Usuario = @Usuario
 END
 go
+
+
+CREATE PROCEDURE pa_Usuario_Buscar
+	@Usuario		nvarchar(50)
+AS
+BEGIN
+	SELECT us.Usuario, us.Nombre, us.Contrasena, us.Perfil, us.Estado 
+	FROM Usuario us
+	WHERE us.Usuario = @Usuario
+END
+go 
 		

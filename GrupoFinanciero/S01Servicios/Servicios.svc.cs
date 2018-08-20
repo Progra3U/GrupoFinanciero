@@ -41,6 +41,10 @@ namespace S01Servicios
         {
             S02LogicaNegocios.LogicaNegocios.ClienteEliminar(cliente);
         }
+        /*public List<Cliente> ClienteBuscar(Cliente cliente)
+        {
+            return S02LogicaNegocios.LogicaNegocios.ClienteBuscar(cliente);
+        }*/
         #endregion
 
         #region Servicios
@@ -71,6 +75,10 @@ namespace S01Servicios
         {
             S02LogicaNegocios.LogicaNegocios.UsuarioEliminar(usuario);
         }
+        /*public List<Usuario> UsuarioBuscar(Usuario usuario)
+        {
+            S02LogicaNegocios.LogicaNegocios.UsuarioBuscar(usuario);
+        }*/
         #endregion
 
         #region Otros
@@ -102,7 +110,6 @@ namespace S01Servicios
         {
             return S02LogicaNegocios.LogicaNegocios.TransaccionesRegistradas();
         }
-
         public List<Cliente> ConsultaSaldos(Cliente saldos)
         {
             return S02LogicaNegocios.LogicaNegocios.ConsultaSaldos(saldos);

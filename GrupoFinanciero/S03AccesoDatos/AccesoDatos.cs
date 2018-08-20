@@ -132,6 +132,44 @@ namespace S03AccesoDatos
                     contexto.Dispose();
             }
         }
+        public static List<Cliente> ClienteBuscar(Cliente cliente)
+        {
+            EntidadFinancieraEntities contexto = null;
+            List<Cliente> lstResultados = new List<Cliente>();
+            try
+            {/*
+                contexto = new EntidadFinancieraEntities();
+                var consulta = contexto.pa_Cliente_Buscar(cliente.Cedula);
+                if (contexto != null)
+                {
+                    foreach (var item in consulta)
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.Cedula = item
+                        cliente.Apellido1 = item
+                        cliente.Apellido2 = item
+                        cliente.FechaNac = item
+                        cliente.Telefono = item
+                        cliente.Correo = item
+                        cliente.Provincia = item
+                        cliente.DireccionExac = item
+                        cliente.SaldoCuenta = item
+                        cliente.Contrasena = item
+                        cliente.CuentaInterna = item
+                        cliente.CuentaSimpe = item
+                        cliente.Descripcion = item
+                        cliente.Estado = item
+                    }
+                }*/
+            }
+            finally
+            {
+                if (contexto != null)
+                    contexto.Dispose();
+            }
+            return lstResultados;
+        }
+
         #endregion
 
         #region Servicios
@@ -247,6 +285,34 @@ namespace S03AccesoDatos
                 if (contexto != null)
                     contexto.Dispose();
             }
+        }
+        public static List<Usuario> UsuarioBuscar(Usuario usuario)
+        {
+            EntidadFinancieraEntities contexto = null;
+            List<Usuario> lstResultados = new List<Usuario>();
+            try
+            {/*
+                contexto = new EntidadFinancieraEntities();
+                var consulta = contexto.pa_Usuario_Buscar(usuario.Usuario1);
+                if (contexto != null)
+                {
+                    foreach (var item in consulta)
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.Usuario1 = item
+                        usuario.Nombre = item
+                        usuario.Contrasena = item
+                        usuario.Perfil = item
+                        usuario.Estado = item
+                    }
+                }*/
+            }
+            finally
+            {
+                if (contexto != null)
+                    contexto.Dispose();
+            }
+            return lstResultados;
         }
         #endregion
 

@@ -16,8 +16,8 @@
                 <asp:TextBox class="textBox" size="30" type="password" ID="Contrasena2" MaxLength="12" placeholder="Repeat Password" required runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" For="Estado">Estado:</asp:Label>
                 <asp:DropDownList ID="Estado" class="textBox"  runat="server">
-                     <asp:ListItem Value="Activo" Selected="True">Activo</asp:ListItem>
-                     <asp:ListItem Value="Inactivo">Inactivo</asp:ListItem>
+                     <asp:ListItem Value="True" Selected="True">Activo</asp:ListItem>
+                     <asp:ListItem Value="False">Inactivo</asp:ListItem>
                 </asp:DropDownList>
             </form>
             <asp:Button class="botones" ID="Agregar" runat="server" Text="Agregar" OnClick="Agregar_Click" />

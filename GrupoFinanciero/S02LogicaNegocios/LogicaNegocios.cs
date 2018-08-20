@@ -38,6 +38,10 @@ namespace S02LogicaNegocios
         {
             AccesoDatos.ClienteEliminar(cliente);
         }
+        public static List<Cliente> ClienteBuscar(Cliente cliente)
+        {
+            return AccesoDatos.ClienteBuscar(cliente);
+        }
         #endregion
 
         #region Servicios
@@ -67,6 +71,10 @@ namespace S02LogicaNegocios
         public static void UsuarioEliminar(Usuario usuario)
         {
             AccesoDatos.UsuarioEliminar(usuario);
+        }
+        public static List<Usuario> UsuarioBuscar(Usuario usuario)
+        {
+            return AccesoDatos.UsuarioBuscar(usuario);
         }
         #endregion
 
@@ -99,7 +107,6 @@ namespace S02LogicaNegocios
         {
             return AccesoDatos.TransaccionesRegistradas();
         }
-
         public static List<Cliente> ConsultaSaldos(Cliente saldos)
         {
             return AccesoDatos.ConsultaSaldos(saldos);

@@ -1,4 +1,7 @@
 ﻿/**Estilos para ventana emergente*/
+* {
+    font-family: sourcesans_Regular;
+}
 #titulo {
     width: 100%;
     font-size: 30px;
@@ -23,10 +26,10 @@
 }
 .textBox {
     display: block;
+    font-size: 14px;
     margin: auto;
-    
-    
 }
+
 .botones {
     display: inline-block;
     margin: 20px 0px 0px 5px;

@@ -90,68 +90,160 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Verifique su conexion a iInternet');</script>");
             }
         }
         #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        #region Accion_de_Botones
         protected void Agregar_Click(object sender, EventArgs e)
         {
-            Cliente objCliente = new Cliente();
-            if (Contrasena.Text.Equals(Contrasena2.Text))
+            try
             {
-                objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
-                objCliente.Nombre = this.Nombre.Text.Trim();
-                objCliente.Apellido1 = this.PrimerApellido.Text.Trim();
-                objCliente.Apellido2 = this.SegundoApellido.Text.Trim();
-                objCliente.FechaNac = Convert.ToDateTime(this.FechaNac.Text.Trim());
-                objCliente.Telefono = this.Telefono.Text.Trim();
-                objCliente.Correo = this.Correo.Text.Trim();
-                objCliente.Provincia = this.Provincia.Text.ToString();
-                objCliente.DireccionExac = this.Direccion.Text.Trim();
-                objCliente.SaldoCuenta = Convert.ToInt32(this.Monto.Text.Trim());
-                objCliente.Contrasena = this.Contrasena.Text.Trim();
-                objCliente.CuentaInterna = Cuenta();
-                objCliente.CuentaSimpe = Simpe();
-                objCliente.Descripcion = "Apertura de Cuenta";
-                objCliente.Estado = true;
+                Cliente objCliente = new Cliente();
+                if (Contrasena.Text.Equals(Contrasena2.Text))
+                {
+                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    objCliente.Nombre = this.Nombre.Text.Trim();
+                    objCliente.Apellido1 = this.PrimerApellido.Text.Trim();
+                    objCliente.Apellido2 = this.SegundoApellido.Text.Trim();
+                    objCliente.FechaNac = Convert.ToDateTime(this.FechaNac.Text.Trim());
+                    objCliente.Telefono = this.Telefono.Text.Trim();
+                    objCliente.Correo = this.Correo.Text.Trim();
+                    objCliente.Provincia = this.Provincia.Text.ToString();
+                    objCliente.DireccionExac = this.Direccion.Text.Trim();
+                    objCliente.SaldoCuenta = Convert.ToInt32(this.Monto.Text.Trim());
+                    objCliente.Contrasena = this.Contrasena.Text.Trim();
+                    objCliente.CuentaInterna = Cuenta();
+                    objCliente.CuentaSimpe = Simpe();
+                    objCliente.Descripcion = "Apertura de Cuenta";
+                    objCliente.Estado = Convert.ToBoolean(this.Estado.Text.Trim());
 
-                Thread hilo = new Thread(EnviarCorreoElectronicos);
-                hilo.Start(); 
-                ConexionServicios.ConexionesInternas.ClienteAgregar(objCliente);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Cliente Agregado Exitosamente');</script>");
-                Limpiar();
+                    Thread hilo = new Thread(EnviarCorreoElectronicos);
+                    hilo.Start();
+                    ConexionServicios.ConexionesInternas.ClienteAgregar(objCliente);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Cliente Agregado Exitosamente');</script>");
+                    Limpiar();
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Contraseña no Coincide');</script>");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Contraseña no Coincide');</script>");
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al Gestionar la Operacion Solicitada');</script>");
             }
-            
-           
-            //Thread hilo = new Thread(EnviarCorreoElectronicos);
-            //hilo.Start(); //Inicia la ejecucion
         }
 
         protected void Actualizar_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Actualizado');</script>");
-            Limpiar();
+            Cliente objCliente = new Cliente();
+            try
+            {
+                if (this.Cedula.Text.Trim() != null)
+                {
+                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    objCliente.Nombre = this.Nombre.Text.Trim();
+                    objCliente.Apellido1 = this.PrimerApellido.Text.Trim();
+                    objCliente.Apellido2 = this.SegundoApellido.Text.Trim();
+                    objCliente.FechaNac = Convert.ToDateTime(this.FechaNac.Text.Trim());
+                    objCliente.Telefono = this.Telefono.Text.Trim();
+                    objCliente.Correo = this.Correo.Text.Trim();
+                    objCliente.Provincia = this.Provincia.Text.ToString();
+                    objCliente.DireccionExac = this.Direccion.Text.Trim();
+                    objCliente.Contrasena = this.Contrasena.Text.Trim();
+                    objCliente.Estado = true;
+                    ConexionServicios.ConexionesInternas.ClienteModificar(objCliente);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Datos Actualizados con exito');</script>");
+                    Limpiar();
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al actualizar los datos');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al Gestionar la Operacion Solicitada');</script>");
+            } 
         }
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Elemento Encontrado');</script>");
-            Limpiar();
+            //Pendiente de construccion
+            Cliente objCliente = new Cliente();
+            try
+            {
+                if (this.Cedula.Text.Trim() != null)
+                {
+                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    
+                    //ConexionServicios.ConexionesInternas.ClienteModificar(objCliente);
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Informacion Encontrada');</script>");
+                    //Limpiar();
+                    if(objCliente.Cedula == Convert.ToInt32(this.Cedula.Text.Trim()))
+                    {
+                        this.Cedula.Text = objCliente.Cedula.ToString();
+                        this.Nombre.Text = objCliente.Nombre;
+                        this.PrimerApellido.Text = objCliente.Apellido1;
+                        this.SegundoApellido.Text = objCliente.Apellido2;
+                        this.FechaNac.Text = objCliente.FechaNac.ToString();
+                        this.Telefono.Text = objCliente.Telefono;
+                        this.Correo.Text = objCliente.Correo;
+                        this.Provincia.Text = objCliente.Provincia;
+                        this.Direccion.Text = objCliente.DireccionExac;
+                        this.Monto.Text = objCliente.SaldoCuenta.ToString();
+                        this.Contrasena.Text = objCliente.Contrasena;
+                        if(objCliente.Estado==true)
+                            this.Estado.Text = "Activo";
+                        else
+                            this.Estado.Text = "Inactivo";
+                    }
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error: el campo Cedula no debe estar vacio');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al Gestionar la Operacion Solicitada');</script>");
+            }
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Eliminado');</script>");
-            Limpiar();
+            Cliente objCliente = new Cliente();
+            try
+            {
+                if (this.Cedula.Text.Trim() != null)
+                {
+                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    ConexionServicios.ConexionesInternas.ClienteEliminar(objCliente);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Datos Eliminados con exito');</script>");
+                    Limpiar();
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error: el campo Cedula no debe estar vacio');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al Gestionar la Operacion Solicitada');</script>");
+            }
         }
+        #endregion
     }
 }

@@ -90,6 +90,18 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
+        /*public static List<Cliente> ClienteBuscar(Cliente cliente)
+        {
+            WCFServicio.ServiciosClient servicioCliente = GetServ();
+            try
+            {
+                return servicioCliente.ClienteBuscar(cliente);
+            }
+            finally
+            {
+                servicioCliente.Close();
+            }
+        }*/
         #endregion
 
         #region Servicios
@@ -168,6 +180,18 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
+        /*public static List<Usuario> UsuarioBuscar(Usuario usuario)
+        {
+            WCFServicio.ServiciosClient servicioCliente = GetServ();
+            try
+            {
+                return servicioCliente.UsuarioBuscar(usuario);
+            }
+            finally
+            {
+                servicioCliente.Close();
+            }
+        }*/
         #endregion
 
         #region Otros
@@ -255,7 +279,6 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
-
         public static List<Cliente> ConsultaSaldos(Cliente saldos)
         {
             

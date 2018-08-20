@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using S04Entidades;
 
 namespace S00Presentacion.SitioWeb.Pages
 {
@@ -18,7 +19,39 @@ namespace S00Presentacion.SitioWeb.Pages
         {
             try
             {
-                if (Usuario.Text.Equals("Admin") && Password.Text.Equals("1234"))
+                Usuario login = new Usuario();
+                login.Usuario1 = this.Usuario.Text.Trim();
+                login.Contrasena = this.Password.Text.Trim();
+                ConexionServicios.ConexionesInternas.Login(login);
+
+                if (login.Usuario1.Equals(this.Usuario.Text.Trim()) && login.Contrasena.Equals(this.Password.Text.Trim()))
+                {
+                    if (login.Estado == true)
+                    {
+                        if (login.Perfil.Equals("Admin"))
+                        {
+                            Response.Redirect("Administradores.aspx");
+                        }
+                        else if (login.Perfil.Equals("Cliente"))
+                        {
+                            Response.Redirect("Clientes.aspx");
+                        }
+                        else if (login.Perfil.Equals("Usuario"))
+                        {
+                            Response.Redirect("Usuarios.aspx");
+                        }
+                    }
+                    else
+                    {
+                        error.Text = "Usuario Inactivo. Contacte con el Adminsitrador";
+                    }
+                }
+                else
+                {
+                    error.Text = "Error Verifique sus Credenciales";
+                }
+
+                /*if (login.Usuario1.Equals(this.Usuario.Text.Trim()) && login.Contrasena.Equals(this.Password.Text.Trim()))
                 {
                     Response.Redirect("Administradores.aspx");
                 }
@@ -33,7 +66,7 @@ namespace S00Presentacion.SitioWeb.Pages
                 else
                 {
                     error.Text = "Error en contrasena o Usuario";
-                }
+                }*/
             }
             catch (Exception ex)
             {
