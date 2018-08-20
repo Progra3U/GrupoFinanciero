@@ -69,10 +69,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Entidades.edmx</DependentUpon>
     </Compile>
+    <Compile Include="pa_ConsultaSaldos_Result.cs">
+      <DependentUpon>Entidades.tt</DependentUpon>
+    </Compile>
     <Compile Include="pa_EstadosdeCuenta_Result.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>
     <Compile Include="pa_Globales_Result.cs">
+      <DependentUpon>Entidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pa_Login_Result.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>
     <Compile Include="pa_TransaccionesRegistradas_Result.cs">

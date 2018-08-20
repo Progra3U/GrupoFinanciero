@@ -264,6 +264,19 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_Globales_Result>("pa_Globales");
         }
     
+        public virtual ObjectResult<pa_Login_Result> pa_Login(string usuario, string contrasena)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("Usuario", usuario) :
+                new ObjectParameter("Usuario", typeof(string));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("Contrasena", contrasena) :
+                new ObjectParameter("Contrasena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_Login_Result>("pa_Login", usuarioParameter, contrasenaParameter);
+        }
+    
         public virtual int pa_Servicio_Delete(string descServicio)
         {
             var descServicioParameter = descServicio != null ?
@@ -313,7 +326,7 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Usuario_Delete", usuarioParameter);
         }
     
-        public virtual int pa_Usuario_Insert(string usuario, string nombre, string contrasena, Nullable<bool> estado)
+        public virtual int pa_Usuario_Insert(string usuario, string nombre, string contrasena, string perfil, Nullable<bool> estado)
         {
             var usuarioParameter = usuario != null ?
                 new ObjectParameter("Usuario", usuario) :
@@ -327,14 +340,18 @@ namespace S04Entidades
                 new ObjectParameter("Contrasena", contrasena) :
                 new ObjectParameter("Contrasena", typeof(string));
     
+            var perfilParameter = perfil != null ?
+                new ObjectParameter("Perfil", perfil) :
+                new ObjectParameter("Perfil", typeof(string));
+    
             var estadoParameter = estado.HasValue ?
                 new ObjectParameter("Estado", estado) :
                 new ObjectParameter("Estado", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Usuario_Insert", usuarioParameter, nombreParameter, contrasenaParameter, estadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Usuario_Insert", usuarioParameter, nombreParameter, contrasenaParameter, perfilParameter, estadoParameter);
         }
     
-        public virtual int pa_Usuario_Update(string usuario, string nombre, string contrasena, Nullable<bool> estado)
+        public virtual int pa_Usuario_Update(string usuario, string nombre, string contrasena, string perfil, Nullable<bool> estado)
         {
             var usuarioParameter = usuario != null ?
                 new ObjectParameter("Usuario", usuario) :
@@ -348,11 +365,15 @@ namespace S04Entidades
                 new ObjectParameter("Contrasena", contrasena) :
                 new ObjectParameter("Contrasena", typeof(string));
     
+            var perfilParameter = perfil != null ?
+                new ObjectParameter("Perfil", perfil) :
+                new ObjectParameter("Perfil", typeof(string));
+    
             var estadoParameter = estado.HasValue ?
                 new ObjectParameter("Estado", estado) :
                 new ObjectParameter("Estado", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Usuario_Update", usuarioParameter, nombreParameter, contrasenaParameter, estadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Usuario_Update", usuarioParameter, nombreParameter, contrasenaParameter, perfilParameter, estadoParameter);
         }
     
         public virtual ObjectResult<pa_VerEstadoClientes_Result> pa_VerEstadoClientes(Nullable<bool> estado)
@@ -371,6 +392,15 @@ namespace S04Entidades
                 new ObjectParameter("Estado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_VerEstadoUsuarios_Result>("pa_VerEstadoUsuarios", estadoParameter);
+        }
+    
+        public virtual ObjectResult<pa_ConsultaSaldos_Result> pa_ConsultaSaldos(Nullable<int> cedula)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_ConsultaSaldos_Result>("pa_ConsultaSaldos", cedulaParameter);
         }
     }
 }

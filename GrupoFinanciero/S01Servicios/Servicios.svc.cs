@@ -102,6 +102,18 @@ namespace S01Servicios
         {
             return S02LogicaNegocios.LogicaNegocios.TransaccionesRegistradas();
         }
+
+        public List<Cliente> ConsultaSaldos(Cliente saldos)
+        {
+            return S02LogicaNegocios.LogicaNegocios.ConsultaSaldos(saldos);
+        }
+        #endregion
+
+        #region Login
+        public List<Usuario> Login(Usuario usuario)
+        {
+            return S02LogicaNegocios.LogicaNegocios.Login(usuario);
+        }
         #endregion
 
 

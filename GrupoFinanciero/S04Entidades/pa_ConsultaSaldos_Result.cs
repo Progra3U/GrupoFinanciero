@@ -10,15 +10,11 @@
 namespace S04Entidades
 {
     using System;
-    using System.Collections.Generic;
     
     [Serializable]
-    public partial class Usuario
+    public partial class pa_ConsultaSaldos_Result
     {
-        public string Usuario1 { get; set; }
-        public string Nombre { get; set; }
-        public string Contrasena { get; set; }
-        public string Perfil { get; set; }
-        public bool Estado { get; set; }
+        public int SaldoCuenta { get; set; }
+        public int Cedula { get; set; }
     }
 }

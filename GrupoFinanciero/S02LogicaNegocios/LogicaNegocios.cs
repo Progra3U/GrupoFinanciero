@@ -99,6 +99,20 @@ namespace S02LogicaNegocios
         {
             return AccesoDatos.TransaccionesRegistradas();
         }
+
+        public static List<Cliente> ConsultaSaldos(Cliente saldos)
+        {
+            return AccesoDatos.ConsultaSaldos(saldos);
+        }
         #endregion
+
+        #region Login
+        public static List<Usuario> Login(Usuario usuario)
+        {
+            return AccesoDatos.Login(usuario);
+        }
+        #endregion
+
+
     }
 }

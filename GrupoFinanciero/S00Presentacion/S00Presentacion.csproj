@@ -100,9 +100,25 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\WCFServicio\Servicios.wsdl" />
+    <None Include="Service References\WCFServicio\Servicios.disco" />
+    <None Include="Service References\WCFServicio\configuration91.svcinfo" />
+    <None Include="Service References\WCFServicio\configuration.svcinfo" />
+    <None Include="Service References\WCFServicio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SitioWeb\Fonts\Quattrocento\Quattrocento-Bold.ttf" />
     <Content Include="SitioWeb\Fonts\Quattrocento\Quattrocento-Regular.ttf" />
+    <None Include="Service References\WCFServicio\Servicios.wsdl" />
+    <None Include="Service References\WCFServicio\Servicios.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServicio\Servicios1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFServicio\Servicios2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,13 +134,6 @@
     <Content Include="Properties\DataSources\S04Entidades.Transaccion.datasource" />
     <Content Include="Properties\DataSources\S04Entidades.Usuario.datasource" />
     <Content Include="PaginaMaestra.Master" />
-    <None Include="Service References\WCFServicio\Servicios.disco" />
-    <None Include="Service References\WCFServicio\configuration91.svcinfo" />
-    <None Include="Service References\WCFServicio\configuration.svcinfo" />
-    <None Include="Service References\WCFServicio\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SitioWeb\Css\Fonts.css" />
     <Content Include="SitioWeb\Css\StyleIndex.css" />
     <Content Include="SitioWeb\Css\Stylelogin.css" />
@@ -157,15 +166,6 @@
     <Content Include="SitioWeb\Pages\SubPages\Clientes\C_TVeInternet.aspx" />
     <Content Include="SitioWeb\Pages\Usuarios.aspx" />
     <Content Include="Web.config" />
-    <None Include="Service References\WCFServicio\Servicios.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFServicio\Servicios1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WCFServicio\Servicios2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="SitioWeb\Fonts\SourceSans\SourceSansPro-Light.ttf" />
     <Content Include="SitioWeb\Fonts\SourceSans\SourceSansPro-Regular.ttf" />
   </ItemGroup>

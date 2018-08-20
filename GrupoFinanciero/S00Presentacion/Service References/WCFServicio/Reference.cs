@@ -128,6 +128,18 @@ namespace S00Presentacion.WCFServicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/TransaccionesRegistradas", ReplyAction="http://tempuri.org/IServicios/TransaccionesRegistradasResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Transaccion>> TransaccionesRegistradasAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/ConsultaSaldos", ReplyAction="http://tempuri.org/IServicios/ConsultaSaldosResponse")]
+        System.Collections.Generic.List<S04Entidades.Cliente> ConsultaSaldos(S04Entidades.Cliente saldos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/ConsultaSaldos", ReplyAction="http://tempuri.org/IServicios/ConsultaSaldosResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> ConsultaSaldosAsync(S04Entidades.Cliente saldos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/Login", ReplyAction="http://tempuri.org/IServicios/LoginResponse")]
+        System.Collections.Generic.List<S04Entidades.Usuario> Login(S04Entidades.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/Login", ReplyAction="http://tempuri.org/IServicios/LoginResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Usuario>> LoginAsync(S04Entidades.Usuario usuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -307,6 +319,22 @@ namespace S00Presentacion.WCFServicio {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Transaccion>> TransaccionesRegistradasAsync() {
             return base.Channel.TransaccionesRegistradasAsync();
+        }
+        
+        public System.Collections.Generic.List<S04Entidades.Cliente> ConsultaSaldos(S04Entidades.Cliente saldos) {
+            return base.Channel.ConsultaSaldos(saldos);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> ConsultaSaldosAsync(S04Entidades.Cliente saldos) {
+            return base.Channel.ConsultaSaldosAsync(saldos);
+        }
+        
+        public System.Collections.Generic.List<S04Entidades.Usuario> Login(S04Entidades.Usuario usuario) {
+            return base.Channel.Login(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Usuario>> LoginAsync(S04Entidades.Usuario usuario) {
+            return base.Channel.LoginAsync(usuario);
         }
     }
 }

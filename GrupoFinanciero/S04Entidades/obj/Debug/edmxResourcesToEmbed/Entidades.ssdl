@@ -56,6 +56,7 @@
     <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Contrasena" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Perfil" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
   <Function Name="pa_BancoExteno_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -118,10 +119,17 @@
     <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
+  <Function Name="pa_ConsultaSaldos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cedula" Type="int" Mode="In" />
+  </Function>
   <Function Name="pa_EstadosdeCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Cedula" Type="int" Mode="In" />
   </Function>
   <Function Name="pa_Globales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pa_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="pa_Servicio_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
   </Function>
@@ -141,12 +149,14 @@
     <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
     <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
     <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+    <Parameter Name="Perfil" Type="nvarchar" Mode="In" />
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
   <Function Name="pa_Usuario_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
     <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
     <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
+    <Parameter Name="Perfil" Type="nvarchar" Mode="In" />
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
   <Function Name="pa_VerEstadoClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="de63c548810b4aeaa7efa887456e9861" Name="Diagram1">
-        <EntityTypeShape EntityType="EntidadFinancieraModel.BancoExteno" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntidadFinancieraModel.Cliente" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntidadFinancieraModel.Servicio" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntidadFinancieraModel.Transaccion" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EntidadFinancieraModel.Usuario" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadFinancieraModel.BancoExteno" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntidadFinancieraModel.Cliente" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntidadFinancieraModel.Servicio" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntidadFinancieraModel.Transaccion" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="EntidadFinancieraModel.Usuario" Width="1.5" PointX="0.75" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

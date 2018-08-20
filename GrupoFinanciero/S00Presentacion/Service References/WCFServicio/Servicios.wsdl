@@ -121,6 +121,18 @@
   <wsdl:message name="IServicios_TransaccionesRegistradas_OutputMessage">
     <wsdl:part name="parameters" element="tns:TransaccionesRegistradasResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicios_ConsultaSaldos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaSaldos" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ConsultaSaldos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaSaldosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicios">
     <wsdl:operation name="BancoExternoAgregar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/BancoExternoAgregar" message="tns:IServicios_BancoExternoAgregar_InputMessage" />
@@ -197,6 +209,14 @@
     <wsdl:operation name="TransaccionesRegistradas">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/TransaccionesRegistradas" message="tns:IServicios_TransaccionesRegistradas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicios/TransaccionesRegistradasResponse" message="tns:IServicios_TransaccionesRegistradas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSaldos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ConsultaSaldos" message="tns:IServicios_ConsultaSaldos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ConsultaSaldosResponse" message="tns:IServicios_ConsultaSaldos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/Login" message="tns:IServicios_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/LoginResponse" message="tns:IServicios_Login_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicios" type="tns:IServicios">
@@ -365,6 +385,24 @@
     </wsdl:operation>
     <wsdl:operation name="TransaccionesRegistradas">
       <soap:operation soapAction="http://tempuri.org/IServicios/TransaccionesRegistradas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSaldos">
+      <soap:operation soapAction="http://tempuri.org/IServicios/ConsultaSaldos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IServicios/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

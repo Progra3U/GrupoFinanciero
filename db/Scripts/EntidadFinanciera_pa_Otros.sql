@@ -83,3 +83,30 @@ BEGIN
 	ORDER BY tnsc.IdTransac
 END
 go
+
+
+--Creacion de pa para consulta Saldos
+alter PROCEDURE pa_ConsultaSaldos
+	@Cedula int
+AS
+BEGIN
+	SELECT cl.SaldoCuenta, cl.Cedula	
+	FROM Cliente cl 
+	where cl.Cedula = @Cedula
+END
+go
+
+--select SaldoCuenta	 from Cliente where Cedula = 205670432
+
+
+
+--Creacion de pa para Login
+ALTER PROCEDURE pa_Login
+	@Usuario 	nvarchar(50),
+	@Contrasena 	nvarchar(50)
+AS
+BEGIN
+	SELECT US.Usuario, US.Nombre, US.Contrasena, US.Perfil, US.Estado
+	FROM  Usuario US WHERE US.Usuario = @Usuario  AND US.Contrasena = @Contrasena 
+END
+GO

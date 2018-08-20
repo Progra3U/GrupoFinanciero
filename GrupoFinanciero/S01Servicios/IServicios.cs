@@ -63,6 +63,13 @@ namespace S01Servicios
         List<Cliente> VerEstadoClientes(Cliente cliente);
         [OperationContract]
         List<Transaccion> TransaccionesRegistradas();
+        [OperationContract]
+        List<Cliente> ConsultaSaldos(Cliente saldos);
+        #endregion
+
+        #region Login
+        [OperationContract]
+        List<Usuario> Login(Usuario usuario);
         #endregion
     }
 }

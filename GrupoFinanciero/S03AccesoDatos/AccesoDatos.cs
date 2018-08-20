@@ -199,7 +199,7 @@ namespace S03AccesoDatos
             {
                 contexto = new EntidadFinancieraEntities();
                 contexto.pa_Usuario_Insert(usuario.Usuario1, usuario.Nombre, usuario.Contrasena,
-                    usuario.Estado);
+                    usuario.Perfil,usuario.Estado);
             }
             catch (Exception ex)
             {
@@ -218,7 +218,7 @@ namespace S03AccesoDatos
             {
                 contexto = new EntidadFinancieraEntities();
                 contexto.pa_Usuario_Update(usuario.Usuario1, usuario.Nombre, usuario.Contrasena,
-                    usuario.Estado);
+                    usuario.Perfil,usuario.Estado);
             }
             catch (Exception ex)
             {
@@ -291,6 +291,30 @@ namespace S03AccesoDatos
                     contexto.Dispose();
             }
         }
+        public static List<Cliente> ConsultaSaldos(Cliente saldos)
+        {
+            EntidadFinancieraEntities contexto = null;
+            List<Cliente> lstResultados = new List<Cliente>();
+            try
+            {
+                contexto = new EntidadFinancieraEntities();
+                var consulta = contexto.pa_ConsultaSaldos(saldos.Cedula);
+                if(contexto != null)
+                {
+                    foreach(var item in consulta)
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.SaldoCuenta = item.SaldoCuenta;
+                    }
+                }
+            }
+            finally
+            {
+                if (contexto != null)
+                    contexto.Dispose();
+            }
+            return lstResultados;
+        }
         public static List<Cliente> MontosGlobales()
         {
             //para Estados Globales
@@ -331,7 +355,7 @@ namespace S03AccesoDatos
             try
             {
                 contexto = new EntidadFinancieraEntities();
-                var consulta = contexto.pa_EstadosdeCuenta(EstCuenta.Cedula);
+                var consulta = contexto.pa_EstadosdeCuenta(EstCuenta.Cedula).ToList();
                 if (consulta != null)
                 {
                     foreach (var item in consulta)
@@ -461,5 +485,43 @@ namespace S03AccesoDatos
             return lstResultado;
         }
         #endregion
+
+        #region Login
+        public static List<Usuario> Login(Usuario usuario)
+        {
+            //para ver Estados de los Usuarios
+            EntidadFinancieraEntities contexto = null;
+            List<Usuario> lstResultado = new List<Usuario>();
+            try
+            {
+                contexto = new EntidadFinancieraEntities();
+                var consulta = contexto.pa_Login(usuario.Nombre, usuario.Contrasena).ToList();
+                if (consulta != null)
+                {
+                    foreach (var item in consulta)
+                    {
+                        Usuario user = new Usuario();
+                        user.Usuario1 = item.Usuario;
+                        user.Nombre = item.Nombre;
+                        user.Contrasena = item.Contrasena;
+                        user.Perfil = item.Perfil;
+                        user.Estado = item.Estado;
+                        lstResultado.Add(user);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (contexto != null)
+                    contexto.Dispose();
+            }
+            return lstResultado;
+        }
+        #endregion
+
     }
 }

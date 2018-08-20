@@ -4,63 +4,64 @@
     <EntitySetMapping Name="BancoExtenoes">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.BancoExteno">
         <MappingFragment StoreEntitySet="BancoExteno">
-          <ScalarProperty Name="IdTransacE" ColumnName="IdTransacE" />
-          <ScalarProperty Name="CuentaExterna" ColumnName="CuentaExterna" />
-          <ScalarProperty Name="DetalleTrans" ColumnName="DetalleTrans" />
           <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="DetalleTrans" ColumnName="DetalleTrans" />
+          <ScalarProperty Name="CuentaExterna" ColumnName="CuentaExterna" />
+          <ScalarProperty Name="IdTransacE" ColumnName="IdTransacE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clientes">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
-          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
-          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Correo" ColumnName="Correo" />
-          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
-          <ScalarProperty Name="DireccionExac" ColumnName="DireccionExac" />
-          <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
-          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
-          <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
-          <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
+          <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+          <ScalarProperty Name="DireccionExac" ColumnName="DireccionExac" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Servicios">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Servicio">
         <MappingFragment StoreEntitySet="Servicio">
-          <ScalarProperty Name="IdSevicio" ColumnName="IdSevicio" />
-          <ScalarProperty Name="DescServicio" ColumnName="DescServicio" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="DescServicio" ColumnName="DescServicio" />
+          <ScalarProperty Name="IdSevicio" ColumnName="IdSevicio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Transaccions">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Transaccion">
         <MappingFragment StoreEntitySet="Transaccion">
-          <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-          <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
-          <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Monto" ColumnName="Monto" />
           <ScalarProperty Name="HorayFecha" ColumnName="HorayFecha" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
+          <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
-          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -91,6 +92,17 @@
           <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
           <ScalarProperty Name="Simpe" ColumnName="Simpe" />
           <ScalarProperty Name="Fondos" ColumnName="Fondos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pa_Login" FunctionName="EntidadFinancieraModel.Store.pa_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Login_Result">
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -129,6 +141,14 @@
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pa_ConsultaSaldos" FunctionName="EntidadFinancieraModel.Store.pa_ConsultaSaldos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_ConsultaSaldos_Result">
+          <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

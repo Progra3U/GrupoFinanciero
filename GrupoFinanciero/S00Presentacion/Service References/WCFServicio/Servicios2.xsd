@@ -42,6 +42,7 @@
       <xs:element name="_x003C_Contrasena_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_Estado_x003E_k__BackingField" type="xs:boolean" />
       <xs:element name="_x003C_Nombre_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Perfil_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_Usuario1_x003E_k__BackingField" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

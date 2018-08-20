@@ -255,6 +255,38 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
+
+        public static List<Cliente> ConsultaSaldos(Cliente saldos)
+        {
+            
+            WCFServicio.ServiciosClient servicioCliente = GetServ();
+            try
+            {
+                return servicioCliente.ConsultaSaldos(saldos);
+            }
+            finally
+            {
+                servicioCliente.Close();
+            }
+             
+        }
+        #endregion
+
+        #region Login
+        public static List<Usuario> Login(Usuario usuario)
+        {
+            
+            WCFServicio.ServiciosClient servicioCliente = GetServ();
+            try
+            {
+                return servicioCliente.Login(usuario);
+            }
+            finally
+            {
+                servicioCliente.Close();
+            }
+
+        }
         #endregion
     }
 }

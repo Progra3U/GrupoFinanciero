@@ -10,12 +10,11 @@
 namespace S04Entidades
 {
     using System;
-    using System.Collections.Generic;
     
     [Serializable]
-    public partial class Usuario
+    public partial class pa_Login_Result
     {
-        public string Usuario1 { get; set; }
+        public string Usuario { get; set; }
         public string Nombre { get; set; }
         public string Contrasena { get; set; }
         public string Perfil { get; set; }

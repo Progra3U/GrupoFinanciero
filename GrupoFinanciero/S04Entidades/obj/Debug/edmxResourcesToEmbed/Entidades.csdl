@@ -1,69 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EntidadFinancieraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="BancoExteno">
-    <Key>
-      <PropertyRef Name="IdTransacE" />
-    </Key>
-    <Property Name="IdTransacE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CuentaExterna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DetalleTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Monto" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Cliente">
-    <Key>
-      <PropertyRef Name="Cedula" />
-    </Key>
-    <Property Name="Cedula" Type="Int32" Nullable="false" />
-    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FechaNac" Type="DateTime" Precision="3" />
-    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DireccionExac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SaldoCuenta" Type="Int32" Nullable="false" />
-    <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CuentaInterna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CuentaSimpe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Estado" Type="Boolean" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Servicio">
-    <Key>
-      <PropertyRef Name="IdSevicio" />
-    </Key>
-    <Property Name="IdSevicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DescServicio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Estado" Type="Boolean" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Transaccion">
-    <Key>
-      <PropertyRef Name="IdTransac" />
-    </Key>
-    <Property Name="IdTransac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Cedula" Type="Int32" />
-    <Property Name="CuentaInterna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CuentaSimpe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Monto" Type="Int32" Nullable="false" />
-    <Property Name="HorayFecha" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="Usuario">
-    <Key>
-      <PropertyRef Name="Usuario1" />
-    </Key>
-    <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Estado" Type="Boolean" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="EntidadFinancieraEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="BancoExtenoes" EntityType="Self.BancoExteno" />
-    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
-    <EntitySet Name="Servicios" EntityType="Self.Servicio" />
-    <EntitySet Name="Transaccions" EntityType="Self.Transaccion" />
-    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="BancoExtenoes" EntityType="EntidadFinancieraModel.BancoExteno" />
+    <EntitySet Name="Clientes" EntityType="EntidadFinancieraModel.Cliente" />
+    <EntitySet Name="Servicios" EntityType="EntidadFinancieraModel.Servicio" />
+    <EntitySet Name="Transaccions" EntityType="EntidadFinancieraModel.Transaccion" />
+    <EntitySet Name="Usuarios" EntityType="EntidadFinancieraModel.Usuario" />
     <FunctionImport Name="pa_BancoExteno_Delete">
       <Parameter Name="CuentaExterna" Mode="In" Type="String" />
     </FunctionImport>
@@ -128,6 +70,10 @@
       <Parameter Name="Cedula" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="pa_Globales" ReturnType="Collection(EntidadFinancieraModel.pa_Globales_Result)" />
+    <FunctionImport Name="pa_Login" ReturnType="Collection(EntidadFinancieraModel.pa_Login_Result)">
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="pa_Servicio_Delete">
       <Parameter Name="DescServicio" Mode="In" Type="String" />
     </FunctionImport>
@@ -147,12 +93,14 @@
       <Parameter Name="Usuario" Mode="In" Type="String" />
       <Parameter Name="Nombre" Mode="In" Type="String" />
       <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="Perfil" Mode="In" Type="String" />
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="pa_Usuario_Update">
       <Parameter Name="Usuario" Mode="In" Type="String" />
       <Parameter Name="Nombre" Mode="In" Type="String" />
       <Parameter Name="Contrasena" Mode="In" Type="String" />
+      <Parameter Name="Perfil" Mode="In" Type="String" />
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="pa_VerEstadoClientes" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoClientes_Result)">
@@ -161,7 +109,69 @@
     <FunctionImport Name="pa_VerEstadoUsuarios" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoUsuarios_Result)">
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <FunctionImport Name="pa_ConsultaSaldos" ReturnType="Collection(EntidadFinancieraModel.pa_ConsultaSaldos_Result)">
+      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <EntityType Name="BancoExteno">
+    <Key>
+      <PropertyRef Name="IdTransacE" />
+    </Key>
+    <Property Name="IdTransacE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CuentaExterna" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DetalleTrans" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNac" Type="DateTime" Precision="3" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Provincia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DireccionExac" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaldoCuenta" Type="Int32" Nullable="false" />
+    <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CuentaInterna" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CuentaSimpe" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="IdSevicio" />
+    </Key>
+    <Property Name="IdSevicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescServicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="IdTransac" />
+    </Key>
+    <Property Name="IdTransac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="Int32" />
+    <Property Name="CuentaInterna" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CuentaSimpe" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Int32" Nullable="false" />
+    <Property Name="HorayFecha" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Usuario1" />
+    </Key>
+    <Property Name="Usuario1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Perfil" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
   <ComplexType Name="pa_EstadosdeCuenta_Result">
     <Property Type="Int32" Name="IdTransac" Nullable="false" />
     <Property Type="Int32" Name="Cedula" Nullable="true" />
@@ -175,6 +185,13 @@
     <Property Type="String" Name="Cuenta" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Simpe" Nullable="false" MaxLength="50" />
     <Property Type="Int32" Name="Fondos" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="pa_Login_Result">
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="Estado" Nullable="false" />
   </ComplexType>
   <ComplexType Name="pa_TransaccionesRegistradas_Result">
     <Property Type="Int32" Name="IdTransac" Nullable="false" />
@@ -195,5 +212,9 @@
     <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
     <Property Type="Boolean" Name="Estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="pa_ConsultaSaldos_Result">
+    <Property Type="Int32" Name="SaldoCuenta" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
   </ComplexType>
 </Schema>
