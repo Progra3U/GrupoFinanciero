@@ -70,8 +70,8 @@ namespace S00Presentacion.SitioWeb.Pages
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al Gestionar la Operacion Solicitada');</script>");
+                //throw ex;
             }
         }
     }
