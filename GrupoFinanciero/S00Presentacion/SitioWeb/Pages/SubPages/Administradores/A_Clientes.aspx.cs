@@ -145,9 +145,9 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Actualizar_Click(object sender, EventArgs e)
         {
-            Cliente objCliente = new Cliente();
             try
             {
+                Cliente objCliente = new Cliente();
                 if (this.Cedula.Text.Trim() != null)
                 {
                     objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
@@ -179,10 +179,9 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            //Pendiente de construccion
-            Cliente objCliente = new Cliente();
             try
             {
+                Cliente objCliente = new Cliente();
                 if (this.Cedula.Text.Trim() != null)
                 {
                     objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
@@ -224,9 +223,9 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            Cliente objCliente = new Cliente();
             try
             {
+                Cliente objCliente = new Cliente();
                 if (this.Cedula.Text.Trim() != null)
                 {
                     objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
