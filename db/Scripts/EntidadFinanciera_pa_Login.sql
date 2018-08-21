@@ -8,6 +8,6 @@ ALTER PROCEDURE pa_Login
 AS
 BEGIN
 	SELECT US.Usuario, US.Nombre, US.Contrasena, US.Perfil, US.Estado
-	FROM  Usuario US WHERE US.Usuario = @Usuario  AND US.Contrasena = @Contrasena 
+	FROM  Usuario US WHERE US.Usuario LIKE '%' + @Usuario + '%' AND US.Contrasena LIKE '%' + @Contrasena + '%' 
 END
 GO
