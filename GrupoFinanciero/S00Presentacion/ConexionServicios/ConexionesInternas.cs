@@ -90,7 +90,7 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
-        /*public static List<Cliente> ClienteBuscar(Cliente cliente)
+        public static List<Cliente> ClienteBuscar(Cliente cliente)
         {
             WCFServicio.ServiciosClient servicioCliente = GetServ();
             try
@@ -101,7 +101,7 @@ namespace S00Presentacion.ConexionServicios
             {
                 servicioCliente.Close();
             }
-        }*/
+        }
         #endregion
 
         #region Servicios
@@ -180,7 +180,7 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
-        /*public static List<Usuario> UsuarioBuscar(Usuario usuario)
+        public static List<Usuario> UsuarioBuscar(Usuario usuario)
         {
             WCFServicio.ServiciosClient servicioCliente = GetServ();
             try
@@ -191,7 +191,7 @@ namespace S00Presentacion.ConexionServicios
             {
                 servicioCliente.Close();
             }
-        }*/
+        }
         #endregion
 
         #region Otros

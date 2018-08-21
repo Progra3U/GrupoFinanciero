@@ -28,8 +28,8 @@ namespace S01Servicios
         void ClienteModificar(Cliente cliente);
         [OperationContract]
         void ClienteEliminar(Cliente cliente);
-        //[OperationContract]
-        //List<Cliente> ClienteBuscar(Cliente cliente);
+        [OperationContract]
+        List<Cliente> ClienteBuscar(Cliente cliente);
         #endregion
 
         #region Servicios
@@ -48,8 +48,8 @@ namespace S01Servicios
         void UsuarioModificar(Usuario usuario);
         [OperationContract]
         void UsuarioEliminar(Usuario usuario);
-        //[OperationContract]
-        //List<Usuario> UsuarioBuscar(Usuario usuario);
+        [OperationContract]
+        List<Usuario> UsuarioBuscar(Usuario usuario);
         #endregion
 
         #region Otros

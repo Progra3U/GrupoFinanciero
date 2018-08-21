@@ -51,6 +51,12 @@ namespace S00Presentacion.WCFServicio {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/ClienteEliminar", ReplyAction="http://tempuri.org/IServicios/ClienteEliminarResponse")]
         System.Threading.Tasks.Task ClienteEliminarAsync(S04Entidades.Cliente cliente);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/ClienteBuscar", ReplyAction="http://tempuri.org/IServicios/ClienteBuscarResponse")]
+        System.Collections.Generic.List<S04Entidades.Cliente> ClienteBuscar(S04Entidades.Cliente cliente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/ClienteBuscar", ReplyAction="http://tempuri.org/IServicios/ClienteBuscarResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> ClienteBuscarAsync(S04Entidades.Cliente cliente);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/ServicioAgregar", ReplyAction="http://tempuri.org/IServicios/ServicioAgregarResponse")]
         void ServicioAgregar(S04Entidades.Servicio servicio);
         
@@ -86,6 +92,12 @@ namespace S00Presentacion.WCFServicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/UsuarioEliminar", ReplyAction="http://tempuri.org/IServicios/UsuarioEliminarResponse")]
         System.Threading.Tasks.Task UsuarioEliminarAsync(S04Entidades.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/UsuarioBuscar", ReplyAction="http://tempuri.org/IServicios/UsuarioBuscarResponse")]
+        System.Collections.Generic.List<S04Entidades.Usuario> UsuarioBuscar(S04Entidades.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/UsuarioBuscar", ReplyAction="http://tempuri.org/IServicios/UsuarioBuscarResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Usuario>> UsuarioBuscarAsync(S04Entidades.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/AbonoRetiroInterno", ReplyAction="http://tempuri.org/IServicios/AbonoRetiroInternoResponse")]
         void AbonoRetiroInterno(S04Entidades.Cliente abonoRetiroI);
@@ -217,6 +229,14 @@ namespace S00Presentacion.WCFServicio {
             return base.Channel.ClienteEliminarAsync(cliente);
         }
         
+        public System.Collections.Generic.List<S04Entidades.Cliente> ClienteBuscar(S04Entidades.Cliente cliente) {
+            return base.Channel.ClienteBuscar(cliente);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> ClienteBuscarAsync(S04Entidades.Cliente cliente) {
+            return base.Channel.ClienteBuscarAsync(cliente);
+        }
+        
         public void ServicioAgregar(S04Entidades.Servicio servicio) {
             base.Channel.ServicioAgregar(servicio);
         }
@@ -263,6 +283,14 @@ namespace S00Presentacion.WCFServicio {
         
         public System.Threading.Tasks.Task UsuarioEliminarAsync(S04Entidades.Usuario usuario) {
             return base.Channel.UsuarioEliminarAsync(usuario);
+        }
+        
+        public System.Collections.Generic.List<S04Entidades.Usuario> UsuarioBuscar(S04Entidades.Usuario usuario) {
+            return base.Channel.UsuarioBuscar(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Usuario>> UsuarioBuscarAsync(S04Entidades.Usuario usuario) {
+            return base.Channel.UsuarioBuscarAsync(usuario);
         }
         
         public void AbonoRetiroInterno(S04Entidades.Cliente abonoRetiroI) {

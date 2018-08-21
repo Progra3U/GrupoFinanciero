@@ -99,9 +99,7 @@ namespace S03AccesoDatos
                 contexto = new EntidadFinancieraEntities();
                 contexto.pa_Cliente_Update(cliente.Cedula, cliente.Nombre, cliente.Apellido1,
                     cliente.Apellido2, cliente.FechaNac, cliente.Telefono, cliente.Correo,
-                    cliente.Provincia, cliente.DireccionExac, cliente.SaldoCuenta,
-                    cliente.Contrasena, cliente.CuentaInterna, cliente.CuentaSimpe,
-                    cliente.Descripcion, cliente.Estado);
+                    cliente.Provincia, cliente.DireccionExac, cliente.Contrasena,cliente.Estado);
             }
             catch (Exception ex)
             {
@@ -137,30 +135,31 @@ namespace S03AccesoDatos
             EntidadFinancieraEntities contexto = null;
             List<Cliente> lstResultados = new List<Cliente>();
             try
-            {/*
+            {
                 contexto = new EntidadFinancieraEntities();
                 var consulta = contexto.pa_Cliente_Buscar(cliente.Cedula);
                 if (contexto != null)
                 {
                     foreach (var item in consulta)
                     {
-                        Cliente cliente = new Cliente();
-                        cliente.Cedula = item
-                        cliente.Apellido1 = item
-                        cliente.Apellido2 = item
-                        cliente.FechaNac = item
-                        cliente.Telefono = item
-                        cliente.Correo = item
-                        cliente.Provincia = item
-                        cliente.DireccionExac = item
-                        cliente.SaldoCuenta = item
-                        cliente.Contrasena = item
-                        cliente.CuentaInterna = item
-                        cliente.CuentaSimpe = item
-                        cliente.Descripcion = item
-                        cliente.Estado = item
+                        Cliente client = new Cliente();
+                        client.Cedula = item.Cedula;
+                        client.Nombre = item.Nombre;
+                        client.Apellido1 = item.Apellido1;
+                        client.Apellido2 = item.Apellido2;
+                        client.FechaNac = item.FechaNac;
+                        client.Telefono = item.Telefono;
+                        client.Correo = item.Correo;
+                        client.Provincia = item.Provincia;
+                        client.DireccionExac = item.DireccionExac;
+                        client.SaldoCuenta = item.SaldoCuenta;
+                        client.Contrasena = item.Contrasena;
+                        client.CuentaInterna = item.CuentaInterna;
+                        client.CuentaSimpe = item.CuentaSimpe;
+                        client.Descripcion = item.Descripcion;
+                        client.Estado = item.Estado;
                     }
-                }*/
+                }
             }
             finally
             {
@@ -291,21 +290,21 @@ namespace S03AccesoDatos
             EntidadFinancieraEntities contexto = null;
             List<Usuario> lstResultados = new List<Usuario>();
             try
-            {/*
+            {
                 contexto = new EntidadFinancieraEntities();
                 var consulta = contexto.pa_Usuario_Buscar(usuario.Usuario1);
                 if (contexto != null)
                 {
                     foreach (var item in consulta)
                     {
-                        Usuario usuario = new Usuario();
-                        usuario.Usuario1 = item
-                        usuario.Nombre = item
-                        usuario.Contrasena = item
-                        usuario.Perfil = item
-                        usuario.Estado = item
+                        Usuario usu = new Usuario();
+                        usu.Usuario1 = item.Usuario;
+                        usu.Nombre = item.Nombre;
+                        usu.Contrasena = item.Contrasena;
+                        usu.Perfil = item.Perfil;
+                        usu.Estado = item.Estado;
                     }
-                }*/
+                }
             }
             finally
             {
@@ -561,7 +560,7 @@ namespace S03AccesoDatos
             try
             {
                 contexto = new EntidadFinancieraEntities();
-                var consulta = contexto.pa_Login(usuario.Nombre, usuario.Contrasena).ToList();
+                var consulta = contexto.pa_Login(usuario.Usuario1, usuario.Contrasena).ToList();
                 if (consulta != null)
                 {
                     foreach (var item in consulta)

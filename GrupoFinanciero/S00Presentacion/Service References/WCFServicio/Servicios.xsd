@@ -73,10 +73,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClienteBuscar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="cliente" nillable="true" type="q7:Cliente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClienteBuscarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="ClienteBuscarResult" nillable="true" type="q8:ArrayOfCliente" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ServicioAgregar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="servicio" nillable="true" type="q7:Servicio" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="servicio" nillable="true" type="q9:Servicio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -88,7 +102,7 @@
   <xs:element name="ServicioModificar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="servicio" nillable="true" type="q8:Servicio" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="servicio" nillable="true" type="q10:Servicio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -100,7 +114,7 @@
   <xs:element name="ServicioEliminar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="servicio" nillable="true" type="q9:Servicio" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="servicio" nillable="true" type="q11:Servicio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -112,7 +126,7 @@
   <xs:element name="UsuarioAgregar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q10:Usuario" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q12:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +138,7 @@
   <xs:element name="UsuarioModificar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q11:Usuario" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q13:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,7 +150,7 @@
   <xs:element name="UsuarioEliminar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q12:Usuario" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q14:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -145,10 +159,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="UsuarioBuscar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q15:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsuarioBuscarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="UsuarioBuscarResult" nillable="true" type="q16:ArrayOfUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AbonoRetiroInterno">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="abonoRetiroI" nillable="true" type="q13:Cliente" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="abonoRetiroI" nillable="true" type="q17:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -160,7 +188,7 @@
   <xs:element name="AbonoRetiroExterno">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="abonoRetiroE" nillable="true" type="q14:Cliente" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="abonoRetiroE" nillable="true" type="q18:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -177,49 +205,49 @@
   <xs:element name="MontosGlobalesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="MontosGlobalesResult" nillable="true" type="q15:ArrayOfCliente" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="MontosGlobalesResult" nillable="true" type="q19:ArrayOfCliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EstadosdeCuenta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="EstCuenta" nillable="true" type="q16:Transaccion" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="EstCuenta" nillable="true" type="q20:Transaccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EstadosdeCuentaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="EstadosdeCuentaResult" nillable="true" type="q17:ArrayOfTransaccion" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="EstadosdeCuentaResult" nillable="true" type="q21:ArrayOfTransaccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="VerEstadoUsuarios">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q18:Usuario" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q22:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="VerEstadoUsuariosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="VerEstadoUsuariosResult" nillable="true" type="q19:ArrayOfUsuario" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="VerEstadoUsuariosResult" nillable="true" type="q23:ArrayOfUsuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="VerEstadoClientes">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="cliente" nillable="true" type="q20:Cliente" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="cliente" nillable="true" type="q24:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="VerEstadoClientesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="VerEstadoClientesResult" nillable="true" type="q21:ArrayOfCliente" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="VerEstadoClientesResult" nillable="true" type="q25:ArrayOfCliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -231,35 +259,35 @@
   <xs:element name="TransaccionesRegistradasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="TransaccionesRegistradasResult" nillable="true" type="q22:ArrayOfTransaccion" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="TransaccionesRegistradasResult" nillable="true" type="q26:ArrayOfTransaccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConsultaSaldos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="saldos" nillable="true" type="q23:Cliente" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="saldos" nillable="true" type="q27:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConsultaSaldosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="ConsultaSaldosResult" nillable="true" type="q24:ArrayOfCliente" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="ConsultaSaldosResult" nillable="true" type="q28:ArrayOfCliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q25:Usuario" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="usuario" nillable="true" type="q29:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="LoginResult" nillable="true" type="q26:ArrayOfUsuario" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/S04Entidades" minOccurs="0" name="LoginResult" nillable="true" type="q30:ArrayOfUsuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

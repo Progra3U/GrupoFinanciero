@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EntidadFinancieraModelStoreContainer" CdmEntityContainer="EntidadFinancieraEntities">
-    <EntitySetMapping Name="BancoExtenoes">
+    <EntitySetMapping Name="BancoExteno">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.BancoExteno">
         <MappingFragment StoreEntitySet="BancoExteno">
           <ScalarProperty Name="Monto" ColumnName="Monto" />
@@ -11,7 +11,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Clientes">
+    <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
           <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -32,7 +32,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Servicios">
+    <EntitySetMapping Name="Servicio">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Servicio">
         <MappingFragment StoreEntitySet="Servicio">
           <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -41,7 +41,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Transaccions">
+    <EntitySetMapping Name="Transaccion">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Transaccion">
         <MappingFragment StoreEntitySet="Transaccion">
           <ScalarProperty Name="HorayFecha" ColumnName="HorayFecha" />
@@ -54,7 +54,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios">
+    <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="EntidadFinancieraModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -70,9 +70,38 @@
     <FunctionImportMapping FunctionImportName="pa_BancoExteno_Update" FunctionName="EntidadFinancieraModel.Store.pa_BancoExteno_Update" />
     <FunctionImportMapping FunctionImportName="pa_Cliente_AbonoRetiroExterno" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_AbonoRetiroExterno" />
     <FunctionImportMapping FunctionImportName="pa_Cliente_AbonoRetiroInterno" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_AbonoRetiroInterno" />
+    <FunctionImportMapping FunctionImportName="pa_Cliente_Buscar" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Buscar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Cliente_Buscar_Result">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="DireccionExac" ColumnName="DireccionExac" />
+          <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
+          <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="pa_Cliente_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Delete" />
     <FunctionImportMapping FunctionImportName="pa_Cliente_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Insert" />
     <FunctionImportMapping FunctionImportName="pa_Cliente_Update" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Update" />
+    <FunctionImportMapping FunctionImportName="pa_ConsultaSaldos" FunctionName="EntidadFinancieraModel.Store.pa_ConsultaSaldos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_ConsultaSaldos_Result">
+          <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="pa_EstadosdeCuenta" FunctionName="EntidadFinancieraModel.Store.pa_EstadosdeCuenta">
       <ResultMapping>
         <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_EstadosdeCuenta_Result">
@@ -122,6 +151,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pa_Usuario_Buscar" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Buscar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Usuario_Buscar_Result">
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="pa_Usuario_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Delete" />
     <FunctionImportMapping FunctionImportName="pa_Usuario_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Insert" />
     <FunctionImportMapping FunctionImportName="pa_Usuario_Update" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Update" />
@@ -141,14 +181,6 @@
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="pa_ConsultaSaldos" FunctionName="EntidadFinancieraModel.Store.pa_ConsultaSaldos">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_ConsultaSaldos_Result">
-          <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

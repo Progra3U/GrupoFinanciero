@@ -28,11 +28,11 @@ namespace S04Entidades
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<BancoExteno> BancoExtenoes { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Servicio> Servicios { get; set; }
-        public DbSet<Transaccion> Transaccions { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<BancoExteno> BancoExteno { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Servicio> Servicio { get; set; }
+        public DbSet<Transaccion> Transaccion { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
     
         public virtual int pa_BancoExteno_Delete(string cuentaExterna)
         {
@@ -111,6 +111,15 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Cliente_AbonoRetiroInterno", cuentaInternaParameter, descripcionParameter, saldoCuentaParameter);
         }
     
+        public virtual ObjectResult<pa_Cliente_Buscar_Result> pa_Cliente_Buscar(Nullable<int> cedula)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_Cliente_Buscar_Result>("pa_Cliente_Buscar", cedulaParameter);
+        }
+    
         public virtual int pa_Cliente_Delete(Nullable<int> cedula)
         {
             var cedulaParameter = cedula.HasValue ?
@@ -185,7 +194,7 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Cliente_Insert", cedulaParameter, nombreParameter, apellido1Parameter, apellido2Parameter, fechaNacParameter, telefonoParameter, correoParameter, provinciaParameter, direccionExacParameter, saldoCuentaParameter, contrasenaParameter, cuentaInternaParameter, cuentaSimpeParameter, descripcionParameter, estadoParameter);
         }
     
-        public virtual int pa_Cliente_Update(Nullable<int> cedula, string nombre, string apellido1, string apellido2, Nullable<System.DateTime> fechaNac, string telefono, string correo, string provincia, string direccionExac, Nullable<int> saldoCuenta, string contrasena, string cuentaInterna, string cuentaSimpe, string descripcion, Nullable<bool> estado)
+        public virtual int pa_Cliente_Update(Nullable<int> cedula, string nombre, string apellido1, string apellido2, Nullable<System.DateTime> fechaNac, string telefono, string correo, string provincia, string direccionExac, string contrasena, Nullable<bool> estado)
         {
             var cedulaParameter = cedula.HasValue ?
                 new ObjectParameter("Cedula", cedula) :
@@ -223,31 +232,24 @@ namespace S04Entidades
                 new ObjectParameter("DireccionExac", direccionExac) :
                 new ObjectParameter("DireccionExac", typeof(string));
     
-            var saldoCuentaParameter = saldoCuenta.HasValue ?
-                new ObjectParameter("SaldoCuenta", saldoCuenta) :
-                new ObjectParameter("SaldoCuenta", typeof(int));
-    
             var contrasenaParameter = contrasena != null ?
                 new ObjectParameter("Contrasena", contrasena) :
                 new ObjectParameter("Contrasena", typeof(string));
-    
-            var cuentaInternaParameter = cuentaInterna != null ?
-                new ObjectParameter("CuentaInterna", cuentaInterna) :
-                new ObjectParameter("CuentaInterna", typeof(string));
-    
-            var cuentaSimpeParameter = cuentaSimpe != null ?
-                new ObjectParameter("CuentaSimpe", cuentaSimpe) :
-                new ObjectParameter("CuentaSimpe", typeof(string));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
     
             var estadoParameter = estado.HasValue ?
                 new ObjectParameter("Estado", estado) :
                 new ObjectParameter("Estado", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Cliente_Update", cedulaParameter, nombreParameter, apellido1Parameter, apellido2Parameter, fechaNacParameter, telefonoParameter, correoParameter, provinciaParameter, direccionExacParameter, saldoCuentaParameter, contrasenaParameter, cuentaInternaParameter, cuentaSimpeParameter, descripcionParameter, estadoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Cliente_Update", cedulaParameter, nombreParameter, apellido1Parameter, apellido2Parameter, fechaNacParameter, telefonoParameter, correoParameter, provinciaParameter, direccionExacParameter, contrasenaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<pa_ConsultaSaldos_Result> pa_ConsultaSaldos(Nullable<int> cedula)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_ConsultaSaldos_Result>("pa_ConsultaSaldos", cedulaParameter);
         }
     
         public virtual ObjectResult<pa_EstadosdeCuenta_Result> pa_EstadosdeCuenta(Nullable<int> cedula)
@@ -315,6 +317,15 @@ namespace S04Entidades
         public virtual ObjectResult<pa_TransaccionesRegistradas_Result> pa_TransaccionesRegistradas()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_TransaccionesRegistradas_Result>("pa_TransaccionesRegistradas");
+        }
+    
+        public virtual ObjectResult<pa_Usuario_Buscar_Result> pa_Usuario_Buscar(string usuario)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("Usuario", usuario) :
+                new ObjectParameter("Usuario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_Usuario_Buscar_Result>("pa_Usuario_Buscar", usuarioParameter);
         }
     
         public virtual int pa_Usuario_Delete(string usuario)
@@ -392,15 +403,6 @@ namespace S04Entidades
                 new ObjectParameter("Estado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_VerEstadoUsuarios_Result>("pa_VerEstadoUsuarios", estadoParameter);
-        }
-    
-        public virtual ObjectResult<pa_ConsultaSaldos_Result> pa_ConsultaSaldos(Nullable<int> cedula)
-        {
-            var cedulaParameter = cedula.HasValue ?
-                new ObjectParameter("Cedula", cedula) :
-                new ObjectParameter("Cedula", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_ConsultaSaldos_Result>("pa_ConsultaSaldos", cedulaParameter);
         }
     }
 }

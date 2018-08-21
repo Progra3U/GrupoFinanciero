@@ -87,6 +87,9 @@
           <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
           <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_Cliente_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cedula" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_Cliente_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Cedula" Type="int" Mode="In" />
         </Function>
@@ -117,11 +120,7 @@
           <Parameter Name="Correo" Type="nvarchar" Mode="In" />
           <Parameter Name="Provincia" Type="nvarchar" Mode="In" />
           <Parameter Name="DireccionExac" Type="nvarchar" Mode="In" />
-          <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
           <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
-          <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
-          <Parameter Name="CuentaSimpe" Type="nvarchar" Mode="In" />
-          <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
         </Function>
         <Function Name="pa_ConsultaSaldos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -147,6 +146,9 @@
           <Parameter Name="Estado" Type="bit" Mode="In" />
         </Function>
         <Function Name="pa_TransaccionesRegistradas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="pa_Usuario_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="pa_Usuario_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
         </Function>
@@ -182,13 +184,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="EntidadFinancieraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EntidadFinancieraEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BancoExtenoes" EntityType="EntidadFinancieraModel.BancoExteno" />
-          <EntitySet Name="Clientes" EntityType="EntidadFinancieraModel.Cliente" />
-          <EntitySet Name="Servicios" EntityType="EntidadFinancieraModel.Servicio" />
-          <EntitySet Name="Transaccions" EntityType="EntidadFinancieraModel.Transaccion" />
-          <EntitySet Name="Usuarios" EntityType="EntidadFinancieraModel.Usuario" />
+          <EntitySet Name="BancoExteno" EntityType="EntidadFinancieraModel.BancoExteno" />
+          <EntitySet Name="Cliente" EntityType="EntidadFinancieraModel.Cliente" />
+          <EntitySet Name="Servicio" EntityType="EntidadFinancieraModel.Servicio" />
+          <EntitySet Name="Transaccion" EntityType="EntidadFinancieraModel.Transaccion" />
+          <EntitySet Name="Usuario" EntityType="EntidadFinancieraModel.Usuario" />
           <FunctionImport Name="pa_BancoExteno_Delete">
-          <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+            <Parameter Name="CuentaExterna" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_BancoExteno_Insert">
             <Parameter Name="CuentaExterna" Mode="In" Type="String" />
@@ -210,8 +212,11 @@
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="pa_Cliente_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Cliente_Buscar_Result)">
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="pa_Cliente_Delete">
-          <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Insert">
             <Parameter Name="cedula" Mode="In" Type="Int32" />
@@ -240,15 +245,14 @@
             <Parameter Name="Correo" Mode="In" Type="String" />
             <Parameter Name="Provincia" Mode="In" Type="String" />
             <Parameter Name="DireccionExac" Mode="In" Type="String" />
-            <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
             <Parameter Name="Contrasena" Mode="In" Type="String" />
-            <Parameter Name="CuentaInterna" Mode="In" Type="String" />
-            <Parameter Name="CuentaSimpe" Mode="In" Type="String" />
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="pa_ConsultaSaldos" ReturnType="Collection(EntidadFinancieraModel.pa_ConsultaSaldos_Result)">
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="pa_EstadosdeCuenta" ReturnType="Collection(EntidadFinancieraModel.pa_EstadosdeCuenta_Result)">
-          <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Cedula" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_Globales" ReturnType="Collection(EntidadFinancieraModel.pa_Globales_Result)" />
           <FunctionImport Name="pa_Login" ReturnType="Collection(EntidadFinancieraModel.pa_Login_Result)">
@@ -256,7 +260,7 @@
             <Parameter Name="Contrasena" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Delete">
-          <Parameter Name="DescServicio" Mode="In" Type="String" />
+            <Parameter Name="DescServicio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Insert">
             <Parameter Name="DescServicio" Mode="In" Type="String" />
@@ -267,8 +271,11 @@
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_TransaccionesRegistradas" ReturnType="Collection(EntidadFinancieraModel.pa_TransaccionesRegistradas_Result)" />
+          <FunctionImport Name="pa_Usuario_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Usuario_Buscar_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="pa_Usuario_Delete">
-          <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Usuario_Insert">
             <Parameter Name="Usuario" Mode="In" Type="String" />
@@ -285,13 +292,10 @@
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_VerEstadoClientes" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoClientes_Result)">
-          <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_VerEstadoUsuarios" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoUsuarios_Result)">
-          <Parameter Name="Estado" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="pa_ConsultaSaldos" ReturnType="Collection(EntidadFinancieraModel.pa_ConsultaSaldos_Result)">
-            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="BancoExteno">
@@ -353,6 +357,27 @@
           <Property Name="Perfil" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
         </EntityType>
+        <ComplexType Name="pa_Cliente_Buscar_Result">
+          <Property Type="Int32" Name="Cedula" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaNac" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Telefono" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Provincia" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DireccionExac" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="SaldoCuenta" Nullable="false" />
+          <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CuentaInterna" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CuentaSimpe" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pa_ConsultaSaldos_Result">
+          <Property Type="Int32" Name="SaldoCuenta" Nullable="false" />
+          <Property Type="Int32" Name="Cedula" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="pa_EstadosdeCuenta_Result">
           <Property Type="Int32" Name="IdTransac" Nullable="false" />
           <Property Type="Int32" Name="Cedula" Nullable="true" />
@@ -383,6 +408,13 @@
           <Property Type="Int32" Name="Monto" Nullable="false" />
           <Property Type="DateTime" Name="HorayFecha" Nullable="true" Precision="23" />
         </ComplexType>
+        <ComplexType Name="pa_Usuario_Buscar_Result">
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="pa_VerEstadoClientes_Result">
           <Property Type="Int32" Name="Cedula" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
@@ -394,17 +426,13 @@
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="Estado" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="pa_ConsultaSaldos_Result">
-          <Property Type="Int32" Name="SaldoCuenta" Nullable="false" />
-          <Property Type="Int32" Name="Cedula" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EntidadFinancieraModelStoreContainer" CdmEntityContainer="EntidadFinancieraEntities">
-          <EntitySetMapping Name="BancoExtenoes">
+          <EntitySetMapping Name="BancoExteno">
             <EntityTypeMapping TypeName="EntidadFinancieraModel.BancoExteno">
               <MappingFragment StoreEntitySet="BancoExteno">
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
@@ -414,7 +442,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Clientes">
+          <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="EntidadFinancieraModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -435,7 +463,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Servicios">
+          <EntitySetMapping Name="Servicio">
             <EntityTypeMapping TypeName="EntidadFinancieraModel.Servicio">
               <MappingFragment StoreEntitySet="Servicio">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -444,7 +472,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Transaccions">
+          <EntitySetMapping Name="Transaccion">
             <EntityTypeMapping TypeName="EntidadFinancieraModel.Transaccion">
               <MappingFragment StoreEntitySet="Transaccion">
                 <ScalarProperty Name="HorayFecha" ColumnName="HorayFecha" />
@@ -457,7 +485,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
+          <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="EntidadFinancieraModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -473,9 +501,38 @@
           <FunctionImportMapping FunctionImportName="pa_BancoExteno_Update" FunctionName="EntidadFinancieraModel.Store.pa_BancoExteno_Update" />
           <FunctionImportMapping FunctionImportName="pa_Cliente_AbonoRetiroExterno" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_AbonoRetiroExterno" />
           <FunctionImportMapping FunctionImportName="pa_Cliente_AbonoRetiroInterno" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_AbonoRetiroInterno" />
+          <FunctionImportMapping FunctionImportName="pa_Cliente_Buscar" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Buscar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Cliente_Buscar_Result">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="DireccionExac" ColumnName="DireccionExac" />
+                <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
+                <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_Cliente_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Delete" />
           <FunctionImportMapping FunctionImportName="pa_Cliente_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Insert" />
           <FunctionImportMapping FunctionImportName="pa_Cliente_Update" FunctionName="EntidadFinancieraModel.Store.pa_Cliente_Update" />
+          <FunctionImportMapping FunctionImportName="pa_ConsultaSaldos" FunctionName="EntidadFinancieraModel.Store.pa_ConsultaSaldos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_ConsultaSaldos_Result">
+                <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_EstadosdeCuenta" FunctionName="EntidadFinancieraModel.Store.pa_EstadosdeCuenta">
             <ResultMapping>
               <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_EstadosdeCuenta_Result">
@@ -525,6 +582,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_Usuario_Buscar" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Buscar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Usuario_Buscar_Result">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_Usuario_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Delete" />
           <FunctionImportMapping FunctionImportName="pa_Usuario_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Insert" />
           <FunctionImportMapping FunctionImportName="pa_Usuario_Update" FunctionName="EntidadFinancieraModel.Store.pa_Usuario_Update" />
@@ -544,14 +612,6 @@
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_ConsultaSaldos" FunctionName="EntidadFinancieraModel.Store.pa_ConsultaSaldos">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_ConsultaSaldos_Result">
-                <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

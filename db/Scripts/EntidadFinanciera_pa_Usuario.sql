@@ -15,7 +15,7 @@ INSERT INTO Usuario VALUES(@Usuario,@Nombre,@Contrasena,@Perfil,@Estado)
 END
 go
 
-CREATE PROCEDURE pa_Usuario_Update
+ALTER PROCEDURE pa_Usuario_Update
 	@Usuario 		nvarchar(50),
 	@Nombre 		nvarchar(50),
 	@Contrasena 	nvarchar(50),

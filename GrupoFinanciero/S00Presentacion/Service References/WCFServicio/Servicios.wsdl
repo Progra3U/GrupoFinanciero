@@ -43,6 +43,12 @@
   <wsdl:message name="IServicios_ClienteEliminar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClienteEliminarResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicios_ClienteBuscar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClienteBuscar" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ClienteBuscar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClienteBuscarResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicios_ServicioAgregar_InputMessage">
     <wsdl:part name="parameters" element="tns:ServicioAgregar" />
   </wsdl:message>
@@ -78,6 +84,12 @@
   </wsdl:message>
   <wsdl:message name="IServicios_UsuarioEliminar_OutputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioEliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_UsuarioBuscar_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioBuscar" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_UsuarioBuscar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioBuscarResponse" />
   </wsdl:message>
   <wsdl:message name="IServicios_AbonoRetiroInterno_InputMessage">
     <wsdl:part name="parameters" element="tns:AbonoRetiroInterno" />
@@ -158,6 +170,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ClienteEliminar" message="tns:IServicios_ClienteEliminar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ClienteEliminarResponse" message="tns:IServicios_ClienteEliminar_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ClienteBuscar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ClienteBuscar" message="tns:IServicios_ClienteBuscar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ClienteBuscarResponse" message="tns:IServicios_ClienteBuscar_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ServicioAgregar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ServicioAgregar" message="tns:IServicios_ServicioAgregar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ServicioAgregarResponse" message="tns:IServicios_ServicioAgregar_OutputMessage" />
@@ -181,6 +197,10 @@
     <wsdl:operation name="UsuarioEliminar">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/UsuarioEliminar" message="tns:IServicios_UsuarioEliminar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicios/UsuarioEliminarResponse" message="tns:IServicios_UsuarioEliminar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioBuscar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/UsuarioBuscar" message="tns:IServicios_UsuarioBuscar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/UsuarioBuscarResponse" message="tns:IServicios_UsuarioBuscar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AbonoRetiroInterno">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/AbonoRetiroInterno" message="tns:IServicios_AbonoRetiroInterno_InputMessage" />
@@ -275,6 +295,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ClienteBuscar">
+      <soap:operation soapAction="http://tempuri.org/IServicios/ClienteBuscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ServicioAgregar">
       <soap:operation soapAction="http://tempuri.org/IServicios/ServicioAgregar" style="document" />
       <wsdl:input>
@@ -322,6 +351,15 @@
     </wsdl:operation>
     <wsdl:operation name="UsuarioEliminar">
       <soap:operation soapAction="http://tempuri.org/IServicios/UsuarioEliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioBuscar">
+      <soap:operation soapAction="http://tempuri.org/IServicios/UsuarioBuscar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

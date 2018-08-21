@@ -187,8 +187,8 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 {
                     objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
                     
-                    //ConexionServicios.ConexionesInternas.ClienteModificar(objCliente);
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Informacion Encontrada');</script>");
+                    ConexionServicios.ConexionesInternas.ClienteBuscar(objCliente);
+                   
                     //Limpiar();
                     if(objCliente.Cedula == Convert.ToInt32(this.Cedula.Text.Trim()))
                     {
@@ -208,6 +208,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                         else
                             this.Estado.Text = "Inactivo";
                     }
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Informacion Encontrada');</script>");
                 }
                 else
                 {

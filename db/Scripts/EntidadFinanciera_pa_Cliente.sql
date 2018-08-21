@@ -60,12 +60,12 @@ END
 go
 
 
-CREATE PROCEDURE pa_Cliente_Buscar
+alter PROCEDURE pa_Cliente_Buscar
 	@Cedula 		int
 AS
 BEGIN
-	SELECT cl.cedula, cl.Apellido1, cl.Apellido2, cl.FechaNac, cl.Telefono, cl.Correo, cl.Provincia, 
-	cl.DireccionExac, cl.SaldoCuenta, cl.Contrasena, cl.CuentaInterna, cl.CuentaSimpe, cl.Descripcion, cl.Estado
+	SELECT cl.Cedula, cl.Nombre, cl.Apellido1, cl.Apellido2, cl.FechaNac, cl.Telefono, cl.Correo, cl.Provincia, 
+	cl.DireccionExac, cl.SaldoCuenta, cl.Contrasena, cl.CuentaInterna, cl.CuentaSimpe,  cl.Descripcion, cl.Estado
 	FROM Cliente cl
 	WHERE cl.cedula = @Cedula
 END
