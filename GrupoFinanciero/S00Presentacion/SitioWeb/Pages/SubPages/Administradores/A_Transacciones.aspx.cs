@@ -13,5 +13,15 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
         {
 
         }
+
+        protected void gvTransacciones_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void gvTransacciones_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }

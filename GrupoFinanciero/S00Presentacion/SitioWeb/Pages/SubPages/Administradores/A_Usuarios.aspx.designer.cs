@@ -94,12 +94,12 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
         protected global::System.Web.UI.WebControls.Button Eliminar;
         
         /// <summary>
-        /// gvAdministrador control.
+        /// gvUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAdministrador;
+        protected global::System.Web.UI.WebControls.GridView gvUsuarios;
     }
 }

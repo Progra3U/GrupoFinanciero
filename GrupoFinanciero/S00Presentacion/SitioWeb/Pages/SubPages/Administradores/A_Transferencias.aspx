@@ -6,13 +6,23 @@
     <div id="wrap">
         <h2 id="titulo">Administracion Transferencias</h2>
         <section id="FormUsuarios">
-            <form>                
-                <asp:Label class="label" runat="server" For="Estado">Transferencias:</asp:Label>
-                <asp:DropDownList id="Estado" class="textBox"  runat="server">
-                     <asp:ListItem Value="Activo" Selected="True">Activo</asp:ListItem>
-                     <asp:ListItem Value="Inactivo">Inactivo</asp:ListItem>
-                </asp:DropDownList>                
-            </form>
+            <asp:GridView ID="gvTransferencias" runat="server" AutoGenerateColumns="false" 
+                    AllowPaging="true" Width="100%" PageSize="5" OnPageIndexChanging="gvTransferencias_PageIndexChanging"
+                    OnSelectedIndexChanging="gvTransferencias_SelectedIndexChanging">
+                    <Columns>
+                        <asp:CommandField ShowSelectButton="true" SelectText="Seleccione" />
+                        <asp:BoundField DataField="IdTransacE" HeaderText="Id Transferencia" />
+                        <asp:BoundField DataField="CuentaBancoEx" HeaderText="Cuenta Banco Exterior" />
+                        <asp:BoundField DataField="CuentaInterna" HeaderText="Cuenta bancaria Interna" />
+                        <asp:BoundField DataField="DetalleTrans" HeaderText="Detalle de la Transferencia" />
+                        <asp:BoundField DataField="HorayFecha" HeaderText="Hora y Fecha en que se realizo" />
+                        <asp:BoundField DataField="Monto" HeaderText="Monto Transferido" />
+                    </Columns>
+                <AlternatingRowStyle BackColor="LightBlue" />
+                <RowStyle BackColor ="LightGray" />
+                <PagerStyle HorizontalAlign="Center" BackColor="WindowFrame" />
+                <HeaderStyle HorizontalAlign="Center" BackColor="WindowFrame" />
+                </asp:GridView>
             <asp:Button class="botones" ID="EjecutarTransacciones" runat="server" Text="Ejecutar" OnClick="EjecutarTransacciones_Click" />
         </section>
     </div>
