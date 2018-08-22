@@ -20,3 +20,23 @@ INSERT Usuario
 (Usuario,Nombre, Contrasena, Perfil, Estado)
 SELECT Cedula, Nombre+' '+Apellido1+' '+Apellido2, Contrasena, 'Cliente', Estado
 FROM INSERTED
+
+--Creacion de Trigger para actualizacion de saldos Cliente
+CREATE TRIGGER tg_ActualizarSaldoCliente
+ON BancoExteno
+FOR INSERT
+AS
+UPDATE Cliente
+SET SaldoCuenta = Monto
+WHERE CuentaInterna = CuentaInterna
+FROM INSERTED
+
+--Creacion de Trigger para agregar transacciones externas
+CREATE TRIGGER tg_InsertPagoBancoExteno
+ON BancoExteno
+FOR INSERT
+AS
+INSERT Transaccion 
+(CuentaInterna, CuentaSimpe, Descripcion, Monto, HorayFecha)
+SELECT CuentaInterna, CuentaBancoEx, DetalleTrans, Monto, HorayFecha
+FROM INSERTED

@@ -84,6 +84,17 @@ BEGIN
 END
 go
 
+--Creacion de pa para consulta Saldos
+alter PROCEDURE pa_ConsultaSaldos
+	@Cedula int
+AS
+BEGIN
+	SELECT cl.SaldoCuenta, cl.Cedula	
+	FROM Cliente cl 
+	where cl.Cedula = @Cedula
+END
+go
+
 
 
 
