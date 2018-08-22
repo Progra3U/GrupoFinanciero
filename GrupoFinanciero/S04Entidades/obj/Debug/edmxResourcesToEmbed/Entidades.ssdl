@@ -13,7 +13,7 @@
     <Key>
       <PropertyRef Name="Cedula" />
     </Key>
-    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Cedula" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Apellido1" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Apellido2" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -83,13 +83,13 @@
     <Parameter Name="SaldoCuenta" Type="int" Mode="In" />
   </Function>
   <Function Name="pa_Cliente_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Cedula" Type="int" Mode="In" />
+    <Parameter Name="Cedula" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="pa_Cliente_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Cedula" Type="int" Mode="In" />
+    <Parameter Name="Cedula" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="pa_Cliente_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="cedula" Type="int" Mode="In" />
+    <Parameter Name="cedula" Type="nvarchar" Mode="In" />
     <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
     <Parameter Name="Apellido1" Type="nvarchar" Mode="In" />
     <Parameter Name="Apellido2" Type="nvarchar" Mode="In" />
@@ -106,7 +106,7 @@
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
   <Function Name="pa_Cliente_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Cedula" Type="int" Mode="In" />
+    <Parameter Name="Cedula" Type="nvarchar" Mode="In" />
     <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
     <Parameter Name="Apellido1" Type="nvarchar" Mode="In" />
     <Parameter Name="Apellido2" Type="nvarchar" Mode="In" />
@@ -119,7 +119,7 @@
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
   <Function Name="pa_ConsultaSaldos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Cedula" Type="int" Mode="In" />
+    <Parameter Name="Cedula" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="pa_EstadosdeCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Cedula" Type="int" Mode="In" />

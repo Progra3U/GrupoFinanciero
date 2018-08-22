@@ -109,7 +109,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 Cliente objCliente = new Cliente();
                 if (Contrasena.Text.Equals(Contrasena2.Text))
                 {
-                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    objCliente.Cedula = this.Cedula.Text.Trim();
                     objCliente.Nombre = this.Nombre.Text.Trim();
                     objCliente.Apellido1 = this.PrimerApellido.Text.Trim();
                     objCliente.Apellido2 = this.SegundoApellido.Text.Trim();
@@ -123,7 +123,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                     objCliente.CuentaInterna = Cuenta();
                     objCliente.CuentaSimpe = Simpe();
                     objCliente.Descripcion = "Apertura de Cuenta";
-                    objCliente.Estado = Convert.ToBoolean(this.Estado.Text.Trim());
+                    objCliente.Estado = true;
 
                     Thread hilo = new Thread(EnviarCorreoElectronicos);
                     hilo.Start();
@@ -150,7 +150,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 Cliente objCliente = new Cliente();
                 if (this.Cedula.Text.Trim() != null)
                 {
-                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    objCliente.Cedula = this.Cedula.Text.Trim();
                     objCliente.Nombre = this.Nombre.Text.Trim();
                     objCliente.Apellido1 = this.PrimerApellido.Text.Trim();
                     objCliente.Apellido2 = this.SegundoApellido.Text.Trim();
@@ -160,10 +160,10 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                     objCliente.Provincia = this.Provincia.Text.ToString();
                     objCliente.DireccionExac = this.Direccion.Text.Trim();
                     objCliente.Contrasena = this.Contrasena.Text.Trim();
-                    objCliente.Estado = true;
+                    objCliente.Estado = Convert.ToBoolean(this.Estado.Text);
                     ConexionServicios.ConexionesInternas.ClienteModificar(objCliente);
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Datos Actualizados con exito');</script>");
-                    //Limpiar();
+                    Limpiar();
                 }
                 else
                 {
@@ -179,39 +179,46 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
+            string Cedula, Nombre, PrimerApellido, SegundoApellido, FechaNac, Telefono, Correo,Provincia, 
+                Direccion, SaldoCuenta, Contrasena, CuentaInterna, CuentaSimpe, Descripcion;
+            bool Estado;            
             try
             {
-                Cliente objCliente = new Cliente();
-                if (this.Cedula.Text.Trim() != null)
+                List<Cliente> lstsECliente;
+                Cliente ECliente = new Cliente();
+                ECliente.Cedula = this.Cedula.Text.Trim();
+                lstsECliente = ConexionServicios.ConexionesInternas.ClienteBuscar(ECliente);
+                foreach (var item in lstsECliente)
                 {
-                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
-                    
-                    ConexionServicios.ConexionesInternas.ClienteBuscar(objCliente);
-                   
-                    //Limpiar();
-                    if(objCliente.Cedula == Convert.ToInt32(this.Cedula.Text.Trim()))
-                    {
-                        this.Cedula.Text = objCliente.Cedula.ToString();
-                        this.Nombre.Text = objCliente.Nombre;
-                        this.PrimerApellido.Text = objCliente.Apellido1;
-                        this.SegundoApellido.Text = objCliente.Apellido2;
-                        this.FechaNac.Text = objCliente.FechaNac.ToString();
-                        this.Telefono.Text = objCliente.Telefono;
-                        this.Correo.Text = objCliente.Correo;
-                        this.Provincia.Text = objCliente.Provincia;
-                        this.Direccion.Text = objCliente.DireccionExac;
-                        this.Monto.Text = objCliente.SaldoCuenta.ToString();
-                        this.Contrasena.Text = objCliente.Contrasena;
-                        if(objCliente.Estado==true)
-                            this.Estado.Text = "Activo";
-                        else
-                            this.Estado.Text = "Inactivo";
+                    Cedula = item.Cedula.ToString();Nombre = item.Nombre;
+                    PrimerApellido = item.Apellido1;SegundoApellido = item.Apellido2;
+                    FechaNac = item.FechaNac.ToString();Telefono = item.Telefono;
+                    Correo = item.Correo;Provincia = item.Provincia;
+                    Direccion = item.DireccionExac;SaldoCuenta = item.SaldoCuenta.ToString();
+                    Contrasena = item.Contrasena;CuentaInterna = item.CuentaInterna;
+                    CuentaSimpe = item.CuentaSimpe;Descripcion = item.Descripcion;
+                    Estado = item.Estado;
+
+
+
+                    if (item.Cedula.ToString().Equals(this.Cedula.Text.Trim()))
+                    {     
+                        this.Nombre.Text = Nombre; this.PrimerApellido.Text = PrimerApellido;
+                        this.SegundoApellido.Text = SegundoApellido;this.FechaNac.Text = FechaNac;
+                        this.Telefono.Text = Telefono;this.Correo.Text = Correo;
+                        this.Provincia.Text = Provincia;this.Direccion.Text = Direccion;
+                        this.Monto.Text = SaldoCuenta; this.Contrasena.Text = Contrasena;
+                        this.Contrasena2.Text = Contrasena;
+                        if (Estado==false)
+                        {
+                            //this.Estado.Text = "Inactivo";
+                            this.Estado.SelectedValue = "Inactivo";
+                        }
                     }
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Informacion Encontrada');</script>");
-                }
-                else
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error: el campo Cedula no debe estar vacio');</script>");
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error: Usuario no existe');</script>");
+                    }
                 }
             }
             catch (Exception ex)
@@ -228,7 +235,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 Cliente objCliente = new Cliente();
                 if (this.Cedula.Text.Trim() != null)
                 {
-                    objCliente.Cedula = Convert.ToInt32(this.Cedula.Text.Trim());
+                    objCliente.Cedula = this.Cedula.Text.Trim();
                     ConexionServicios.ConexionesInternas.ClienteEliminar(objCliente);
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Datos Eliminados con exito');</script>");
                     Limpiar();

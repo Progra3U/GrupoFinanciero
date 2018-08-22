@@ -158,6 +158,7 @@ namespace S03AccesoDatos
                         client.CuentaSimpe = item.CuentaSimpe;
                         client.Descripcion = item.Descripcion;
                         client.Estado = item.Estado;
+                        lstResultados.Add(client);
                     }
                 }
             }

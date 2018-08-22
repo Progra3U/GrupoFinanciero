@@ -16,7 +16,7 @@
                 <asp:Label class="label" runat="server" For="SegundoApellido">2<sup>do</sup> Apellido:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="text" ID="SegundoApellido" placeholder="Segundo Apellido" runat="server"></asp:TextBox> 
                 <asp:Label class="label" runat="server" For="FechaNac">Fecha de Nacimiento:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="date" ID="FechaNac" min="1918-12-31" Max="2100-12-31" placeholder="Fecha de Nacimiento" runat="server"></asp:TextBox> 
+                <asp:TextBox class="textBox" size="30" type="text" ID="FechaNac" min="1918-12-31" Max="2100-12-31" placeholder="2100-12-31" runat="server"></asp:TextBox> 
                 <asp:Label class="label" runat="server" For="Telefono">Telefono:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="tel" ID="Telefono" pattern="[+][0-9]{3}[-][0-9]{4}[-][0-9]{4}" MaxLength="14" placeholder="+506-0000-0000" runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" For="Correo">Correo:</asp:Label>
@@ -35,11 +35,12 @@
                 <asp:Label class="label" runat="server" For="Monto">Monto Inicial de Apertura:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="number" ID="Monto" min="20000"  placeholder="Minimo  $20000" runat="server"></asp:TextBox> 
                 <asp:Label class="label" runat="server" For="Contrasena">Contrasena:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="password" ID="Contrasena"  MaxLength="12" placeholder="Password" runat="server"></asp:TextBox> 
-                <asp:TextBox class="textBox" size="30" type="password" ID="Contrasena2" MaxLength="12" placeholder="Repeat Password" runat="server"></asp:TextBox>
+                <asp:TextBox class="textBox" size="30" type="password" ID="Contrasena"  MaxLength="8" placeholder="Password" runat="server"></asp:TextBox> 
+                <asp:TextBox class="textBox" size="30" type="password" ID="Contrasena2" MaxLength="8" placeholder="Repeat Password" runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" For="Estado">Estado:</asp:Label>
                 <asp:DropDownList id="Estado" class="textBox"  runat="server">
-                     <asp:ListItem Value="True" Selected="True">Activo</asp:ListItem>
+                    <asp:ListItem  Selected="True">Seleccione estado</asp:ListItem>
+                     <asp:ListItem Value="True" >Activo</asp:ListItem>
                      <asp:ListItem Value="False">Inactivo</asp:ListItem>
                 </asp:DropDownList>
             </form>

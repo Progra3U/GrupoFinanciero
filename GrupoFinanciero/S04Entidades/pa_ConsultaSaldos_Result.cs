@@ -15,6 +15,6 @@ namespace S04Entidades
     public partial class pa_ConsultaSaldos_Result
     {
         public int SaldoCuenta { get; set; }
-        public int Cedula { get; set; }
+        public string Cedula { get; set; }
     }
 }

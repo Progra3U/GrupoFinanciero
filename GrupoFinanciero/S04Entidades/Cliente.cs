@@ -15,7 +15,7 @@ namespace S04Entidades
     [Serializable]
     public partial class Cliente
     {
-        public int Cedula { get; set; }
+        public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }

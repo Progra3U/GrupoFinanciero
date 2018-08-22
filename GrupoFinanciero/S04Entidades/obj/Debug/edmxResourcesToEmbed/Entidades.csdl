@@ -30,13 +30,13 @@
       <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="pa_Cliente_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Cliente_Buscar_Result)">
-      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+      <Parameter Name="Cedula" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="pa_Cliente_Delete">
-      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+      <Parameter Name="Cedula" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="pa_Cliente_Insert">
-      <Parameter Name="cedula" Mode="In" Type="Int32" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
       <Parameter Name="Nombre" Mode="In" Type="String" />
       <Parameter Name="Apellido1" Mode="In" Type="String" />
       <Parameter Name="Apellido2" Mode="In" Type="String" />
@@ -53,7 +53,7 @@
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="pa_Cliente_Update">
-      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+      <Parameter Name="Cedula" Mode="In" Type="String" />
       <Parameter Name="Nombre" Mode="In" Type="String" />
       <Parameter Name="Apellido1" Mode="In" Type="String" />
       <Parameter Name="Apellido2" Mode="In" Type="String" />
@@ -66,7 +66,7 @@
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="pa_ConsultaSaldos" ReturnType="Collection(EntidadFinancieraModel.pa_ConsultaSaldos_Result)">
-      <Parameter Name="Cedula" Mode="In" Type="Int32" />
+      <Parameter Name="Cedula" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="pa_EstadosdeCuenta" ReturnType="Collection(EntidadFinancieraModel.pa_EstadosdeCuenta_Result)">
       <Parameter Name="Cedula" Mode="In" Type="Int32" />
@@ -128,7 +128,7 @@
     <Key>
       <PropertyRef Name="Cedula" />
     </Key>
-    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Cedula" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -175,7 +175,7 @@
     <Property Name="Estado" Type="Boolean" Nullable="false" />
   </EntityType>
   <ComplexType Name="pa_Cliente_Buscar_Result">
-    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Cedula" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
@@ -193,7 +193,7 @@
   </ComplexType>
   <ComplexType Name="pa_ConsultaSaldos_Result">
     <Property Type="Int32" Name="SaldoCuenta" Nullable="false" />
-    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Cedula" Nullable="false" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="pa_EstadosdeCuenta_Result">
     <Property Type="Int32" Name="IdTransac" Nullable="false" />
@@ -233,7 +233,7 @@
     <Property Type="Boolean" Name="Estado" Nullable="false" />
   </ComplexType>
   <ComplexType Name="pa_VerEstadoClientes_Result">
-    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Cedula" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />

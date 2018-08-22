@@ -30,9 +30,9 @@ go
 
 IF NOT EXISTS(select * from sysobjects where type = 'U' and name = 'Cliente')
 	BEGIN
-		create table Cliente--Defino la tabla con sus campos y propiedades					  
+		CREATE table Cliente--Defino la tabla con sus campos y propiedades					  
 		(				     --Se estable la clave primaria y valor default
-			 Cedula 		int primary key,
+			 Cedula 		nvarchar(50) primary key,
              Nombre 		nvarchar(50) not null default('Sin Nombre'),
 			 Apellido1     	nvarchar(50) not null default('Sin Nombre'),
              Apellido2     	nvarchar(50) not null default('Sin Nombre'),

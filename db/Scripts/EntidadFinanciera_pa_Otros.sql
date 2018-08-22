@@ -86,8 +86,8 @@ go
 
 
 --Creacion de pa para consulta Saldos
-alter PROCEDURE pa_ConsultaSaldos
-	@Cedula int
+ALTER PROCEDURE pa_ConsultaSaldos
+	@Cedula nvarchar(50)
 AS
 BEGIN
 	SELECT cl.SaldoCuenta, cl.Cedula	
