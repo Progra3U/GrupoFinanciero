@@ -17,28 +17,41 @@ namespace S00Presentacion.SitioWeb.Pages
 
         protected void enviar_Click(object sender, EventArgs e)
         {
+            string usuario, nombre, pass, perfil;
+            bool estado;
             try
             {
                 Usuario login = new Usuario();
+                List<Usuario> lsts;
                 login.Usuario1 = this.Usuario.Text.Trim();
                 login.Contrasena = this.Password.Text.Trim();
-                ConexionServicios.ConexionesInternas.Login(login);
+                lsts = ConexionServicios.ConexionesInternas.Login(login);
 
-                if (login.Usuario1.Equals(this.Usuario.Text.Trim()) && login.Contrasena.Equals(this.Password.Text.Trim()))
+                foreach(var item in lsts)
                 {
-                    if (login.Estado == true)
+                    usuario = item.Usuario1;nombre = item.Nombre;pass = item.Contrasena;
+                    perfil = item.Perfil;estado = item.Estado;
+
+                    if (estado == true)
                     {
-                        if (login.Perfil.Equals("Admin"))
+                        if (usuario.Equals(this.Usuario.Text.Trim()) && pass.Equals(this.Password.Text.Trim()))
                         {
-                            Response.Redirect("Administradores.aspx");
+                            if (perfil.Equals("Admin"))
+                            {
+                                Response.Redirect("Administradores.aspx");
+                            }
+                            else if (perfil.Equals("Cliente"))
+                            {
+                                Response.Redirect("Clientes.aspx");
+                            }
+                            else if (perfil.Equals("Usuario"))
+                            {
+                                Response.Redirect("Usuarios.aspx");
+                            }
                         }
-                        else if (login.Perfil.Equals("Cliente"))
+                        else
                         {
-                            Response.Redirect("Clientes.aspx");
-                        }
-                        else if (login.Perfil.Equals("Usuario"))
-                        {
-                            Response.Redirect("Usuarios.aspx");
+                            error.Text = "Error Verifique sus Credenciales";
                         }
                     }
                     else
@@ -46,27 +59,6 @@ namespace S00Presentacion.SitioWeb.Pages
                         error.Text = "Usuario Inactivo. Contacte con el Adminsitrador";
                     }
                 }
-                else
-                {
-                    error.Text = "Error Verifique sus Credenciales";
-                }
-
-                /*if (login.Usuario1.Equals(this.Usuario.Text.Trim()) && login.Contrasena.Equals(this.Password.Text.Trim()))
-                {
-                    Response.Redirect("Administradores.aspx");
-                }
-                else if (Usuario.Text.Equals("Cliente") && Password.Text.Equals("1234"))
-                {
-                    Response.Redirect("Clientes.aspx");
-                }
-                else if (Usuario.Text.Equals("Usuario") && Password.Text.Equals("1234"))
-                {
-                    Response.Redirect("Usuarios.aspx");
-                }
-                else
-                {
-                    error.Text = "Error en contrasena o Usuario";
-                }*/
             }
             catch (Exception ex)
             {
