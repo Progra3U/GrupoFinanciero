@@ -163,7 +163,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                     objCliente.Estado = true;
                     ConexionServicios.ConexionesInternas.ClienteModificar(objCliente);
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Datos Actualizados con exito');</script>");
-                    Limpiar();
+                    //Limpiar();
                 }
                 else
                 {

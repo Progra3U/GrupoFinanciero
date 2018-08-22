@@ -12,9 +12,9 @@ SELECT Cedula, CuentaInterna, CuentaSimpe, Descripcion, SaldoCuenta, GETDATE()
 FROM INSERTED
 
 --Creacion de Trigger para Usuario
-CREATE TRIGGER tg_InsertUsuario
+ALTER TRIGGER tg_InsertUsuario
 ON Cliente
-FOR INSERT, UPDATE, DELETE
+FOR INSERT
 AS
 INSERT Usuario 
 (Usuario,Nombre, Contrasena, Perfil, Estado)

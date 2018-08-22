@@ -43,13 +43,14 @@ ALTER PROCEDURE pa_Cliente_Update
 	@Estado		   	bit
 AS 
 BEGIN
-UPDATE Cliente
-SET Nombre = @Nombre, Apellido1 = @Apellido1, Apellido2 = @Apellido2, FechaNac = @FechaNac, 
+UPDATE Cliente cl
+SET  Nombre = @Nombre, Apellido1 = @Apellido1, Apellido2 = @Apellido2, FechaNac = @FechaNac, 
 	Telefono = @Telefono, Correo = @Correo, Provincia = @Provincia,	DireccionExac = @DireccionExac, 
 	Contrasena = @Contrasena, Estado = @Estado
-WHERE Cedula = @cedula
+WHERE Cedula = @Cedula
 END
 go
+
 
 CREATE PROCEDURE pa_Cliente_Delete
 	@Cedula int
@@ -61,7 +62,7 @@ go
 
 
 alter PROCEDURE pa_Cliente_Buscar
-	@Cedula 		int
+	@Cedula int
 AS
 BEGIN
 	SELECT cl.Cedula, cl.Nombre, cl.Apellido1, cl.Apellido2, cl.FechaNac, cl.Telefono, cl.Correo, cl.Provincia, 
