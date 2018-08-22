@@ -92,8 +92,10 @@ IF NOT EXISTS(select * from sysobjects where type = 'U' and name = 'BancoExteno'
 		create table BancoExteno
 		(
 			IdTransacE 		int identity primary key,
-			CuentaExterna 	nvarchar(50) not null default('Sin Descripcion'),
+			CuentaBancoEx 	nvarchar(50) not null default('Sin Descripcion'),
+			CuentaInterna 	nvarchar(50) not null default('Sin Descripcion'),
 			DetalleTrans 	nvarchar(50) not null default('Sin Descripcion'),
+			HorayFecha 		datetime,
 			Monto 			int not null default(1)
 		)
 	END
@@ -108,7 +110,6 @@ IF NOT EXISTS(select * from sysobjects where type = 'U' and name = 'Transaccion'
 		create table Transaccion
 		(
 		    IdTransac 	int identity primary key,
-		    Cedula 		int,
 		    CuentaInterna nvarchar(50) not null default('Sin Descripcion'),
 		    CuentaSimpe nvarchar(50) not null default('Sin Descripcion'),
 		    Descripcion nvarchar(50) not null default('Sin Descripcion'),

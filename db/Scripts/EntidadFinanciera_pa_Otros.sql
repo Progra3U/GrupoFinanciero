@@ -14,17 +14,17 @@ END
 go
 
 --Creacion de pa para Transferencia de Cuentas Externas
-CREATE PROCEDURE pa_Cliente_AbonoRetiroExterno
-	@CuentaSimpe 	nvarchar(50),
-	@Descripcion	nvarchar(50),
-	@SaldoCuenta   	int
-AS
-BEGIN
-UPDATE Cliente
-SET Descripcion = @Descripcion, SaldoCuenta = @SaldoCuenta 
-WHERE CuentaSimpe = @CuentaSimpe
-END
-go
+--CREATE PROCEDURE pa_Cliente_AbonoRetiroExterno
+--	@CuentaSimpe 	nvarchar(50),
+--	@Descripcion	nvarchar(50),
+--	@SaldoCuenta   	int
+--AS
+--BEGIN
+--UPDATE Cliente
+--SET Descripcion = @Descripcion, SaldoCuenta = @SaldoCuenta 
+--WHERE CuentaSimpe = @CuentaSimpe
+--END
+--go
 
 --Creacion de pa para Estados Globales
 CREATE PROCEDURE pa_Globales
@@ -85,16 +85,8 @@ END
 go
 
 
---Creacion de pa para consulta Saldos
-ALTER PROCEDURE pa_ConsultaSaldos
-	@Cedula nvarchar(50)
-AS
-BEGIN
-	SELECT cl.SaldoCuenta, cl.Cedula	
-	FROM Cliente cl 
-	where cl.Cedula = @Cedula
-END
-go
+
+
 
 
 

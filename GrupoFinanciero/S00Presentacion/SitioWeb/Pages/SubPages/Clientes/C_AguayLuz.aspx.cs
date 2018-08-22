@@ -17,10 +17,10 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
         #region Limpiar
         public void Limpiar()
         {
-            Cedula.Text = String.Empty;
-            Nombre.Text = String.Empty;
-            CuentaSimpe.Text= String.Empty;
-            Monto.Text= String.Empty;
+            CuentaBancoEx.Text = String.Empty;
+            cuentaInterna.Text = String.Empty;
+            PagoSeleccionado.Text= String.Empty;
+            MontoPagar.Text= String.Empty;
         }
         #endregion
         protected void Page_Load(object sender, EventArgs e)
@@ -30,15 +30,24 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
 
         protected void Pagar_Click(object sender, EventArgs e)
         {
-            BancoExteno objebanco = new BancoExteno();
+            try
+            {
+                BancoExteno objBanco = new BancoExteno();
+                objBanco.CuentaBancoEx = this.CuentaBancoEx.Text.Trim();
+                objBanco.CuentaInterna = this.cuentaInterna.Text.Trim();
+                objBanco.DetalleTrans = this.PagoSeleccionado.Text.Trim();
+                objBanco.HorayFecha = Convert.ToDateTime(this.FechaPago.Text.Trim());
+                objBanco.Monto = Convert.ToInt32(this.MontoPagar.Text.Trim());
+                ConexionServicios.ConexionesInternas.BancoExternoAgregar(objBanco);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Pago realizado Con exito');</script>");
+                Limpiar();
 
-            objebanco.CuentaExterna = this.CuentaSimpe.Text.Trim();
-            objebanco.DetalleTrans= this.Pagos.Text.Trim();
-            objebanco.Monto= Convert.ToInt32(this.Monto.Text.Trim());
-
-            ConexionServicios.ConexionesInternas.BancoExternoAgregar(objebanco);
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Se registro el pago Exitosamente');</script>");
-            Limpiar();
+            }
+            catch (Exception ex)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Pago realizado Con exito');</script>");
+                //throw ex;
+            }
         }
            
         }

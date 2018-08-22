@@ -71,3 +71,15 @@ BEGIN
 	WHERE cl.cedula LIKE '%' + @Cedula + '%'
 END
 go 
+
+
+--Creacion de pa para consulta Saldos de Clientes
+ALTER PROCEDURE pa_ConsultaSaldos
+	@Cedula nvarchar(50)
+AS
+BEGIN
+	SELECT cl.SaldoCuenta, cl.Cedula	
+	FROM Cliente cl 
+	where cl.Cedula = @Cedula
+END
+go

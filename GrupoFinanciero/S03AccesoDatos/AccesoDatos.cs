@@ -16,8 +16,8 @@ namespace S03AccesoDatos
             try
             {
                 contexto = new EntidadFinancieraEntities();
-                contexto.pa_BancoExteno_Insert(externo.CuentaExterna, externo.DetalleTrans,
-                    externo.Monto);
+                contexto.pa_BancoExteno_Insert(externo.CuentaBancoEx, externo.CuentaInterna, externo.DetalleTrans,
+                     externo.HorayFecha, externo.Monto);
             }
             catch (Exception ex)
             {
@@ -35,8 +35,8 @@ namespace S03AccesoDatos
             try
             {
                 contexto = new EntidadFinancieraEntities();
-                contexto.pa_BancoExteno_Update(externo.CuentaExterna, externo.DetalleTrans,
-                    externo.Monto);
+                contexto.pa_BancoExteno_Update(externo.CuentaBancoEx, externo.CuentaInterna, externo.DetalleTrans,
+                     externo.HorayFecha, externo.Monto);
             }
             catch (Exception ex)
             {
