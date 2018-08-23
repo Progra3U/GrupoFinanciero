@@ -83,3 +83,16 @@ BEGIN
 	where cl.Cedula = @Cedula
 END
 go
+
+--Creacion de pa para traer toda la informacion de los clientes menos contraseña
+--CREATE PROCEDURE pa_Cliente_TraerTodo
+--AS
+--BEGIN
+--	SELECT 
+--	cl.cedula,cl.Nombre,cl.Apellido1,cl.Apellido2,cl.FechaNac,
+--	cl.Telefono,cl.Correo,cl.Provincia,cl.DireccionExac,cl.SaldoCuenta,
+--	cl.CuentaInterna,cl.CuentaSimpe,cl.Descripcion,cl.Estado bit	
+--	FROM Cliente cl
+--	ORDER BY cl.cedula
+--END
+--go

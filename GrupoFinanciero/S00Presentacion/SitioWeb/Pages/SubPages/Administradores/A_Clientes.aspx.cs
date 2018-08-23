@@ -209,10 +209,15 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                         this.Provincia.Text = Provincia;this.Direccion.Text = Direccion;
                         this.Monto.Text = SaldoCuenta; this.Contrasena.Text = Contrasena;
                         this.Contrasena2.Text = Contrasena;
-                        if (Estado==false)
+                        if (Estado != true)
                         {
                             //this.Estado.Text = "Inactivo";
                             this.Estado.SelectedValue = "Inactivo";
+                        }
+                        else
+                        {
+                            //this.Estado.Text = "Activo";
+                            this.Estado.SelectedValue = "Activo";
                         }
                     }
                     else

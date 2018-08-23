@@ -29,16 +29,10 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
 
                     if (item.Cedula.ToString().Equals(this.Cedula.Text.Trim()))
                     {
-                        this.Nombre.Text = Nombre;
-                        this.PrimerApellido.Text = PrimerApellido;
-                        this.SegundoApellido.Text = SegundoApellido;
-                        this.FechaNac.Text = FechaNac;
-                        this.Telefono.Text = Telefono;
-                        this.Correo.Text = Correo;
-                        this.Provincia.Text = Provincia;
-                        this.Direccion.Text = Direccion;
-                        this.Monto.Text = SaldoCuenta;
- 
+                        /*this.PrimerApellido.Text = Cedula;
+                        this.SegundoApellido.Text = SaldoCuenta;
+                        this.FechaNac.Text = CuentaInterna;
+                        this.Telefono.Text = CuentaSimpe;*/
 
                     }
                     else
