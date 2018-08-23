@@ -138,6 +138,7 @@
     <FunctionImportMapping FunctionImportName="pa_Servicio_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Delete" />
     <FunctionImportMapping FunctionImportName="pa_Servicio_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Insert" />
     <FunctionImportMapping FunctionImportName="pa_Servicio_Update" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Update" />
+    <FunctionImportMapping FunctionImportName="pa_TotalGlobales" FunctionName="EntidadFinancieraModel.Store.pa_TotalGlobales" />
     <FunctionImportMapping FunctionImportName="pa_TransaccionesRegistradas" FunctionName="EntidadFinancieraModel.Store.pa_TransaccionesRegistradas">
       <ResultMapping>
         <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_TransaccionesRegistradas_Result">
@@ -183,6 +184,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="pa_TotalGlobales" FunctionName="EntidadFinancieraModel.Store.pa_TotalGlobales" />
   </EntityContainerMapping>
 </Mapping>

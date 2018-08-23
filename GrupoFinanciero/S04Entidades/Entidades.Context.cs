@@ -330,6 +330,11 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_Servicio_Update", descServicioParameter, estadoParameter);
         }
     
+        public virtual ObjectResult<Nullable<int>> pa_TotalGlobales()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_TotalGlobales");
+        }
+    
         public virtual ObjectResult<pa_TransaccionesRegistradas_Result> pa_TransaccionesRegistradas()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_TransaccionesRegistradas_Result>("pa_TransaccionesRegistradas");
@@ -419,11 +424,6 @@ namespace S04Entidades
                 new ObjectParameter("Estado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_VerEstadoUsuarios_Result>("pa_VerEstadoUsuarios", estadoParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> pa_TotalGlobales()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_TotalGlobales");
         }
     }
 }

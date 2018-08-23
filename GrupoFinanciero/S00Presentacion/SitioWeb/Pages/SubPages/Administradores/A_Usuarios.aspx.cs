@@ -10,7 +10,6 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 {
     public partial class A_Usuarios : System.Web.UI.Page
     {
-        bool dato;
         #region Limpiar
         public void Limpiar()
         {
@@ -22,7 +21,6 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
         #endregion
 
         #region CargarLista
-
         private void CargarLista()
         {
             try
@@ -47,7 +45,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.CargarLista();
+            //this.CargarLista();
         }
 
         protected void Agregar_Click(object sender, EventArgs e)
@@ -116,30 +114,27 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 Usuario EUser = new Usuario();
                 EUser.Usuario1 = this.Usuario.Text.Trim();
                 lstsEUsusario = ConexionServicios.ConexionesInternas.UsuarioBuscar(EUser);
+
                 foreach (var item in lstsEUsusario)
                 {
-                    Usuario = item.Usuario1;
-                    Nombre = item.Nombre;
-                    Contrasena = item.Contrasena;
-                    Perfil = item.Perfil;
+                    Usuario = item.Usuario1;Nombre = item.Nombre;
+                    Contrasena = item.Contrasena;Perfil = item.Perfil;
                     Estado = item.Estado;
 
                     if (item.Usuario1.ToString().Equals(this.Usuario.Text.Trim()))
                     {
-                        this.Usuario.Text = Usuario;
-                        this.Nombre.Text = Nombre;
-                        this.Contrasena.Text = Contrasena;
-                        this.Contrasena2.Text = Contrasena;
+                        this.Usuario.Text = Usuario; this.Nombre.Text = Nombre;
+                        this.Contrasena.Text = Contrasena;this.Contrasena2.Text = Contrasena;
                         this.roll.Text = Perfil;
                         if (Estado != true)
                         {
-                            //this.Estado.Text = "Inactivo";
-                            this.Estado.SelectedValue = "Inactivo";
+                            this.Estado.Text = "Inactivo";
+                            //this.Estado.SelectedValue = "Inactivo";
                         }
                         else
                         {
-                            //this.Estado.Text = "Activo";
-                            this.Estado.SelectedValue = "Activo";
+                            this.Estado.Text = "Activo";
+                            //this.Estado.SelectedValue = "Activo";
                         }
                     }
                     else
@@ -157,13 +152,13 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            Usuario user = new Usuario();
             try
             {
+                Usuario user = new Usuario();
                 if (this.Usuario.Text.Trim() != null)
                 {
                     user.Usuario1 = this.Usuario.Text.Trim();
-                    ConexionServicios.ConexionesInternas.UsuarioModificar(user);
+                    ConexionServicios.ConexionesInternas.UsuarioEliminar(user);
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Usuario Eliminado Exitosamente');</script>");
                     Limpiar();
                 }

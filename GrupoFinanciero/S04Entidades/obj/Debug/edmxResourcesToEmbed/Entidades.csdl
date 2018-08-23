@@ -91,6 +91,7 @@
       <Parameter Name="DescServicio" Mode="In" Type="String" />
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <FunctionImport Name="pa_TotalGlobales" ReturnType="Collection(Int32)" />
     <FunctionImport Name="pa_TransaccionesRegistradas" ReturnType="Collection(EntidadFinancieraModel.pa_TransaccionesRegistradas_Result)" />
     <FunctionImport Name="pa_Usuario_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Usuario_Buscar_Result)">
       <Parameter Name="Usuario" Mode="In" Type="String" />
@@ -118,7 +119,6 @@
     <FunctionImport Name="pa_VerEstadoUsuarios" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoUsuarios_Result)">
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
-    <FunctionImport Name="pa_TotalGlobales" ReturnType="Collection(Int32)" />
   </EntityContainer>
   <EntityType Name="BancoExteno">
     <Key>

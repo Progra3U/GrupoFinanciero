@@ -304,6 +304,7 @@ namespace S03AccesoDatos
                         usu.Contrasena = item.Contrasena;
                         usu.Perfil = item.Perfil;
                         usu.Estado = item.Estado;
+                        lstResultados.Add(usu);
                     }
                 }
             }

@@ -196,7 +196,7 @@
           <EntitySet Name="Transaccion" EntityType="EntidadFinancieraModel.Transaccion" />
           <EntitySet Name="Usuario" EntityType="EntidadFinancieraModel.Usuario" />
           <FunctionImport Name="pa_BancoExteno_Delete">
-          <Parameter Name="CuentaBancoEx" Mode="In" Type="String" />
+            <Parameter Name="CuentaBancoEx" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_BancoExteno_Insert">
             <Parameter Name="CuentaBancoEx" Mode="In" Type="String" />
@@ -223,10 +223,10 @@
             <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Cliente_Buscar_Result)">
-          <Parameter Name="Cedula" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Delete">
-          <Parameter Name="Cedula" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Insert">
             <Parameter Name="cedula" Mode="In" Type="String" />
@@ -259,10 +259,10 @@
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_ConsultaSaldos" ReturnType="Collection(EntidadFinancieraModel.pa_ConsultaSaldos_Result)">
-          <Parameter Name="Cedula" Mode="In" Type="String" />
+            <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_EstadosdeCuenta" ReturnType="Collection(EntidadFinancieraModel.pa_EstadosdeCuenta_Result)">
-          <Parameter Name="CuentaInterna" Mode="In" Type="String" />
+            <Parameter Name="CuentaInterna" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Globales" ReturnType="Collection(EntidadFinancieraModel.pa_Globales_Result)" />
           <FunctionImport Name="pa_Login" ReturnType="Collection(EntidadFinancieraModel.pa_Login_Result)">
@@ -270,7 +270,7 @@
             <Parameter Name="Contrasena" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Delete">
-          <Parameter Name="DescServicio" Mode="In" Type="String" />
+            <Parameter Name="DescServicio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Insert">
             <Parameter Name="DescServicio" Mode="In" Type="String" />
@@ -280,12 +280,13 @@
             <Parameter Name="DescServicio" Mode="In" Type="String" />
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="pa_TotalGlobales" ReturnType="Collection(Int32)" />
           <FunctionImport Name="pa_TransaccionesRegistradas" ReturnType="Collection(EntidadFinancieraModel.pa_TransaccionesRegistradas_Result)" />
           <FunctionImport Name="pa_Usuario_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Usuario_Buscar_Result)">
-          <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Usuario_Delete">
-          <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Usuario_Insert">
             <Parameter Name="Usuario" Mode="In" Type="String" />
@@ -302,12 +303,11 @@
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_VerEstadoClientes" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoClientes_Result)">
-          <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_VerEstadoUsuarios" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoUsuarios_Result)">
-          <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="pa_TotalGlobales" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <EntityType Name="BancoExteno">
           <Key>
@@ -579,6 +579,7 @@
           <FunctionImportMapping FunctionImportName="pa_Servicio_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Delete" />
           <FunctionImportMapping FunctionImportName="pa_Servicio_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Insert" />
           <FunctionImportMapping FunctionImportName="pa_Servicio_Update" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Update" />
+          <FunctionImportMapping FunctionImportName="pa_TotalGlobales" FunctionName="EntidadFinancieraModel.Store.pa_TotalGlobales" />
           <FunctionImportMapping FunctionImportName="pa_TransaccionesRegistradas" FunctionName="EntidadFinancieraModel.Store.pa_TransaccionesRegistradas">
             <ResultMapping>
               <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_TransaccionesRegistradas_Result">
@@ -624,7 +625,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_TotalGlobales" FunctionName="EntidadFinancieraModel.Store.pa_TotalGlobales" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
