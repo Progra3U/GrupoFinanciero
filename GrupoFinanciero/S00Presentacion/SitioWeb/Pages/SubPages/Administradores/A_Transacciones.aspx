@@ -6,9 +6,8 @@
     <div id="wrap">
         <h2 id="titulo">Transacciones Bancarias</h2>
         <section id="FormUsuarios">
-            <form>
-                <asp:GridView ID="gvTransacciones" runat="server" AutoGenerateColumns="false" 
-                    AllowPaging="true" Width="100%" PageSize="5" OnPageIndexChanging="gvTransacciones_PageIndexChanging"
+            <asp:GridView ID="gvTransacciones" runat="server" AutoGenerateColumns="false" 
+                    AllowPaging="true" Width="100%" PageSize="15" OnPageIndexChanging="gvTransacciones_PageIndexChanging"
                     OnSelectedIndexChanging="gvTransacciones_SelectedIndexChanging">
                     <Columns>
                         <asp:CommandField ShowSelectButton="true" SelectText="Seleccione" />
@@ -21,11 +20,9 @@
                     </Columns>
                 <AlternatingRowStyle BackColor="LightBlue" />
                 <RowStyle BackColor ="LightGray" />
-                <PagerStyle HorizontalAlign="Center" BackColor="WindowFrame" />
-                <HeaderStyle HorizontalAlign="Center" BackColor="WindowFrame" />
+                <PagerStyle HorizontalAlign="Center" VerticalAlign="Middle" BackColor="WindowFrame" />
+                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" BackColor="WindowFrame" />
                 </asp:GridView>
-            </form>
-
        </section>
     </div>
 </body>
