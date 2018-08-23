@@ -156,7 +156,7 @@
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Globales.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Servicios.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx" />
-    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_EstadoClientes.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Clientes\C_AguayLuz.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Clientes\C_EstadosdeCuenta.aspx" />
@@ -250,12 +250,12 @@
     <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx.designer.cs">
       <DependentUpon>A_Transacciones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx.cs">
-      <DependentUpon>A_Transferencias.aspx</DependentUpon>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadoClientes.aspx.cs">
+      <DependentUpon>A_EstadoClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx.designer.cs">
-      <DependentUpon>A_Transferencias.aspx</DependentUpon>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadoClientes.aspx.designer.cs">
+      <DependentUpon>A_EstadoClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx.cs">
       <DependentUpon>A_Usuarios.aspx</DependentUpon>
