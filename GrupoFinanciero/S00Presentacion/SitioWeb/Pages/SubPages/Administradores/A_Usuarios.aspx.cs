@@ -48,6 +48,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
             //this.CargarLista();
         }
 
+        #region Funcion Botones
         protected void Agregar_Click(object sender, EventArgs e)
         {
             Usuario user = new Usuario();
@@ -174,7 +175,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
             }
 
         }
-
+        
         protected void gvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this.gvUsuarios.PageIndex = e.NewPageIndex;
@@ -200,8 +201,8 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void VerFiltroU_Click(object sender, EventArgs e)
         {
-
             this.CargarLista();
         }
+        #endregion
     }
 }

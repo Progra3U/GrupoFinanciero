@@ -57,7 +57,7 @@ BEGIN
 	SELECT 	tnsc.IdTransac, tnsc.CuentaInterna, tnsc.CuentaSimpe, 
 			tnsc.Descripcion, tnsc.Monto, tnsc.HorayFecha
 	FROM Transaccion tnsc
-	WHERE  tnsc.CuentaInterna = @CuentaInterna
+	WHERE  tnsc.CuentaInterna LIKE '%' + @CuentaInterna + '%'
 	ORDER BY tnsc.IdTransac
 END
 go
