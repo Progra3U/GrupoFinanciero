@@ -5,8 +5,10 @@
       <PropertyRef Name="IdTransacE" />
     </Key>
     <Property Name="IdTransacE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CuentaExterna" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaBancoEx" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaInterna" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DetalleTrans" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HorayFecha" Type="datetime" />
     <Property Name="Monto" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Cliente">
@@ -42,7 +44,6 @@
       <PropertyRef Name="IdTransac" />
     </Key>
     <Property Name="IdTransac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Cedula" Type="int" />
     <Property Name="CuentaInterna" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CuentaSimpe" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -60,16 +61,20 @@
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
   <Function Name="pa_BancoExteno_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaBancoEx" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="pa_BancoExteno_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaBancoEx" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
     <Parameter Name="DetalleTrans" Type="nvarchar" Mode="In" />
+    <Parameter Name="HorayFecha" Type="datetime" Mode="In" />
     <Parameter Name="Monto" Type="int" Mode="In" />
   </Function>
   <Function Name="pa_BancoExteno_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaBancoEx" Type="nvarchar" Mode="In" />
+    <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
     <Parameter Name="DetalleTrans" Type="nvarchar" Mode="In" />
+    <Parameter Name="HorayFecha" Type="datetime" Mode="In" />
     <Parameter Name="Monto" Type="int" Mode="In" />
   </Function>
   <Function Name="pa_Cliente_AbonoRetiroExterno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -122,7 +127,7 @@
     <Parameter Name="Cedula" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="pa_EstadosdeCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Cedula" Type="int" Mode="In" />
+    <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="pa_Globales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="pa_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -140,6 +145,7 @@
     <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
+  <Function Name="pa_TotalGlobales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="pa_TransaccionesRegistradas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="pa_Usuario_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Usuario" Type="nvarchar" Mode="In" />

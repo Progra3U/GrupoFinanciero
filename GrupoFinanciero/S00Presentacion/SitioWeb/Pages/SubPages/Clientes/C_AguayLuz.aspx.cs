@@ -23,6 +23,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
             MontoPagar.Text= String.Empty;
         }
         #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -32,15 +33,25 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
         {
             try
             {
+
+
+                /*Cliente cliente = new Cliente();
+                int saldCliente = cliente.SaldoCuenta;
+                int motpagar = Convert.ToInt32(this.MontoPagar.Text.Trim());
+
+                int totalsaldo = saldCliente - motpagar;*/
+
                 BancoExteno objBanco = new BancoExteno();
                 objBanco.CuentaBancoEx = this.CuentaBancoEx.Text.Trim();
                 objBanco.CuentaInterna = this.cuentaInterna.Text.Trim();
-                objBanco.DetalleTrans = this.PagoSeleccionado.Text.Trim();
+                objBanco.DetalleTrans = this.PagoSeleccionado.Text.ToString();
                 objBanco.HorayFecha = Convert.ToDateTime(this.FechaPago.Text.Trim());
                 objBanco.Monto = Convert.ToInt32(this.MontoPagar.Text.Trim());
+
+
                 ConexionServicios.ConexionesInternas.BancoExternoAgregar(objBanco);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Pago realizado Con exito');</script>");
-                Limpiar();
+                //Limpiar();
 
             }
             catch (Exception ex)

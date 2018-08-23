@@ -3,7 +3,7 @@ go
 --Creacion de Procedimientos Almacenados
 --Tabla Cliente
 
-ALTER PROCEDURE pa_Cliente_Insert
+CREATE PROCEDURE pa_Cliente_Insert
 	@cedula 		nvarchar(50),
 	@Nombre 		nvarchar(50),
 	@Apellido1     	nvarchar(50),
@@ -29,7 +29,7 @@ INSERT INTO Cliente VALUES(
 END
 go
 
-ALTER PROCEDURE pa_Cliente_Update
+CREATE PROCEDURE pa_Cliente_Update
 	@Cedula 		nvarchar(50),
 	@Nombre 		nvarchar(50),
 	@Apellido1     	nvarchar(50),
@@ -52,7 +52,7 @@ END
 go
 
 
-ALTER PROCEDURE pa_Cliente_Delete
+CREATE PROCEDURE pa_Cliente_Delete
 	@Cedula nvarchar(50)
 AS
 BEGIN
@@ -61,7 +61,7 @@ END
 go
 
 
-ALTER PROCEDURE pa_Cliente_Buscar
+CREATE PROCEDURE pa_Cliente_Buscar
 	@Cedula nvarchar(50)
 AS
 BEGIN
@@ -74,7 +74,7 @@ go
 
 
 --Creacion de pa para consulta Saldos de Clientes
-ALTER PROCEDURE pa_ConsultaSaldos
+CREATE PROCEDURE pa_ConsultaSaldos
 	@Cedula nvarchar(50)
 AS
 BEGIN

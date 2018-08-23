@@ -34,47 +34,63 @@ namespace S04Entidades
         public DbSet<Transaccion> Transaccion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
     
-        public virtual int pa_BancoExteno_Delete(string cuentaExterna)
+        public virtual int pa_BancoExteno_Delete(string cuentaBancoEx)
         {
-            var cuentaExternaParameter = cuentaExterna != null ?
-                new ObjectParameter("CuentaExterna", cuentaExterna) :
-                new ObjectParameter("CuentaExterna", typeof(string));
+            var cuentaBancoExParameter = cuentaBancoEx != null ?
+                new ObjectParameter("CuentaBancoEx", cuentaBancoEx) :
+                new ObjectParameter("CuentaBancoEx", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_BancoExteno_Delete", cuentaExternaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_BancoExteno_Delete", cuentaBancoExParameter);
         }
     
-        public virtual int pa_BancoExteno_Insert(string cuentaExterna, string detalleTrans, Nullable<int> monto)
+        public virtual int pa_BancoExteno_Insert(string cuentaBancoEx, string cuentaInterna, string detalleTrans, Nullable<System.DateTime> horayFecha, Nullable<int> monto)
         {
-            var cuentaExternaParameter = cuentaExterna != null ?
-                new ObjectParameter("CuentaExterna", cuentaExterna) :
-                new ObjectParameter("CuentaExterna", typeof(string));
+            var cuentaBancoExParameter = cuentaBancoEx != null ?
+                new ObjectParameter("CuentaBancoEx", cuentaBancoEx) :
+                new ObjectParameter("CuentaBancoEx", typeof(string));
+    
+            var cuentaInternaParameter = cuentaInterna != null ?
+                new ObjectParameter("CuentaInterna", cuentaInterna) :
+                new ObjectParameter("CuentaInterna", typeof(string));
     
             var detalleTransParameter = detalleTrans != null ?
                 new ObjectParameter("DetalleTrans", detalleTrans) :
                 new ObjectParameter("DetalleTrans", typeof(string));
     
+            var horayFechaParameter = horayFecha.HasValue ?
+                new ObjectParameter("HorayFecha", horayFecha) :
+                new ObjectParameter("HorayFecha", typeof(System.DateTime));
+    
             var montoParameter = monto.HasValue ?
                 new ObjectParameter("Monto", monto) :
                 new ObjectParameter("Monto", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_BancoExteno_Insert", cuentaExternaParameter, detalleTransParameter, montoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_BancoExteno_Insert", cuentaBancoExParameter, cuentaInternaParameter, detalleTransParameter, horayFechaParameter, montoParameter);
         }
     
-        public virtual int pa_BancoExteno_Update(string cuentaExterna, string detalleTrans, Nullable<int> monto)
+        public virtual int pa_BancoExteno_Update(string cuentaBancoEx, string cuentaInterna, string detalleTrans, Nullable<System.DateTime> horayFecha, Nullable<int> monto)
         {
-            var cuentaExternaParameter = cuentaExterna != null ?
-                new ObjectParameter("CuentaExterna", cuentaExterna) :
-                new ObjectParameter("CuentaExterna", typeof(string));
+            var cuentaBancoExParameter = cuentaBancoEx != null ?
+                new ObjectParameter("CuentaBancoEx", cuentaBancoEx) :
+                new ObjectParameter("CuentaBancoEx", typeof(string));
+    
+            var cuentaInternaParameter = cuentaInterna != null ?
+                new ObjectParameter("CuentaInterna", cuentaInterna) :
+                new ObjectParameter("CuentaInterna", typeof(string));
     
             var detalleTransParameter = detalleTrans != null ?
                 new ObjectParameter("DetalleTrans", detalleTrans) :
                 new ObjectParameter("DetalleTrans", typeof(string));
     
+            var horayFechaParameter = horayFecha.HasValue ?
+                new ObjectParameter("HorayFecha", horayFecha) :
+                new ObjectParameter("HorayFecha", typeof(System.DateTime));
+    
             var montoParameter = monto.HasValue ?
                 new ObjectParameter("Monto", monto) :
                 new ObjectParameter("Monto", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_BancoExteno_Update", cuentaExternaParameter, detalleTransParameter, montoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_BancoExteno_Update", cuentaBancoExParameter, cuentaInternaParameter, detalleTransParameter, horayFechaParameter, montoParameter);
         }
     
         public virtual int pa_Cliente_AbonoRetiroExterno(string cuentaSimpe, string descripcion, Nullable<int> saldoCuenta)
@@ -252,13 +268,13 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_ConsultaSaldos_Result>("pa_ConsultaSaldos", cedulaParameter);
         }
     
-        public virtual ObjectResult<pa_EstadosdeCuenta_Result> pa_EstadosdeCuenta(Nullable<int> cedula)
+        public virtual ObjectResult<pa_EstadosdeCuenta_Result> pa_EstadosdeCuenta(string cuentaInterna)
         {
-            var cedulaParameter = cedula.HasValue ?
-                new ObjectParameter("Cedula", cedula) :
-                new ObjectParameter("Cedula", typeof(int));
+            var cuentaInternaParameter = cuentaInterna != null ?
+                new ObjectParameter("CuentaInterna", cuentaInterna) :
+                new ObjectParameter("CuentaInterna", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_EstadosdeCuenta_Result>("pa_EstadosdeCuenta", cedulaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_EstadosdeCuenta_Result>("pa_EstadosdeCuenta", cuentaInternaParameter);
         }
     
         public virtual ObjectResult<pa_Globales_Result> pa_Globales()
@@ -403,6 +419,11 @@ namespace S04Entidades
                 new ObjectParameter("Estado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_VerEstadoUsuarios_Result>("pa_VerEstadoUsuarios", estadoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> pa_TotalGlobales()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_TotalGlobales");
         }
     }
 }

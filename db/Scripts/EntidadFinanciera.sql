@@ -115,7 +115,6 @@ IF NOT EXISTS(select * from sysobjects where type = 'U' and name = 'Transaccion'
 		    Descripcion nvarchar(50) not null default('Sin Descripcion'),
 		    Monto 		int not null default(1),
 		    HorayFecha 	datetime
-		
 		)
 	END
 ELSE

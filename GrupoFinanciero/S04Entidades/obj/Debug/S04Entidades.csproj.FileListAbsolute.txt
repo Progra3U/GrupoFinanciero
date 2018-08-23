@@ -19,7 +19,6 @@ C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin
 C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.pdb
 C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\EntityFramework.dll
 C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\EntityFramework.xml
-C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.dll
 C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.pdb
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.dll.config
@@ -32,3 +31,4 @@ C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.csproj.CopyComplete
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.dll
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.pdb
+C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.csprojResolveAssemblyReference.cache

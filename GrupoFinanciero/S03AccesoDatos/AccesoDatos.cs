@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using S04Entidades;
+using System.Data.SqlClient;
 
 namespace S03AccesoDatos
 {
@@ -54,7 +55,7 @@ namespace S03AccesoDatos
             try
             {
                 contexto = new EntidadFinancieraEntities();
-                contexto.pa_BancoExteno_Delete(externo.CuentaExterna);
+                contexto.pa_BancoExteno_Delete(externo.CuentaBancoEx);
             }
             catch (Exception ex)
             {
@@ -421,14 +422,13 @@ namespace S03AccesoDatos
             try
             {
                 contexto = new EntidadFinancieraEntities();
-                var consulta = contexto.pa_EstadosdeCuenta(EstCuenta.Cedula).ToList();
+                var consulta = contexto.pa_EstadosdeCuenta(EstCuenta.CuentaInterna).ToList();
                 if (consulta != null)
                 {
                     foreach (var item in consulta)
                     {
                         Transaccion tnsc = new Transaccion();
                         tnsc.IdTransac = item.IdTransac;
-                        tnsc.Cedula = item.Cedula;
                         tnsc.CuentaInterna = item.CuentaInterna;
                         tnsc.CuentaSimpe = item.CuentaSimpe;
                         tnsc.Descripcion = item.Descripcion;
@@ -529,7 +529,6 @@ namespace S03AccesoDatos
                     {
                         Transaccion tnsc = new Transaccion();
                         tnsc.IdTransac = item.IdTransac;
-                        tnsc.Cedula = item.Cedula;
                         tnsc.CuentaInterna = item.CuentaInterna;
                         tnsc.CuentaSimpe = item.CuentaSimpe;
                         tnsc.Descripcion = item.Descripcion;

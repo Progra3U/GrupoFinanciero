@@ -13,30 +13,12 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
     public partial class A_Globales {
         
         /// <summary>
-        /// Control saldoCuenta.
+        /// Control gvGlobales.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox saldoCuenta;
-        
-        /// <summary>
-        /// Control gvAdministrador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAdministrador;
-        
-        /// <summary>
-        /// Control EjecutarGlobales.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EjecutarGlobales;
+        protected global::System.Web.UI.WebControls.GridView gvGlobales;
     }
 }

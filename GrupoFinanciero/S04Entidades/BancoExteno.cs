@@ -16,8 +16,10 @@ namespace S04Entidades
     public partial class BancoExteno
     {
         public int IdTransacE { get; set; }
-        public string CuentaExterna { get; set; }
+        public string CuentaBancoEx { get; set; }
+        public string CuentaInterna { get; set; }
         public string DetalleTrans { get; set; }
+        public Nullable<System.DateTime> HorayFecha { get; set; }
         public int Monto { get; set; }
     }
 }

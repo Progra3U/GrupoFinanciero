@@ -109,6 +109,12 @@
   <wsdl:message name="IServicios_MontosGlobales_OutputMessage">
     <wsdl:part name="parameters" element="tns:MontosGlobalesResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicios_MontosGlobalesSuma_InputMessage">
+    <wsdl:part name="parameters" element="tns:MontosGlobalesSuma" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_MontosGlobalesSuma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MontosGlobalesSumaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicios_EstadosdeCuenta_InputMessage">
     <wsdl:part name="parameters" element="tns:EstadosdeCuenta" />
   </wsdl:message>
@@ -213,6 +219,10 @@
     <wsdl:operation name="MontosGlobales">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/MontosGlobales" message="tns:IServicios_MontosGlobales_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicios/MontosGlobalesResponse" message="tns:IServicios_MontosGlobales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MontosGlobalesSuma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/MontosGlobalesSuma" message="tns:IServicios_MontosGlobalesSuma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/MontosGlobalesSumaResponse" message="tns:IServicios_MontosGlobalesSuma_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EstadosdeCuenta">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicios/EstadosdeCuenta" message="tns:IServicios_EstadosdeCuenta_InputMessage" />
@@ -387,6 +397,15 @@
     </wsdl:operation>
     <wsdl:operation name="MontosGlobales">
       <soap:operation soapAction="http://tempuri.org/IServicios/MontosGlobales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MontosGlobalesSuma">
+      <soap:operation soapAction="http://tempuri.org/IServicios/MontosGlobalesSuma" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

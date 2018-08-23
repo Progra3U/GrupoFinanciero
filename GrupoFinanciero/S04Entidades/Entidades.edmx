@@ -10,8 +10,10 @@
             <PropertyRef Name="IdTransacE" />
           </Key>
           <Property Name="IdTransacE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CuentaExterna" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CuentaBancoEx" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CuentaInterna" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DetalleTrans" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HorayFecha" Type="datetime" />
           <Property Name="Monto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Cliente">
@@ -47,7 +49,6 @@
             <PropertyRef Name="IdTransac" />
           </Key>
           <Property Name="IdTransac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Cedula" Type="int" />
           <Property Name="CuentaInterna" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CuentaSimpe" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -65,16 +66,20 @@
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
         <Function Name="pa_BancoExteno_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+          <Parameter Name="CuentaBancoEx" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pa_BancoExteno_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+          <Parameter Name="CuentaBancoEx" Type="nvarchar" Mode="In" />
+          <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
           <Parameter Name="DetalleTrans" Type="nvarchar" Mode="In" />
+          <Parameter Name="HorayFecha" Type="datetime" Mode="In" />
           <Parameter Name="Monto" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_BancoExteno_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="CuentaExterna" Type="nvarchar" Mode="In" />
+          <Parameter Name="CuentaBancoEx" Type="nvarchar" Mode="In" />
+          <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
           <Parameter Name="DetalleTrans" Type="nvarchar" Mode="In" />
+          <Parameter Name="HorayFecha" Type="datetime" Mode="In" />
           <Parameter Name="Monto" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_Cliente_AbonoRetiroExterno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -127,7 +132,7 @@
           <Parameter Name="Cedula" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pa_EstadosdeCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Cedula" Type="int" Mode="In" />
+          <Parameter Name="CuentaInterna" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pa_Globales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="pa_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -145,6 +150,7 @@
           <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
         </Function>
+        <Function Name="pa_TotalGlobales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="pa_TransaccionesRegistradas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="pa_Usuario_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
@@ -190,16 +196,20 @@
           <EntitySet Name="Transaccion" EntityType="EntidadFinancieraModel.Transaccion" />
           <EntitySet Name="Usuario" EntityType="EntidadFinancieraModel.Usuario" />
           <FunctionImport Name="pa_BancoExteno_Delete">
-            <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+          <Parameter Name="CuentaBancoEx" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_BancoExteno_Insert">
-            <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+            <Parameter Name="CuentaBancoEx" Mode="In" Type="String" />
+            <Parameter Name="CuentaInterna" Mode="In" Type="String" />
             <Parameter Name="DetalleTrans" Mode="In" Type="String" />
+            <Parameter Name="HorayFecha" Mode="In" Type="DateTime" />
             <Parameter Name="Monto" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_BancoExteno_Update">
-            <Parameter Name="CuentaExterna" Mode="In" Type="String" />
+            <Parameter Name="CuentaBancoEx" Mode="In" Type="String" />
+            <Parameter Name="CuentaInterna" Mode="In" Type="String" />
             <Parameter Name="DetalleTrans" Mode="In" Type="String" />
+            <Parameter Name="HorayFecha" Mode="In" Type="DateTime" />
             <Parameter Name="Monto" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_AbonoRetiroExterno">
@@ -213,10 +223,10 @@
             <Parameter Name="SaldoCuenta" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Cliente_Buscar_Result)">
-            <Parameter Name="Cedula" Mode="In" Type="String" />
+          <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Delete">
-            <Parameter Name="Cedula" Mode="In" Type="String" />
+          <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Cliente_Insert">
             <Parameter Name="cedula" Mode="In" Type="String" />
@@ -249,10 +259,10 @@
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_ConsultaSaldos" ReturnType="Collection(EntidadFinancieraModel.pa_ConsultaSaldos_Result)">
-            <Parameter Name="Cedula" Mode="In" Type="String" />
+          <Parameter Name="Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_EstadosdeCuenta" ReturnType="Collection(EntidadFinancieraModel.pa_EstadosdeCuenta_Result)">
-            <Parameter Name="Cedula" Mode="In" Type="Int32" />
+          <Parameter Name="CuentaInterna" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Globales" ReturnType="Collection(EntidadFinancieraModel.pa_Globales_Result)" />
           <FunctionImport Name="pa_Login" ReturnType="Collection(EntidadFinancieraModel.pa_Login_Result)">
@@ -260,7 +270,7 @@
             <Parameter Name="Contrasena" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Delete">
-            <Parameter Name="DescServicio" Mode="In" Type="String" />
+          <Parameter Name="DescServicio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Insert">
             <Parameter Name="DescServicio" Mode="In" Type="String" />
@@ -272,10 +282,10 @@
           </FunctionImport>
           <FunctionImport Name="pa_TransaccionesRegistradas" ReturnType="Collection(EntidadFinancieraModel.pa_TransaccionesRegistradas_Result)" />
           <FunctionImport Name="pa_Usuario_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Usuario_Buscar_Result)">
-            <Parameter Name="Usuario" Mode="In" Type="String" />
+          <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Usuario_Delete">
-            <Parameter Name="Usuario" Mode="In" Type="String" />
+          <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Usuario_Insert">
             <Parameter Name="Usuario" Mode="In" Type="String" />
@@ -292,19 +302,22 @@
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_VerEstadoClientes" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoClientes_Result)">
-            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+          <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pa_VerEstadoUsuarios" ReturnType="Collection(EntidadFinancieraModel.pa_VerEstadoUsuarios_Result)">
-            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+          <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="pa_TotalGlobales" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <EntityType Name="BancoExteno">
           <Key>
             <PropertyRef Name="IdTransacE" />
           </Key>
           <Property Name="IdTransacE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CuentaExterna" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CuentaBancoEx" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CuentaInterna" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DetalleTrans" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HorayFecha" Type="DateTime" Precision="3" />
           <Property Name="Monto" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Cliente">
@@ -340,7 +353,6 @@
             <PropertyRef Name="IdTransac" />
           </Key>
           <Property Name="IdTransac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cedula" Type="Int32" />
           <Property Name="CuentaInterna" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CuentaSimpe" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -380,7 +392,6 @@
         </ComplexType>
         <ComplexType Name="pa_EstadosdeCuenta_Result">
           <Property Type="Int32" Name="IdTransac" Nullable="false" />
-          <Property Type="Int32" Name="Cedula" Nullable="true" />
           <Property Type="String" Name="CuentaInterna" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="CuentaSimpe" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
@@ -401,7 +412,6 @@
         </ComplexType>
         <ComplexType Name="pa_TransaccionesRegistradas_Result">
           <Property Type="Int32" Name="IdTransac" Nullable="false" />
-          <Property Type="Int32" Name="Cedula" Nullable="true" />
           <Property Type="String" Name="CuentaInterna" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="CuentaSimpe" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
@@ -436,8 +446,10 @@
             <EntityTypeMapping TypeName="EntidadFinancieraModel.BancoExteno">
               <MappingFragment StoreEntitySet="BancoExteno">
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="HorayFecha" ColumnName="HorayFecha" />
                 <ScalarProperty Name="DetalleTrans" ColumnName="DetalleTrans" />
-                <ScalarProperty Name="CuentaExterna" ColumnName="CuentaExterna" />
+                <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
+                <ScalarProperty Name="CuentaBancoEx" ColumnName="CuentaBancoEx" />
                 <ScalarProperty Name="IdTransacE" ColumnName="IdTransacE" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -480,7 +492,6 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
                 <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
                 <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -537,7 +548,6 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_EstadosdeCuenta_Result">
                 <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
                 <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
                 <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -573,7 +583,6 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_TransaccionesRegistradas_Result">
                 <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
                 <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
                 <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -615,6 +624,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_TotalGlobales" FunctionName="EntidadFinancieraModel.Store.pa_TotalGlobales" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

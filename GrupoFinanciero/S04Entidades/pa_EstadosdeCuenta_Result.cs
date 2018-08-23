@@ -15,7 +15,6 @@ namespace S04Entidades
     public partial class pa_EstadosdeCuenta_Result
     {
         public int IdTransac { get; set; }
-        public Nullable<int> Cedula { get; set; }
         public string CuentaInterna { get; set; }
         public string CuentaSimpe { get; set; }
         public string Descripcion { get; set; }

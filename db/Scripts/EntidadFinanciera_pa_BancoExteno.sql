@@ -12,7 +12,7 @@ CREATE PROCEDURE pa_BancoExteno_Insert
 AS 
 BEGIN
 INSERT INTO BancoExteno 
-VALUES(@CuentaBancoEx,@CuentaInterna,@DetalleTrans,@GETDATE(),@Monto)
+VALUES(@CuentaBancoEx,@CuentaInterna,@DetalleTrans,GETDATE(),@Monto)
 END
 go
 
@@ -25,14 +25,14 @@ CREATE PROCEDURE pa_BancoExteno_Update
 AS  
 BEGIN
 UPDATE BancoExteno
-SET  CuentaExterna = @CuentaExterna, CuentaInterna = @CuentaInterna,
+SET  CuentaBancoEx = @CuentaBancoEx, CuentaInterna = @CuentaInterna,
 	DetalleTrans = @DetalleTrans, Monto = @Monto, HorayFecha = @HorayFecha
-WHERE CuentaBancoEx = @CuentaBancoEx
+WHERE CuentaInterna = @CuentaInterna
 END
 go
 
 CREATE PROCEDURE pa_BancoExteno_Delete
-	@CuentaExterna	nvarchar(50)
+	@CuentaBancoEx	nvarchar(50)
 AS
 BEGIN
 DELETE FROM BancoExteno WHERE CuentaBancoEx = @CuentaBancoEx

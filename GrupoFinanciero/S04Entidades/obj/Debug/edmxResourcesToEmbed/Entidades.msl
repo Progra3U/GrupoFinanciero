@@ -5,8 +5,10 @@
       <EntityTypeMapping TypeName="EntidadFinancieraModel.BancoExteno">
         <MappingFragment StoreEntitySet="BancoExteno">
           <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="HorayFecha" ColumnName="HorayFecha" />
           <ScalarProperty Name="DetalleTrans" ColumnName="DetalleTrans" />
-          <ScalarProperty Name="CuentaExterna" ColumnName="CuentaExterna" />
+          <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
+          <ScalarProperty Name="CuentaBancoEx" ColumnName="CuentaBancoEx" />
           <ScalarProperty Name="IdTransacE" ColumnName="IdTransacE" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -49,7 +51,6 @@
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
           <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
           <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -106,7 +107,6 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_EstadosdeCuenta_Result">
           <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
           <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
           <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -142,7 +142,6 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_TransaccionesRegistradas_Result">
           <ScalarProperty Name="IdTransac" ColumnName="IdTransac" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
           <ScalarProperty Name="CuentaInterna" ColumnName="CuentaInterna" />
           <ScalarProperty Name="CuentaSimpe" ColumnName="CuentaSimpe" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -184,5 +183,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pa_TotalGlobales" FunctionName="EntidadFinancieraModel.Store.pa_TotalGlobales" />
   </EntityContainerMapping>
 </Mapping>

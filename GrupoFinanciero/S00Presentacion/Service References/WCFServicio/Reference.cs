@@ -117,6 +117,12 @@ namespace S00Presentacion.WCFServicio {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/MontosGlobales", ReplyAction="http://tempuri.org/IServicios/MontosGlobalesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> MontosGlobalesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/MontosGlobalesSuma", ReplyAction="http://tempuri.org/IServicios/MontosGlobalesSumaResponse")]
+        System.Collections.Generic.List<S04Entidades.Cliente> MontosGlobalesSuma();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/MontosGlobalesSuma", ReplyAction="http://tempuri.org/IServicios/MontosGlobalesSumaResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> MontosGlobalesSumaAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicios/EstadosdeCuenta", ReplyAction="http://tempuri.org/IServicios/EstadosdeCuentaResponse")]
         System.Collections.Generic.List<S04Entidades.Transaccion> EstadosdeCuenta(S04Entidades.Transaccion EstCuenta);
         
@@ -315,6 +321,14 @@ namespace S00Presentacion.WCFServicio {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> MontosGlobalesAsync() {
             return base.Channel.MontosGlobalesAsync();
+        }
+        
+        public System.Collections.Generic.List<S04Entidades.Cliente> MontosGlobalesSuma() {
+            return base.Channel.MontosGlobalesSuma();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<S04Entidades.Cliente>> MontosGlobalesSumaAsync() {
+            return base.Channel.MontosGlobalesSumaAsync();
         }
         
         public System.Collections.Generic.List<S04Entidades.Transaccion> EstadosdeCuenta(S04Entidades.Transaccion EstCuenta) {

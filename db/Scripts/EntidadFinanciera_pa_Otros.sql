@@ -1,5 +1,6 @@
 USE EntidadFinanciera 
 go
+
 --Creacion de pa para Transferencia de Cuentas Internas
 CREATE PROCEDURE pa_Cliente_AbonoRetiroInterno
 	@CuentaInterna 	nvarchar(50),
@@ -13,18 +14,22 @@ WHERE CuentaInterna = @CuentaInterna
 END
 go
 
+-------------------------------------------------------------------
+--PROCESOS OBSOLETOS
 --Creacion de pa para Transferencia de Cuentas Externas
---CREATE PROCEDURE pa_Cliente_AbonoRetiroExterno
---	@CuentaSimpe 	nvarchar(50),
---	@Descripcion	nvarchar(50),
---	@SaldoCuenta   	int
---AS
---BEGIN
---UPDATE Cliente
---SET Descripcion = @Descripcion, SaldoCuenta = @SaldoCuenta 
---WHERE CuentaSimpe = @CuentaSimpe
---END
---go
+CREATE PROCEDURE pa_Cliente_AbonoRetiroExterno
+	@CuentaSimpe 	nvarchar(50),
+	@Descripcion	nvarchar(50),
+	@SaldoCuenta   	int
+AS
+BEGIN
+UPDATE Cliente
+SET Descripcion = @Descripcion, SaldoCuenta = @SaldoCuenta 
+WHERE CuentaSimpe = @CuentaSimpe
+END
+go
+--PROCESOS OBSOLETOS
+-------------------------------------------------------------------
 
 --Creacion de pa para Estados Globales
 CREATE PROCEDURE pa_Globales
@@ -36,15 +41,23 @@ BEGIN
 END
 go
 
---Creacion de pa para Estados de Cuenta Clientes
-CREATE PROCEDURE pa_EstadosdeCuenta
-	@Cedula int
+--Creacion de pa para ver el total de globales
+CREATE PROCEDURE pa_TotalGlobales
 AS
 BEGIN
-	SELECT 	tnsc.IdTransac, tnsc.Cedula, tnsc.CuentaInterna, tnsc.CuentaSimpe, 
+	SELECT sum(saldoCuenta) from Cliente
+END
+go
+
+--Creacion de pa para Estados de Cuenta Clientes
+CREATE PROCEDURE pa_EstadosdeCuenta
+	@CuentaInterna nvarchar(50)
+AS
+BEGIN
+	SELECT 	tnsc.IdTransac, tnsc.CuentaInterna, tnsc.CuentaSimpe, 
 			tnsc.Descripcion, tnsc.Monto, tnsc.HorayFecha
 	FROM Transaccion tnsc
-	WHERE  tnsc.Cedula = @Cedula
+	WHERE  tnsc.CuentaInterna = @CuentaInterna
 	ORDER BY tnsc.IdTransac
 END
 go
@@ -77,21 +90,10 @@ go
 CREATE PROCEDURE pa_TransaccionesRegistradas
 AS
 BEGIN
-	SELECT 	tnsc.IdTransac, tnsc.Cedula, tnsc.CuentaInterna, tnsc.CuentaSimpe, 
+	SELECT 	tnsc.IdTransac, tnsc.CuentaInterna, tnsc.CuentaSimpe, 
 	tnsc.Descripcion, tnsc.Monto, tnsc.HorayFecha
 	FROM Transaccion tnsc 
 	ORDER BY tnsc.IdTransac
-END
-go
-
---Creacion de pa para consulta Saldos
-alter PROCEDURE pa_ConsultaSaldos
-	@Cedula int
-AS
-BEGIN
-	SELECT cl.SaldoCuenta, cl.Cedula	
-	FROM Cliente cl 
-	where cl.Cedula = @Cedula
 END
 go
 

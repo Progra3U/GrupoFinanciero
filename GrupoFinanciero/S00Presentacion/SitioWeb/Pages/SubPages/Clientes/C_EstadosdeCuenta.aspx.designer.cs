@@ -49,12 +49,21 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Control Buscar.
+        /// Control GenerarVista.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Buscar;
+        protected global::System.Web.UI.WebControls.Button GenerarVista;
+        
+        /// <summary>
+        /// Control gvEstadoCuenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEstadoCuenta;
     }
 }
