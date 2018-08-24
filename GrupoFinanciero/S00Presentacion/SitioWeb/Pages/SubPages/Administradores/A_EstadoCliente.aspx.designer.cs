@@ -10,7 +10,7 @@
 namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
     
     
-    public partial class A_Transferencias {
+    public partial class A_EstadoCliente {
         
         /// <summary>
         /// Control EstadoC.
@@ -22,15 +22,6 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
         protected global::System.Web.UI.WebControls.DropDownList EstadoC;
         
         /// <summary>
-        /// Control gvEstadoClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEstadoClientes;
-        
-        /// <summary>
         /// Control Consultar.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Consultar;
+        
+        /// <summary>
+        /// Control gvEstadoClientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEstadoClientes;
     }
 }

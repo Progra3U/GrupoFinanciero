@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra.Master" enableEventValidation="false" validateRequest="false" AutoEventWireup="true" CodeBehind="A_EstadoClientes.aspx.cs" Inherits="S00Presentacion.SitioWeb.Pages.SubPages.Administradores.A_Transferencias" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra.Master"  enableEventValidation="false" validateRequest="false" AutoEventWireup="true" CodeBehind="A_EstadoCliente.aspx.cs" Inherits="S00Presentacion.SitioWeb.Pages.SubPages.Administradores.A_EstadoCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,9 +13,11 @@
                     <asp:ListItem Value="false">Inactivo</asp:ListItem>
                 </asp:DropDownList>
             </form>
+            <asp:Button class="botones" ID="Consultar" runat="server" Text="Ejecutar" OnClick="Consultar_Click" />   
             <br />
             <br />
-            <asp:GridView ID="gvEstadoClientes" runat="server" AutoGenerateColumns="false" AllowPaging="true" Width="100%" PageSize="5">
+            <asp:GridView ID="gvEstadoClientes" runat="server" AutoGenerateColumns="false" 
+                AllowPaging="true" Width="100%" PageSize="15" OnPageIndexChanging="gvEstadoClientes_PageIndexChanging">
                 <Columns>
                     <asp:CommandField ShowSelectButton="true" SelectText="Seleccione" />
                     <asp:BoundField DataField="Cedula" HeaderText="Cedula" />
@@ -28,7 +30,6 @@
                 <PagerStyle HorizontalAlign="Center" BackColor="WindowFrame" />
                 <HeaderStyle HorizontalAlign="Center" BackColor="WindowFrame" />
             </asp:GridView>
-            <asp:Button class="botones" ID="Consultar" runat="server" Text="Ejecutar" OnClick="Consultar_Click" />   
         </section>
     </div>
 </body>
