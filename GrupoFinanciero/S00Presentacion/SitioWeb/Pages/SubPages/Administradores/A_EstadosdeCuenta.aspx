@@ -8,7 +8,7 @@
         <section id="FormUsuarios">
             <form>
                 <asp:Label class="label" runat="server" Text="Label"  For="CuentaInterna">Intruduzca la Cuenta Cliente:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="text" ID="CuentaInterna" placeholder="Nombre" required runat="server"></asp:TextBox>
+                <asp:TextBox class="textBox" size="30" type="text" ID="CuentaInterna" placeholder="Cuenta Cliente" required runat="server"></asp:TextBox>
              </form>
             <asp:Button class="botones" ID="Buscar" runat="server" Text="Buscar" OnClick="Buscar_Click" />
             <br />
