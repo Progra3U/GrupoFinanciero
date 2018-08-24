@@ -57,6 +57,10 @@ namespace S02LogicaNegocios
         {
             AccesoDatos.ServicioEliminar(servicio);
         }
+        public static List<Servicio> ServicioBuscar(Servicio servicio)
+        {
+            return AccesoDatos.ServicioBuscar(servicio);
+        }
         #endregion
 
         #region Usuarios

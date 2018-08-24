@@ -84,6 +84,9 @@
     <Compile Include="pa_Login_Result.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>
+    <Compile Include="pa_Servicio_Buscar_Result.cs">
+      <DependentUpon>Entidades.tt</DependentUpon>
+    </Compile>
     <Compile Include="pa_TransaccionesRegistradas_Result.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>

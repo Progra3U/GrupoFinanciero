@@ -18,8 +18,8 @@ CREATE PROCEDURE pa_Servicio_Update
 AS 
 BEGIN
 UPDATE Servicio
-SET DescServicio = @DescServicio, Estado = @Estado
-WHERE DescServicio = @DescServicio
+SET Estado = @Estado
+WHERE DescServicio LIKE '%' + @DescServicio + '%'
 END
 go
 
@@ -27,6 +27,17 @@ CREATE PROCEDURE pa_Servicio_Delete
 	@DescServicio 	nvarchar(50)
 AS
 BEGIN
-DELETE FROM Servicio WHERE DescServicio = @DescServicio
+DELETE FROM Servicio WHERE DescServicio LIKE '%' + @DescServicio + '%'
 END
 go
+
+--Creacion de pa para Buscar Usurios
+CREATE PROCEDURE pa_Servicio_Buscar
+	@DescServicio 	nvarchar(50)
+AS
+BEGIN
+	SELECT servc.IdSevicio, servc.DescServicio, servc.Estado
+	FROM Servicio servc
+	WHERE servc.DescServicio LIKE '%' + @DescServicio + '%'
+END
+go 

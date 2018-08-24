@@ -100,6 +100,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Properties\DataSources\S04Entidades.Servicio.datasource" />
     <None Include="Service References\WCFServicio\Servicios.disco" />
     <None Include="Service References\WCFServicio\configuration91.svcinfo" />
     <None Include="Service References\WCFServicio\configuration.svcinfo" />

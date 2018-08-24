@@ -22,13 +22,13 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
         protected global::System.Web.UI.WebControls.DropDownList Servicios;
         
         /// <summary>
-        /// Control Estado.
+        /// Control EstadoServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Estado;
+        protected global::System.Web.UI.WebControls.DropDownList EstadoServicio;
         
         /// <summary>
         /// Control Ejecutar.
@@ -40,12 +40,21 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores {
         protected global::System.Web.UI.WebControls.Button Ejecutar;
         
         /// <summary>
-        /// Control gvAdministrador.
+        /// Control Modificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAdministrador;
+        protected global::System.Web.UI.WebControls.Button Modificar;
+        
+        /// <summary>
+        /// Control gvServicios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvServicios;
     }
 }

@@ -227,6 +227,34 @@ namespace S03AccesoDatos
                     contexto.Dispose();
             }
         }
+        public static List<Servicio> ServicioBuscar(Servicio servicio)
+        {
+            EntidadFinancieraEntities contexto = null;
+            List<Servicio> lstResultados = new List<Servicio>();
+            try
+            {
+                contexto = new EntidadFinancieraEntities();
+                var consulta = contexto.pa_Servicio_Buscar(servicio.DescServicio);
+                if (contexto != null)
+                {
+                    foreach(var item in consulta)
+                    {
+                        Servicio servs = new Servicio();
+                        servs.IdSevicio = item.IdSevicio;
+                        servs.DescServicio = item.DescServicio;
+                        servs.Estado = item.Estado;
+                        lstResultados.Add(servs);
+                    }
+                }
+
+            }
+            finally
+            {
+                if (contexto != null)
+                    contexto.Dispose();
+            }
+            return lstResultados;
+        }
         #endregion
 
         #region Usuarios
