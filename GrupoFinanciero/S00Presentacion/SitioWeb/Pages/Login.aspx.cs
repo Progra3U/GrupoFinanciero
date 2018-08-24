@@ -42,7 +42,10 @@ namespace S00Presentacion.SitioWeb.Pages
                             }
                             else if (perfil.Equals("Cliente"))
                             {
-                                Response.Redirect("Clientes.aspx");
+                                Session["usuario"] = this.Usuario.Text.Trim();
+                                Session["nombre"] = nombre;
+                                Response.Redirect(@"~/SitioWeb/Pages/Clientes.aspx");
+                                //Response.Redirect("Clientes.aspx");
                             }
                             else if (perfil.Equals("Usuario"))
                             {

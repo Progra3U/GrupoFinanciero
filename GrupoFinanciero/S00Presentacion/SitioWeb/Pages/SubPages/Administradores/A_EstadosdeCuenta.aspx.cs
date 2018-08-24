@@ -30,7 +30,6 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Problema al cargar Fuente de Recursos');</script>");
             }
         }
-
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {

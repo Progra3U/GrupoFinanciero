@@ -7,19 +7,19 @@
 		<h2>Menu</h2>
 		<ul>
             <li><a href="../Index.aspx">Inicio</a></li>
-            <li><a href="SubPages/Administradores/A_Clientes.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Clientes</a></li>
-            <li><a href="SubPages/Administradores/A_EstadosdeCuenta.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Estados de Cuenta</a></li>
+            <li><a href="SubPages/Administradores/A_Clientes.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Clientes</a></li>
+            <li><a href="SubPages/Administradores/A_EstadosdeCuenta.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Estados de Cuenta</a></li>
             <li><a href="#">Transferencias</a>
                 <ul>
-			        <li><a href="SubPages/Clientes/C_TransferenciasI.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Internas</a></li>
-			        <li><a href="SubPages/Clientes/C_TransferenciasE.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Externas</a></li>
+			        <li><a href="SubPages/Clientes/C_TransferenciasI.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Internas</a></li>
+			        <li><a href="SubPages/Clientes/C_TransferenciasE.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Externas</a></li>
 		        </ul>
             </li>
             <li><a href="#">Pago de Servicios</a>
                 <ul>
-			        <li><a href="SubPages/Clientes/C_AguayLuz.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Agua y Luz</a></li>
-			        <li><a href="SubPages/Clientes/C_TelefonoyPrepago.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Telefono</a></li>
-                    <li><a href="SubPages/Clientes/C_TVeInternet.aspx" target="_blank" onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">TV e Internet</a></li>
+			        <li><a href="SubPages/Clientes/C_AguayLuz.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Agua y Luz</a></li>
+			        <li><a href="SubPages/Clientes/C_TelefonoyPrepago.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">Telefono</a></li>
+                    <li><a href="SubPages/Clientes/C_TVeInternet.aspx"  onclick="window.open(this.href, this.target, 'width=960,height=900,top=50,left=500'); return false;">TV e Internet</a></li>
 		        </ul>
             </li>
 			<li><a href="Login.aspx">Salir</a></li>

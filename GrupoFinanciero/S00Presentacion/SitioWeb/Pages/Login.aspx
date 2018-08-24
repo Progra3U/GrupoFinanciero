@@ -16,7 +16,7 @@
                     <input type="password" placeholder="Contraseña" required>
                     <input type="submit" value="Iniciar Sesión">-->
                     <asp:TextBox ID="Usuario" type="text" placeholder="Usuario" required runat="server"></asp:TextBox>
-                    <asp:TextBox ID="Password" type="password" placeholder="Contraseña" required runat="server"></asp:TextBox>
+                    <asp:TextBox ID="Password" type="password" MaxLength="8" placeholder="Contraseña" required runat="server"></asp:TextBox>
                     <asp:Button ID="enviar" runat="server" Text="Iniciar Sesión" OnClick="enviar_Click" />
                 </form>
             </div>

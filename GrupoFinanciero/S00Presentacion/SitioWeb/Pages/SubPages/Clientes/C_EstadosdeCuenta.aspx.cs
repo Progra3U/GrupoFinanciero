@@ -10,30 +10,34 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
 {
     public partial class C_EstadosdeCuenta : System.Web.UI.Page
     {
+        public void recibirUsuario()
+        {
+            //Usuarios user = new Usuarios();
+            this.cuentaInterna.Text = Session["usuario2"].ToString();
+        }
         public void infoUsuario()
         {
-            string Cedula, SaldoCuenta, CuentaInterna, CuentaSimpe, Descripcion;
+            string Cedula, SaldoCuenta, CuentaInterna, CuentaSimpe;
             try
             {
                 List<Cliente> lstsECliente;
                 Cliente ECliente = new Cliente();
-                ECliente.Cedula = this.Cedula.Text.Trim();
+                ECliente.Cedula = Session["usuario2"].ToString();
                 lstsECliente = ConexionServicios.ConexionesInternas.ClienteBuscar(ECliente);
                 foreach (var item in lstsECliente)
                 {
                     Cedula = item.Cedula.ToString();
-                    SaldoCuenta = item.SaldoCuenta.ToString();
                     CuentaInterna = item.CuentaInterna;
                     CuentaSimpe = item.CuentaSimpe;
+                    SaldoCuenta = item.SaldoCuenta.ToString();
 
 
-                    if (item.Cedula.ToString().Equals(this.Cedula.Text.Trim()))
+                    if (Cedula != String.Empty)
                     {
-                        /*this.PrimerApellido.Text = Cedula;
-                        this.SegundoApellido.Text = SaldoCuenta;
-                        this.FechaNac.Text = CuentaInterna;
-                        this.Telefono.Text = CuentaSimpe;*/
-
+                        this.Cedula.Text = Cedula;
+                        this.cuentaInterna.Text = CuentaInterna;
+                        this.cuentaSinpe.Text = CuentaSimpe;
+                        this.Saldo.Text = SaldoCuenta;
                     }
                     else
                     {
@@ -47,13 +51,38 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error al Gestionar la Operacion Solicitada');</script>");
             }
         }
+
+        #region CargarLista
+        private void CargarLista()
+        {
+            try
+            {
+                List<Transaccion> lsttnsc;
+                Transaccion tnsc = new Transaccion();
+                tnsc.CuentaInterna = this.cuentaInterna.Text.Trim();
+                lsttnsc = ConexionServicios.ConexionesInternas.EstadosdeCuenta(tnsc);
+
+                ViewState["lsttnsc"] = lsttnsc;
+                this.gvEstadoCuenta.DataSource = lsttnsc;
+                this.gvEstadoCuenta.DataBind();
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Problema al cargar Fuente de Recursos');</script>");
+            }
+        }
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
-            infoUsuario();
+            this.recibirUsuario();
+            this.infoUsuario();
+
         }
         protected void GenerarVista_Click(object sender, EventArgs e)
         {
-
+            
+            this.CargarLista();
         }
 
         protected void gvEstadoCuenta_PageIndexChanging(object sender, GridViewPageEventArgs e)
