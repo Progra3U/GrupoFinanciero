@@ -134,6 +134,9 @@
     <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
     <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="pa_Servicio_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="pa_Servicio_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
   </Function>

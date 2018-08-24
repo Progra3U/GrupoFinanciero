@@ -39,6 +39,8 @@ namespace S01Servicios
         void ServicioModificar(Servicio servicio);
         [OperationContract]
         void ServicioEliminar(Servicio servicio);
+        [OperationContract]
+        List<Servicio> ServicioBuscar(Servicio servicio);
         #endregion
 
         #region Usuarios

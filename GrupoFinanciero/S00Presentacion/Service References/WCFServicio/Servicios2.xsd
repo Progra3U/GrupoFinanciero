@@ -45,6 +45,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Servicio" nillable="true" type="tns:Servicio" />
+  <xs:complexType name="ArrayOfServicio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Servicio" nillable="true" type="tns:Servicio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServicio" nillable="true" type="tns:ArrayOfServicio" />
   <xs:complexType name="Usuario">
     <xs:sequence>
       <xs:element name="_x003C_Contrasena_x003E_k__BackingField" nillable="true" type="xs:string" />

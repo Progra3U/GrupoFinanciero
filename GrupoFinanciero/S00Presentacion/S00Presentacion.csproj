@@ -100,6 +100,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Properties\DataSources\S04Entidades.Servicio.datasource" />
     <None Include="Service References\WCFServicio\Servicios.disco" />
     <None Include="Service References\WCFServicio\configuration91.svcinfo" />
     <None Include="Service References\WCFServicio\configuration.svcinfo" />
@@ -152,11 +153,11 @@
     <Content Include="SitioWeb\Pages\Clientes.aspx" />
     <Content Include="SitioWeb\Pages\Login.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Clientes.aspx" />
+    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_EstadoCliente.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_EstadosdeCuenta.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Globales.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Servicios.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx" />
-    <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Clientes\C_AguayLuz.aspx" />
     <Content Include="SitioWeb\Pages\SubPages\Clientes\C_EstadosdeCuenta.aspx" />
@@ -222,6 +223,13 @@
     <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Clientes.aspx.designer.cs">
       <DependentUpon>A_Clientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadoCliente.aspx.cs">
+      <DependentUpon>A_EstadoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadoCliente.aspx.designer.cs">
+      <DependentUpon>A_EstadoCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_EstadosdeCuenta.aspx.cs">
       <DependentUpon>A_EstadosdeCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,13 +257,6 @@
     </Compile>
     <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transacciones.aspx.designer.cs">
       <DependentUpon>A_Transacciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx.cs">
-      <DependentUpon>A_Transferencias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Transferencias.aspx.designer.cs">
-      <DependentUpon>A_Transferencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="SitioWeb\Pages\SubPages\Administradores\A_Usuarios.aspx.cs">
       <DependentUpon>A_Usuarios.aspx</DependentUpon>

@@ -60,6 +60,10 @@ namespace S01Servicios
         {
             S02LogicaNegocios.LogicaNegocios.ServicioEliminar(servicio);
         }
+        public List<Servicio> ServicioBuscar(Servicio servicio)
+        {
+            return S02LogicaNegocios.LogicaNegocios.ServicioBuscar(servicio);
+        }
         #endregion
 
         #region Usuarios

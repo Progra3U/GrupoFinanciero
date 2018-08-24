@@ -139,6 +139,9 @@
           <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
           <Parameter Name="Contrasena" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="pa_Servicio_Buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="pa_Servicio_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DescServicio" Type="nvarchar" Mode="In" />
         </Function>
@@ -268,6 +271,9 @@
           <FunctionImport Name="pa_Login" ReturnType="Collection(EntidadFinancieraModel.pa_Login_Result)">
             <Parameter Name="Usuario" Mode="In" Type="String" />
             <Parameter Name="Contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_Servicio_Buscar" ReturnType="Collection(EntidadFinancieraModel.pa_Servicio_Buscar_Result)">
+            <Parameter Name="DescServicio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_Servicio_Delete">
             <Parameter Name="DescServicio" Mode="In" Type="String" />
@@ -408,6 +414,11 @@
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pa_Servicio_Buscar_Result">
+          <Property Type="Int32" Name="IdSevicio" Nullable="false" />
+          <Property Type="String" Name="DescServicio" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="Estado" Nullable="false" />
         </ComplexType>
         <ComplexType Name="pa_TransaccionesRegistradas_Result">
@@ -572,6 +583,15 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
                 <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_Servicio_Buscar" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Buscar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Servicio_Buscar_Result">
+                <ScalarProperty Name="IdSevicio" ColumnName="IdSevicio" />
+                <ScalarProperty Name="DescServicio" ColumnName="DescServicio" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </ComplexTypeMapping>
             </ResultMapping>

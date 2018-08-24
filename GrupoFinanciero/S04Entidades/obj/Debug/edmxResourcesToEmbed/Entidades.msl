@@ -135,6 +135,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pa_Servicio_Buscar" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Buscar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntidadFinancieraModel.pa_Servicio_Buscar_Result">
+          <ScalarProperty Name="IdSevicio" ColumnName="IdSevicio" />
+          <ScalarProperty Name="DescServicio" ColumnName="DescServicio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="pa_Servicio_Delete" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Delete" />
     <FunctionImportMapping FunctionImportName="pa_Servicio_Insert" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Insert" />
     <FunctionImportMapping FunctionImportName="pa_Servicio_Update" FunctionName="EntidadFinancieraModel.Store.pa_Servicio_Update" />

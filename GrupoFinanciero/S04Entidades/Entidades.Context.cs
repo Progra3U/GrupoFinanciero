@@ -295,6 +295,15 @@ namespace S04Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_Login_Result>("pa_Login", usuarioParameter, contrasenaParameter);
         }
     
+        public virtual ObjectResult<pa_Servicio_Buscar_Result> pa_Servicio_Buscar(string descServicio)
+        {
+            var descServicioParameter = descServicio != null ?
+                new ObjectParameter("DescServicio", descServicio) :
+                new ObjectParameter("DescServicio", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_Servicio_Buscar_Result>("pa_Servicio_Buscar", descServicioParameter);
+        }
+    
         public virtual int pa_Servicio_Delete(string descServicio)
         {
             var descServicioParameter = descServicio != null ?

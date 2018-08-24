@@ -141,6 +141,19 @@ namespace S00Presentacion.ConexionServicios
                 servicioCliente.Close();
             }
         }
+        public static List<Servicio> ServicioBuscar(Servicio servicio)
+        {
+            WCFServicio.ServiciosClient servicioCliente = GetServ();
+            try
+            {
+                return servicioCliente.ServicioBuscar(servicio);
+            }
+            finally
+            {
+                servicioCliente.Close();
+            }
+
+        }
         #endregion
 
         #region Usuarios
