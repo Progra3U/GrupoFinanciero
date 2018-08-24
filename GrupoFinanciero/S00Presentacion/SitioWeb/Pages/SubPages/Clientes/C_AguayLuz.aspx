@@ -13,11 +13,11 @@
                     <asp:ListItem Value="Pago_de_Servicio_de_Electricidad">Pago de Servicio de Electricidad</asp:ListItem>
                 </asp:DropDownList>   
                 <asp:Label class="label" runat="server" For="FechaPago">Seleccione Periodo de pago:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="date" ID="FechaPago" min="1918-12-31" Max="2100-12-31" placeholder="Fecha de Nacimiento"  runat="server"></asp:TextBox>
-                <asp:Label class="label" runat="server" Text="Label"  For="CuentaBancoEx">N<sup>o</sup> de Cuenta a Pagar:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="text" ID="CuentaBancoEx" placeholder="Nombre"  runat="server"></asp:TextBox>
-                <asp:Label class="label"  runat="server" Text="Label"  For="cuentaInterna">N<sup>o</sup> de Cuenta a deducir:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="text" ID="cuentaInterna"  runat="server"></asp:TextBox>
+                <asp:TextBox class="textBox" size="30" type="date" ID="FechaPago" runat="server"></asp:TextBox>
+                <asp:Label class="label" runat="server" Text="Label"  For="CuentaBancoEx">N<sup>°</sup> de Cuenta a Pagar:</asp:Label>
+                <asp:TextBox class="textBox" size="30" type="text" ID="CuentaBancoEx" placeholder="Cuenta del servio Publico"  runat="server"></asp:TextBox>
+                <asp:Label class="label"  runat="server" Text="Label"  For="cuentaInterna">N<sup>°</sup> de Cuenta a deducir:</asp:Label>
+                <asp:TextBox class="textBox" size="30" type="text" ID="cuentaInterna" placeholder="Use Cuenta Cliente" runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" For="MontoPagar">Monto a Pagar:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="number" ID="MontoPagar" min="1"  placeholder="$2"  runat="server"></asp:TextBox>               
             </form>

@@ -12,9 +12,9 @@
                     <asp:ListItem Value="Pago_de_Servicio_Telefonia_Fija">Pago de Servicio Telefonia Fija</asp:ListItem>
                     <asp:ListItem Value="Pago_de_Servicio_telefonico_Prepago">Pago de Servicio telefonico Prepago</asp:ListItem>
                 </asp:DropDownList>
-                <asp:Label class="label"  runat="server" Text="Label"  For="cuentaInterna">N<sup>o</sup> de Cuenta a deducir:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="text" ID="cuentaInterna" required runat="server"></asp:TextBox>
-                <asp:Label class="label" runat="server" For="Telefono">N<sup>o</sup> Telefono:</asp:Label>
+                <asp:Label class="label"  runat="server" Text="Label"  For="cuentaInterna">N<sup>°</sup> de Cuenta a deducir:</asp:Label>
+                <asp:TextBox class="textBox" size="30" type="text" ID="cuentaInterna" placeholder="Use Cuenta Cliente" required runat="server"></asp:TextBox>
+                <asp:Label class="label" runat="server" For="Telefono">N<sup>°</sup> Telefono:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="tel" ID="Telefono" pattern="[+][0-9]{3}[-][0-9]{4}[-][0-9]{4}" MaxLength="14" placeholder="+506-0000-0000" runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" For="MontoPagar">Monto a Pagar o recargar:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="number" ID="MontoPagar" min="1"  placeholder="$2" required runat="server"></asp:TextBox>               

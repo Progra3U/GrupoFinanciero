@@ -39,7 +39,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
 
         protected void Ejecutar_Click(object sender, EventArgs e)
         {
-
+            CargarLista();
         }
 
         protected void Modificar_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 upser.Estado = Convert.ToBoolean(this.EstadoServicio.Text);
                 ConexionServicios.ConexionesInternas.ServicioModificar(upser);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Datos Actualizados con exito');</script>");
-                //Limpiar();
+                CargarLista();
             }
             catch (Exception)
             {

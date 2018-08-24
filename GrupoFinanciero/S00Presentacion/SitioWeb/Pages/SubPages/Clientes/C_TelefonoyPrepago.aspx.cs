@@ -19,9 +19,46 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
             MontoPagar.Text = String.Empty;
         }
         #endregion
+
+        #region VerificarForm
+        private void HabilitarBotonServicio()
+        {
+            bool activo = false;
+            try
+            {
+                List<Servicio> lstServicios;
+                Servicio serv = new Servicio();
+                serv.DescServicio = "Telefonina";
+                lstServicios = ConexionServicios.ConexionesInternas.ServicioBuscar(serv);
+
+                foreach (var item in lstServicios)
+                {
+                    Servicio estadoServicio = new Servicio();
+                    estadoServicio.Estado = item.Estado;
+                    activo = estadoServicio.Estado;
+
+                    if (activo == true)
+                    {
+                        Pagar.Enabled = true;
+                    }
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Servicio Deshabilitado Por el Administrador');</script>");
+                        Pagar.Enabled = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Problema al cargar Fuente de Recursos');</script>");
+            }
+        }
+
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.HabilitarBotonServicio();
         }
         //System.DateTime.Now
         protected void Pagar_Click(object sender, EventArgs e)
