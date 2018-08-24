@@ -44,13 +44,3 @@ C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\obj\Debug\S02LogicaNegocios.csproj.CopyComplete
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\obj\Debug\S02LogicaNegocios.dll
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\obj\Debug\S02LogicaNegocios.pdb
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\S02LogicaNegocios.dll
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\S02LogicaNegocios.pdb
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\S03AccesoDatos.dll
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\S04Entidades.dll
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\EntityFramework.dll
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\S03AccesoDatos.pdb
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\bin\Debug\S04Entidades.pdb
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\obj\Debug\S02LogicaNegocios.csprojResolveAssemblyReference.cache
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\obj\Debug\S02LogicaNegocios.dll
-C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S02LogicaNegocios\obj\Debug\S02LogicaNegocios.pdb
