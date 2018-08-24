@@ -6,6 +6,8 @@
     <div id="wrap">
       <h2 id="titulo">Montos Globales</h2>
         <section id="FormUsuarios">
+            <p style="font-size: 18px; color:#fff">Monto total Invertido en la entidad Financiera aciende a: $<asp:Label Text="" ID="MontoTotal" runat="server" /></p>
+            <br/>
             <form>
                 <asp:GridView ID="gvGlobales" runat="server" AutoGenerateColumns="false" 
                            AllowPaging="true" Width="100%" PageSize="5" >

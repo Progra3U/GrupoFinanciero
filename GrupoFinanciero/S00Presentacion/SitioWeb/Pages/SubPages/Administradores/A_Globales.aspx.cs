@@ -29,9 +29,35 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
         }
 
         #endregion
+
+        #region SumaTotales
+        private void suma()
+        {
+            double sumatotal = 0;
+            try
+            {
+                List<Cliente> lstSuma;
+                lstSuma = ConexionServicios.ConexionesInternas.MontosGlobales();
+
+                foreach (var item in lstSuma)
+                {
+                    Cliente suma = new Cliente();
+                    suma.SaldoCuenta = item.SaldoCuenta;
+                    sumatotal = sumatotal + suma.SaldoCuenta;
+                }
+                this.MontoTotal.Text = sumatotal.ToString();
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Error en Suma);</script>");
+            }
+        }
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarLista();
+            suma();
         }
 
         protected void EjecutarGlobales_Click(object sender, EventArgs e)

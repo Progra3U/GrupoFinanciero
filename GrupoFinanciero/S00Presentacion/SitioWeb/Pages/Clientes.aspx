@@ -26,7 +26,7 @@
 	</div>
 	<div class="Central">
         <h2><strong>Sesion de Cliente</strong></h2>
-            <asp:Label Text="" ID="usuarioconectado" runat="server" /><br>
+            <asp:Label Text="" ID="usuarioconectado" runat="server" /><br/>
         <h2><strong>Informacion Referente a Nuestro Cliente:</strong></h2>
 		<p>
 	        Nombre: <asp:Label Text="" ID="Nombre" runat="server" /><br/>
