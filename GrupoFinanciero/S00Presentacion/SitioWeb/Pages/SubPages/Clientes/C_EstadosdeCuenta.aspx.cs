@@ -12,7 +12,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
     {
         public void infoUsuario()
         {
-            string Cedula, SaldoCuenta,CuentaInterna, CuentaSimpe, Descripcion;
+            string Cedula, SaldoCuenta, CuentaInterna, CuentaSimpe, Descripcion;
             try
             {
                 List<Cliente> lstsECliente;
@@ -58,11 +58,27 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
 
         protected void gvEstadoCuenta_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            this.gvEstadoCuenta.PageIndex = e.NewPageIndex;
+            this.infoUsuario();
         }
 
         protected void gvEstadoCuenta_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            try
+            {
+                List<Transaccion> lstTransaccion = (List<Transaccion>)ViewState["lstTransaccion"];
+
+                int indice = e.NewSelectedIndex;
+
+                this.cuentaInterna.Text = lstTransaccion[indice].CuentaInterna.ToString();
+                this.cuentaSinpe.Text = lstTransaccion[indice].CuentaSimpe.ToString();
+                this.Saldo.Text = lstTransaccion[indice].Monto.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
     }

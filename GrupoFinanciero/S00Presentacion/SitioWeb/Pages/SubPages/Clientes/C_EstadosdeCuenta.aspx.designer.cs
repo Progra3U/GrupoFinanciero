@@ -31,22 +31,31 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes {
         protected global::System.Web.UI.WebControls.TextBox Nombre;
         
         /// <summary>
-        /// Control Telefono.
+        /// Control cuentaInterna.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Telefono;
+        protected global::System.Web.UI.WebControls.TextBox cuentaInterna;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control cuentaSinpe.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox cuentaSinpe;
+        
+        /// <summary>
+        /// Control Saldo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Saldo;
         
         /// <summary>
         /// Control GenerarVista.

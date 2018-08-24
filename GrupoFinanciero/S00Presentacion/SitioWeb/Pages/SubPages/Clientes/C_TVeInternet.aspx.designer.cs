@@ -13,49 +13,49 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes {
     public partial class C_TVeInternet {
         
         /// <summary>
-        /// Control Cedula.
+        /// Control PagoSeleccionado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cedula;
+        protected global::System.Web.UI.WebControls.DropDownList PagoSeleccionado;
         
         /// <summary>
-        /// Control Nombre.
+        /// Control FechaPago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Nombre;
+        protected global::System.Web.UI.WebControls.TextBox FechaPago;
         
         /// <summary>
-        /// Control Pagaron.
+        /// Control CuentaBancoEx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Pagaron;
+        protected global::System.Web.UI.WebControls.TextBox CuentaBancoEx;
         
         /// <summary>
-        /// Control Telefono.
+        /// Control cuentaInterna.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Telefono;
+        protected global::System.Web.UI.WebControls.TextBox cuentaInterna;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control MontoPagar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox MontoPagar;
         
         /// <summary>
         /// Control Pagar.
@@ -67,12 +67,12 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes {
         protected global::System.Web.UI.WebControls.Button Pagar;
         
         /// <summary>
-        /// Control gvPerfiles.
+        /// Control gvAdministrador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPerfiles;
+        protected global::System.Web.UI.WebControls.GridView gvAdministrador;
     }
 }
