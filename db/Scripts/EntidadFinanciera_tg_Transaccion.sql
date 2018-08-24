@@ -48,11 +48,27 @@ AS
 BEGIN
 	Declare @Monto int
 	Declare @CuentaInterna nvarchar(50)
-select @Monto = Monto, @CuentaInterna = CuentaInterna --aqui obtine valor nuevo del id
-from inserted --tabla temporal que devuelve valores nuevos agregados
+select @Monto = Monto, @CuentaInterna = CuentaInterna 
+from inserted 
 UPDATE Cliente
 SET Cliente.SaldoCuenta = (Cliente.SaldoCuenta - @Monto)
 WHERE Cliente.CuentaInterna LIKE '%' + @CuentaInterna + '%'
+END
+GO
+
+--Creacion de Trigger para actualizacion de saldos Entre Clientes Internos
+CREATE TRIGGER tg_ActualizarSaldoClienteInternos
+ON BancoExteno
+FOR INSERT
+AS
+BEGIN
+	Declare @Monto int
+	Declare @CuentaSimpe nvarchar(50)
+select @Monto = Monto, @CuentaSimpe = CuentaBancoEx 
+from inserted 
+UPDATE Cliente
+SET Cliente.SaldoCuenta = (Cliente.SaldoCuenta + @Monto)
+WHERE Cliente.CuentaSimpe LIKE '%' + @CuentaSimpe + '%'
 END
 GO
 
