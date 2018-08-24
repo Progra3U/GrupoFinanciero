@@ -38,18 +38,33 @@ namespace S00Presentacion.SitioWeb.Pages
                         {
                             if (perfil.Equals("Admin"))
                             {
-                                Response.Redirect("Administradores.aspx");
+                                Session["usuario"] = this.Usuario.Text.Trim();
+                                Session["nombre"] = nombre;
+                                Session["pass"] = pass;
+                                Session["perfil"] = perfil;
+                                Session["estado"] = estado;
+                                Response.Redirect(@"~/SitioWeb/Pages/Administradores.aspx");
+                                //Response.Redirect("Administradores.aspx");
                             }
                             else if (perfil.Equals("Cliente"))
                             {
                                 Session["usuario"] = this.Usuario.Text.Trim();
                                 Session["nombre"] = nombre;
+                                Session["pass"] = pass;
+                                Session["perfil"] = perfil;
+                                Session["estado"] = estado;
                                 Response.Redirect(@"~/SitioWeb/Pages/Clientes.aspx");
                                 //Response.Redirect("Clientes.aspx");
                             }
                             else if (perfil.Equals("Usuario"))
                             {
-                                Response.Redirect("Usuarios.aspx");
+                                Session["usuario"] = this.Usuario.Text.Trim();
+                                Session["nombre"] = nombre;
+                                Session["pass"] = pass;
+                                Session["perfil"] = perfil;
+                                Session["estado"] = estado;
+                                Response.Redirect(@"~/SitioWeb/Pages/Usuarios.aspx");
+                                //Response.Redirect("Usuarios.aspx");
                             }
                         }
                         else

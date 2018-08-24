@@ -64,6 +64,8 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
                 "A continuación encontrara alguno datos de su interes,<br>" +
                 "Usuario: " + this.Cedula.Text.Trim() + "<br>" +
                 "Contraseña: " +this.Contrasena.Text.Trim() + "<br>" +
+                "Cuenta Cliente: " + Cuenta().ToString() + "<br>" +
+                "Cuenta Simpe: " + Simpe().ToString() + "<br>" +
                 "Gracias por elegir nuestra Entidad Financiera</p>";
             try
             {
