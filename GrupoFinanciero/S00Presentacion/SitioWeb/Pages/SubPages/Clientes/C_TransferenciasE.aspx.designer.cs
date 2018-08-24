@@ -13,13 +13,22 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes {
     public partial class C_TransferenciasE {
         
         /// <summary>
-        /// Control Cuenta.
+        /// Control CuentaBancoEx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cuenta;
+        protected global::System.Web.UI.WebControls.TextBox CuentaBancoEx;
+        
+        /// <summary>
+        /// Control cuentaInterna.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cuentaInterna;
         
         /// <summary>
         /// Control Detalle.

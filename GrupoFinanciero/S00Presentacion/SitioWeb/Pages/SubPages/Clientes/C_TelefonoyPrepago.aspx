@@ -21,19 +21,6 @@
             </form>
             <asp:Button class="botones" ID="Pagar" runat="server" Text="Pagar" OnClick="Pagar_Click" />
 
-            <!--<asp:GridView ID="gvPerfiles" runat="server" AutoGenerateColumns="false" 
-                AllowPaging="true" Width="100%" PageSize="5">
-                <Columns>
-                    <asp:CommandField ShowSelectButton="true" SelectText="Seleccione" />
-                    <asp:BoundField DataField="codPago" HeaderText="Codigo" />
-                    <asp:BoundField DataField="TipoPago" HeaderText="Descripción" />
-                    <asp:BoundField DataField="Monto" HeaderText="Monto" />
-                </Columns>
-                <AlternatingRowStyle BackColor="LightBlue" />
-                <RowStyle BackColor ="white" />
-                <PagerStyle HorizontalAlign="Center" BackColor="WindowFrame" />
-                <HeaderStyle HorizontalAlign="Center" BackColor="WindowFrame" />
-            </asp:GridView>-->
         </section>
     </div>
 </body>

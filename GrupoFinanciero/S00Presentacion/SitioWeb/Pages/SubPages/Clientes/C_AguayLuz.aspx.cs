@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net;  //Librerias para envio de correo electronico
+using System.Net;  
 using System.Net.Mail;
-using System.Threading; //Hilos de ejecucion
+using System.Threading; 
 using S04Entidades;
 
 namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
@@ -33,14 +33,6 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
         {
             try
             {
-
-
-                /*Cliente cliente = new Cliente();
-                int saldCliente = cliente.SaldoCuenta;
-                int motpagar = Convert.ToInt32(this.MontoPagar.Text.Trim());
-
-                int totalsaldo = saldCliente - motpagar;*/
-
                 BancoExteno objBanco = new BancoExteno();
                 objBanco.CuentaBancoEx = this.CuentaBancoEx.Text.Trim();
                 objBanco.CuentaInterna = this.cuentaInterna.Text.Trim();
@@ -51,8 +43,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
 
                 ConexionServicios.ConexionesInternas.BancoExternoAgregar(objBanco);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Pago realizado Con exito');</script>");
-                //Limpiar();
-
+                Limpiar();
             }
             catch (Exception ex)
             {

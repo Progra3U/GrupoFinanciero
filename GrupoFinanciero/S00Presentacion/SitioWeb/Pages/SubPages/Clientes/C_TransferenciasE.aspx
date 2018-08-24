@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="C_TransferenciasE.aspx.cs" Inherits="S00Presentacion.SitioWeb.Pages.SubPages.Clientes.C_TransferenciasE" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra.Master" enableEventValidation="false" validateRequest="false" AutoEventWireup="true" CodeBehind="C_TransferenciasE.aspx.cs" Inherits="S00Presentacion.SitioWeb.Pages.SubPages.Clientes.C_TransferenciasE" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,8 +7,10 @@
         <h2 id="titulo">Transferencias Externas</h2>
         <section id="FormUsuarios">    
             <form>
-                <asp:Label class="label"  runat="server" Text="Label"  For="Cuenta">Numero de cuenta:</asp:Label>
-                <asp:TextBox class="textBox" size="30" type="text" ID="Cuenta" pattern="[0-9]{3}[-][0-9]{7}[-][0-9]{1}" MaxLength="12" placeholder="00000000000000000" required runat="server"></asp:TextBox>
+                <asp:Label class="label" runat="server" Text="Label"  For="CuentaBancoEx">N<sup>o</sup> de Cuenta a Pagar:</asp:Label>
+                <asp:TextBox class="textBox" size="30" type="text" ID="CuentaBancoEx" placeholder="Nombre"  runat="server"></asp:TextBox>
+                <asp:Label class="label"  runat="server" Text="Label"  For="cuentaInterna">N<sup>o</sup> de Cuenta a deducir:</asp:Label>
+                <asp:TextBox class="textBox" size="30" type="text" ID="cuentaInterna"  runat="server"></asp:TextBox>
                 <asp:Label class="label" runat="server" Text="Label"  For="Detalle">Detalle:</asp:Label>
                 <asp:TextBox class="textBox" size="30" type="text" ID="Detalle"  placeholder="Detalle de la operacion" required runat="server"></asp:TextBox> 
                 <asp:Label class="label" runat="server" For="Monto">Monto a Transferir:</asp:Label>

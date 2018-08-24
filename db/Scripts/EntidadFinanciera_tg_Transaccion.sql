@@ -2,37 +2,46 @@ USE EntidadFinanciera
 go
 --Creacion de Triggers para las tablas 
 --Creacion de Triggers para Transaccion 
-CREATE TRIGGER tg_InsertTransaccion
+alter TRIGGER tg_InsertTransaccion
 ON Cliente
 FOR INSERT
 AS
+BEGIN
 INSERT Transaccion 
 (CuentaInterna, CuentaSimpe, Descripcion, Monto, HorayFecha)
 SELECT CuentaInterna, CuentaSimpe, Descripcion, SaldoCuenta, GETDATE()
 FROM INSERTED
+END
+GO
 
 --Creacion de Trigger para Usuario
-CREATE TRIGGER tg_InsertUsuario
+alter TRIGGER tg_InsertUsuario
 ON Cliente
 FOR INSERT
 AS
+BEGIN
 INSERT Usuario 
 (Usuario,Nombre, Contrasena, Perfil, Estado)
 SELECT Cedula, Nombre+' '+Apellido1+' '+Apellido2, Contrasena, 'Cliente', Estado
 FROM INSERTED
+END
+GO
 
 --Creacion de Trigger para agregar transacciones externas
-CREATE TRIGGER tg_InsertPagoBancoExteno
+alter TRIGGER tg_InsertPagoBancoExteno
 ON BancoExteno
 FOR INSERT,UPDATE
 AS
+BEGIN
 INSERT Transaccion 
 (CuentaInterna, CuentaSimpe, Descripcion, Monto, HorayFecha)
 SELECT CuentaInterna, CuentaBancoEx, DetalleTrans, Monto, HorayFecha
 FROM INSERTED
+END
+GO
 
 --Creacion de Trigger para actualizacion de saldos Cliente
-CREATE TRIGGER tg_ActualizarSaldoCliente
+alter TRIGGER tg_ActualizarSaldoCliente
 ON BancoExteno
 FOR INSERT
 AS
@@ -44,9 +53,8 @@ from inserted --tabla temporal que devuelve valores nuevos agregados
 UPDATE Cliente
 SET Cliente.SaldoCuenta = (Cliente.SaldoCuenta - @Monto)
 WHERE Cliente.CuentaInterna LIKE '%' + @CuentaInterna + '%'
-end
-go
-
+END
+GO
 
 
 
