@@ -32,3 +32,11 @@ C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.dll
 C:\Users\CARLOSANDRESPEREZMED\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.pdb
 C:\Users\Www-R\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.csprojResolveAssemblyReference.cache
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.dll.config
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.dll
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\S04Entidades.pdb
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\EntityFramework.dll
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\bin\Debug\EntityFramework.xml
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.csprojResolveAssemblyReference.cache
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.dll
+C:\Users\msalas21\Documents\GitHub\GrupoFinanciero\GrupoFinanciero\GrupoFinanciero\S04Entidades\obj\Debug\S04Entidades.pdb

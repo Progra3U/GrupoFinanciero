@@ -12,7 +12,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
     {
         public void infoUsuario()
         {
-            string Cedula, SaldoCuenta,CuentaInterna, CuentaSimpe, Descripcion;
+            string Cedula, SaldoCuenta,CuentaInterna, CuentaSimpe, nombre;
             try
             {
                 List<Cliente> lstsECliente;
@@ -22,6 +22,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
                 foreach (var item in lstsECliente)
                 {
                     Cedula = item.Cedula.ToString();
+                    nombre = item.Nombre.ToString();
                     SaldoCuenta = item.SaldoCuenta.ToString();
                     CuentaInterna = item.CuentaInterna;
                     CuentaSimpe = item.CuentaSimpe;
@@ -29,10 +30,10 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
 
                     if (item.Cedula.ToString().Equals(this.Cedula.Text.Trim()))
                     {
-                        /*this.PrimerApellido.Text = Cedula;
-                        this.SegundoApellido.Text = SaldoCuenta;
-                        this.FechaNac.Text = CuentaInterna;
-                        this.Telefono.Text = CuentaSimpe;*/
+                        
+                        this.CuentaBancoEx.Text = CuentaInterna;
+                        this.cuentaSinpe.Text = CuentaSimpe;
+                        this.saldo.Text = SaldoCuenta;
 
                     }
                     else
@@ -54,16 +55,31 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Clientes
         protected void GenerarVista_Click(object sender, EventArgs e)
         {
 
-        }
+            infoUsuario();
+            }
 
         protected void gvEstadoCuenta_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            this.gvEstadoCuenta.PageIndex = e.NewPageIndex;
+            this.infoUsuario();
         }
 
         protected void gvEstadoCuenta_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            try
+            {
+                List<Transaccion> lstclientes = (List<Transaccion>)ViewState["lstclientes"];
 
+                int indice = e.NewSelectedIndex;
+
+                this.CuentaBancoEx.Text = lstclientes[indice].CuentaInterna.ToString();
+                this.cuentaSinpe.Text = lstclientes[indice].CuentaSimpe.ToString();
+                this.saldo.Text = lstclientes[indice].Monto.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
