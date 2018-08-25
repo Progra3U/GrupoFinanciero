@@ -93,7 +93,7 @@ namespace S00Presentacion.SitioWeb.Pages.SubPages.Administradores
             catch (Exception ex)
             {
                 //throw ex;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Verifique su conexion a iInternet');</script>");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Verifique su conexion a Internet');</script>");
             }
         }
         #endregion

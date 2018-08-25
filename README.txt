@@ -1,6 +1,9 @@
-# EntidadFinanciera
-Proyecto : Sistema de Entidades Financieras
-Programación III, Proyecto # 1
+﻿# EntidadFinanciera
+Proyecto : GrupoFinanciero
+Programación III, Proyecto # 2
+descargable de: 
+https://github.com/Progra3U/GrupoFinanciero.git
+https://www.dropbox.com/s/x0nekrrvfp55b8i/GrupoFinanciero_Entregable24082018.rar?dl=0
 
 Proyecto realizado por:
 	Carlos Perez Medina 
